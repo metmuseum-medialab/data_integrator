@@ -1,0 +1,10 @@
+{
+	"name" : "data_integrator",
+	"dependencies" : {
+		"percolator" : "1.x.x",
+		"nano" : "5.7.x",
+		"jquery" : "2.1.x"
+
+	}
+
+}
