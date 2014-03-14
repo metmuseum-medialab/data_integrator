@@ -80,19 +80,35 @@ class Widget{
 class Thing{
 
   // sub-classes need to implement:
-  static method createThing(optional configData); returns Thing
+  static method createThing(optional configData){
+    if()
+    }; returns Thing
   static var type = "";
   static <WidgetType, Config>[] DefaultWidgets : is a pairing of a widgetType with a configuration, so that when the thing of this type loads, those widgets are loaded or created.
   // this tells the page, when it loads, to create widgets of that type, with that config data.
-  // IF it doesn't already exist... how to figure that out?
+  // IF it doesn't already exist.
+  static save(thing){
+    widgetlinks = []
+    foreach widget in widgets{
+      // save links
+      widgetlinks[] = widget.linkdata; // linkdata is whatever is needs to recreate this widget intance. might be an id to get it from teh DB, or the config data needed to create a new instance
+      Widget.save(widget);
+    }
+    db.save(thing.id, widgetlinks);
+  };
+  static load(id){ // returns thingdata
+    thingData = db.load(id);
+    return thingData;
+  }
+
 
   var id
   var Widget[] widgets
 
 
   function attachWidgets(){
-    foreach widgetData in configData.widgets{
-      widget = widgetData.type.createInstance(widgetData);
+    foreach widgetLink in configData.widgetlinks{
+      widget = widgetLink.type.createInstance(widgetData);
       widget.thing = this;
       widgets[widgetData.id]
     }
