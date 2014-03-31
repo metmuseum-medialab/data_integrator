@@ -47,6 +47,11 @@ code vs config:
 -- data : all the other data it holds
 
 
+WidgetType  - definition - static methods and properties on Widget class  
+Widget - attached to a thing Type
+WidgetInstance - attached to a thing.
+
+
 
 Soo:
 class Widget{
