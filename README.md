@@ -50,6 +50,8 @@ code vs config:
 WidgetType  - definition - static methods and properties on Widget class  
 Widget - attached to a thing Type
 WidgetInstance - attached to a thing.
+ThingType
+Thing
 
 
 

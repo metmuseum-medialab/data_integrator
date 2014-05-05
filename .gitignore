@@ -2,3 +2,7 @@
 node_modules/jquery
 node_modules/nano
 node_modules/percolator
+node_modules/dot
+node_modules/jsdom
+node_modules/urlparser
+node_modules/path

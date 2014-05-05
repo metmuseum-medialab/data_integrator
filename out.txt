@@ -1,0 +1,4007 @@
+server is listening on port  3000
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /css/bootstrap-responsive.css
+writing file /js/jquery-1.11.0.min.js
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/render.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './classes/render.class.js'] errno: 34, code: 'ENOENT', path: './classes/render.class.js' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: 'text/css,*/*;q=0.1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: 'text/css,*/*;q=0.1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /classes/renderer.class.js
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /css/bootstrap-responsive.css
+writing file /js/jquery-1.11.0.min.js
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /css/bootstrap-responsive.css
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: 'text/css,*/*;q=0.1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: 'text/css,*/*;q=0.1',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /css/bootstrap-responsive.css
+writing file /js/jquery-1.11.0.min.js
+writing file /js/bootstrap.min.js
+writing file /css/bootstrap.min.css
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/index.html?thingType/artobject
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /index.html
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/require.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/jquery-1.11.0.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap-responsive.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/css/bootstrap.min.css
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: 'text/css,*/*;q=0.1',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/js/bootstrap.min.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  accept: '*/*',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /js/require.js
+writing file /js/jquery-1.11.0.min.js
+writing file /css/bootstrap-responsive.css
+writing file /css/bootstrap.min.css
+writing file /js/bootstrap.min.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/entityManager.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/entityManager.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/node_modules/urlparser/index.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /node_modules/urlparser/index.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/renderer.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/renderer.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/classes/thing.class.js
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  'cache-control': 'no-cache',
+  pragma: 'no-cache',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  accept: '*/*',
+  referer: 'http://localhost:3000/index.html?thingType/artobject',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+writing file /classes/thing.class.js
+@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST
+/favicon.ico
+{ host: 'localhost:3000',
+  connection: 'keep-alive',
+  accept: '*/*',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36',
+  'accept-encoding': 'gzip,deflate,sdch',
+  'accept-language': 'en-US,en;q=0.8' }
+file read error
+{ [Error: ENOENT, open './favicon.ico'] errno: 34, code: 'ENOENT', path: './favicon.ico' }

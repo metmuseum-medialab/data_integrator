@@ -5,73 +5,144 @@
 
 function WidgetManager(){
 
-	function WidgetType(){};
-	WidgetType.prototype = {
-		typeName : false,
 
-		bar : function(){
-			return "bar1";
-		}		
-	} ;
-
-	function Widget(){};
-	Widget.prototype = {
-		// everything that relates to the presence of a widget of this type on a thing of a particular type
-		// ie.: the "art object thing" will get 3 "UrlLoader" widgets. That counts as 3 Widgets, each with theri own config.
-		widgetType : false,
-		thingType : false, // the thingType this particular widget is attached to
-		config : {},
+	var baseWidgetType = false;
+	function getBaseWidgetType(){
+		// the WidgetType defines what the Widget can DO : it has the FUNCTIONS
 
 
-	} ;
+		if(baseWidgetType){
+			return baseWidgetType;
+		}
+		var baseWidgetType = {
+			typeName : false,
+			category : "WidgetType"
+			id : false,
 
-	function WidgetInstance(){};
+		};
 
-	WidgetInstance.prototype = {
-		widget : false,
-		thing : false, // the thing this particular widgetinstance is attached to.
-		data : {},
-	} ;
+		return baseWidgetType;
+	}
 
+
+	var baseWidget = false;
+	function getBaseWidget(){
+		// the widget defines how the widget will behave in a certain context. It has the CONFIG
+		if(baseWidget){
+			return baseWidget;
+		}
+		var baseWidget = {
+			// everything that relates to the presence of a widget of this type on a thing of a particular type
+			// ie.: the "art object thing" will get 3 "UrlLoader" widgets. That counts as 3 Widgets, each with theri own config.
+			category : "Widget",
+			widgetType : false, // points to teh widgetType object
+			thingType : false, // the thingType this particular widget is attached to
+			config : {},
+			id : false,
+			uniqueName : false,
+
+
+			listeners : {};
+
+			addListener : function(listenerName, callback){
+				if(!listeners[listenerName]){
+					listeners[listenerName] = [];
+				}
+				listeners[listenerName].push(callback);
+			}
+
+			fireEvent : function(listenerName, params){
+				$.each(listeners[listenerName], function(index, callback){
+					callback(params);
+				});
+			}
+
+
+			setConfig : function(config){
+				this.config = config; 
+			},
+
+			setUniqueName : function(name){
+				// make sure it's unique for all widgets in this thingL
+				if(!this.thingType.hasWidgetNamed(name)){
+					this.uniqueName = name;
+					return true;
+				}
+				return false;
+			},
+
+			saveConfig : function(){
+
+
+			}
+		}
+		return baseWidget;
+	}
+
+	var baseWidgetInstance = false;
+	function getBaseWidgetInstance(){
+		// the widetInstance defines the contents and state of a widget as attached to a specific THING. 
+		// it hs the DATA
+		if(baseWidgetInstance){
+			return baseWidgetInstance;
+		}
+		var baseWidgetInstance = {
+			category : "WidgetInstance",
+			widget : false,
+			thing : false, // the thing this particular widgetinstance is attached to.
+			id : false,
+			data : {},
+
+
+			listeners : {};
+
+			addListener : function(listenerName, callback){
+				if(!listeners[listenerName]){
+					listeners[listenerName] = [];
+				}
+				listeners[listenerName].push(callback);
+			}
+
+			fireEvent : function(listenerName, params){
+				$.each(listeners[listenerName], function(index, callback){
+					callback(params);
+				});
+			}			
+
+			loadData : function(){
+				// we'll assume couchdb for now
+			},
+
+			saveData : function(){
+
+			}
+		};
+		return baseWidgetInstance;
+	}
 
 
 	var  Manager = {
 
-		WidgetType : WidgetType,
-		Widget : Widget,
-		WidgetInstance : WidgetInstance,
+		getBaseWidgetType : getBaseWidgetType,
+		getBaseWidget : getBaseWidget,
+		getBaseWidgetInstance : getBaseWidgetInstance,
 
-		loadWidgetType : function(typeName){
-
-
-
+		getWidgetType : function(typeName){
 			var manager = require("./widget."+typeName+".class.js").Manager();
-			var type = new manager.WidgetType();
-
+			var type = manager.getWidgetType();
 			return type;
-
 		},
-		loadWidget : function(widgetType, id){},
-		loadWidgetInstance : function(widget, id){},
-
-		createWidgetType : function(typeName){},
-		createWidget : function(widgetType, config){},
-		createWidgetInstance : function(widget, data){},
-
-		saveWidgetType : function(widgetType){
-			var widgetId = widget.getID();
-			var widgetData = widget.getData();
-			var widgetConfig = widget.getConfig();
+		getWidget : function(typeName){
+			var manager = require("./widget."+typeName+".class.js").Manager();
+			var widget = manager.getWidget();
+			widget.widgetType = widgetType;
+			return widget;
 		},
-		saveWidgetInstance : function(widget){
-			var widgetId = widget.getID();
-			var widgetData = widget.getData();
-			var widgetConfig = widget.getConfig();
-		},
-		saveWidgetInstance : function(widgetInstance){
-			var widgetId = widgetInstance.getID();
-			var widgetData = widgetInstance.getData();
-			var widgetConfig = widget.getConfig();
+		getWidgetInstance : function(typeName){
+			var manager = require("./widget."+typeName+".class.js").Manager();
+			var widgetInstance = manager.getWidgetInstance();
+			widgetInstance.widget = widget;
+			return widgetInstance;			
 		},
 
 		renderWidget : function (widget, format){},

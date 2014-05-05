@@ -1,0 +1,2 @@
+<!-- template for thingType Definition -->
+

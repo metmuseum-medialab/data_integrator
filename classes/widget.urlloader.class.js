@@ -7,37 +7,33 @@ function UrlLoaderWidget(){
 
 	var BaseWidgetManager = require("./widget.class.js").WidgetManager();
 
-	function WidgetType(){};
 
-
-
-	WidgetType.prototype = {
-		typeName : "UrlLoader",
-		foo : function(){
-			return "foo1";
-		}
-
+	function getWidgetType(){
+		base = BaseWidgetManager.getBaseWidgetType();
+		var widgetType = Object.create(base);
+		widgetType.typeName = "UrlLoader",
+		return widgetType;
 	};
 
-	function Widget(){};
-
-	Widget.prototype = {
-		widgetType : false,
-		config : {}
+	function getWidget(){
+		base = BaseWidgetManager.getBaseWidget();
+		var widget = Object.create(base);
+		widget.widgetType = getWidgetType();
+		return widget;
 	};
-	function WidgetInstance(){};
 
-	WidgetInstance.prototype = {
-		widget : false,
-		data : {}
+	function getWidgetInstance(){
+		base = BaseWidgetManager.getBaseWidgetInstance();
+		var widgetInstance = Object.create(base);
+		widgetInstance.widget = getWidget();
+		return widgetInstance;
 	};
 
 
 	var  Manager = {
-		WidgetType : WidgetType,
-		Widget : Widget,
-		WidgetInstance : WidgetInstance,
-
+		getWidgetType : getWidgetType,
+		getWidget : getWidget,
+		getWidgetInstance : getWidgetInstance,
 	}
 
 
