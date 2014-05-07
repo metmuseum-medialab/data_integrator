@@ -6,3 +6,8 @@ node_modules/dot
 node_modules/jsdom
 node_modules/urlparser
 node_modules/path
+node_modules/async
+node_modules/fs
+node_modules/file
+out.txt
+out.txt

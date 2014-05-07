@@ -50,6 +50,7 @@ type: object/facedata/issmiles
 */
 
 server.route(
+
   '*', {  
     GET : function(req, res){
   		// get from db and return
@@ -63,12 +64,23 @@ server.route(
       console.log(req.url) ;
       console.log(req.headers) ;
 
-      if(req.url.match(/\.(html|js|jpg|jpeg|gif|png|css|ico)(\?.*)?$/i)){
+      if(req.url.match(/\.(html|js|jpg|jpeg|gif|png|css|ico|ttf|svg|woff)(\?.*)?$/i)){
         if(!query.action){
+          console.log("getting file " + parsed.pathname);
           // this is doing it client-side
           sendFile(parsed.pathname, query, res);
           return;
         }
+      }
+      if(req.url.match(/^\/widgetlist$/)){
+        console.log("getting widgetlist");
+        var widgetManager = require("./classes/widget.class.js").WidgetManager();
+        var filelist = widgetManager.getWidgetList(function(list){
+          var contentType = "application/json";
+          res.writeHead(200, {'Content-Type': contentType});
+          res.end(JSON.stringify(list));
+        });
+        return;
       }
 
 
@@ -88,18 +100,18 @@ server.route(
     	// creating a NEW resource, or updating it.
     },
   },
-  'children/*', {  
+  '/widgetlist',  {
     GET : function(req, res){
-    	// get from db and return
-    	console.log("children");
-    	console.log(req.uri.child());
-    	console.log(req.uri.path());
-      res.object({message : 'Hello World!'}).send();
-    },
-    PUT : function(req, res){
-  	// creating a NEW resource, or updating it.
-    },
+      console.log("getting widgetlist");
+      var widgetManager = require("classes/widget.class.js");
+      var filelist = widgetManager.getWidgetList(function(list){
+        var contentType = "application/json";
+        res.writeHead(200, {'Content-Type': contentType});
+        res.end(JSON.stringify(list));
+      });
+    }
   }
+
 );
 
 server.listen(function(err){

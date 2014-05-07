@@ -16,7 +16,7 @@ function WidgetManager(){
 		}
 		var baseWidgetType = {
 			typeName : false,
-			category : "WidgetType"
+			category : "WidgetType",
 			id : false,
 
 		};
@@ -42,20 +42,20 @@ function WidgetManager(){
 			uniqueName : false,
 
 
-			listeners : {};
+			listeners : {},
 
 			addListener : function(listenerName, callback){
 				if(!listeners[listenerName]){
 					listeners[listenerName] = [];
 				}
 				listeners[listenerName].push(callback);
-			}
+			},
 
 			fireEvent : function(listenerName, params){
 				$.each(listeners[listenerName], function(index, callback){
 					callback(params);
 				});
-			}
+			},
 
 
 			setConfig : function(config){
@@ -94,20 +94,20 @@ function WidgetManager(){
 			data : {},
 
 
-			listeners : {};
+			listeners : {},
 
 			addListener : function(listenerName, callback){
 				if(!listeners[listenerName]){
 					listeners[listenerName] = [];
 				}
 				listeners[listenerName].push(callback);
-			}
+			},
 
 			fireEvent : function(listenerName, params){
 				$.each(listeners[listenerName], function(index, callback){
 					callback(params);
 				});
-			}			
+			},			
 
 			loadData : function(){
 				// we'll assume couchdb for now
@@ -123,6 +123,8 @@ function WidgetManager(){
 
 	var  Manager = {
 
+		widgetDir : "widgets",
+
 		getBaseWidgetType : getBaseWidgetType,
 		getBaseWidget : getBaseWidget,
 		getBaseWidgetInstance : getBaseWidgetInstance,
@@ -134,6 +136,7 @@ function WidgetManager(){
 		},
 		getWidget : function(typeName){
 			var manager = require("./widget."+typeName+".class.js").Manager();
+			var widgetType = manager.getWidgetType(typeName);
 			var widget = manager.getWidget();
 			widget.widgetType = widgetType;
 			return widget;
@@ -147,6 +150,58 @@ function WidgetManager(){
 
 		renderWidget : function (widget, format){},
 
+		getWidgetList : function(callback2){
+			// this code will only run server-side
+			// how to determine? if we can determine here, we can call the server and run this code, so other code can just call this class directly, regardless of where it's running.
+
+
+			try{
+				var fs= require("fs");
+			}catch(error){
+				console.log(error);
+				console.log("calling with ajax");
+				// we're on the client: call the server instead.
+				$.ajax({
+					url : "./widgetlist" ,
+					type : "GET",
+				//	processData : false,
+					contentType : 'json',
+			  		success : function(rdata, status){
+			  			console.log("success");
+			  			console.log(rdata);
+			  			callback2(rdata);
+			  		},
+
+			  		error : function(jqXHR, status, message){
+			  			console.log("error ");
+			  			console.log(status);
+			  			console.log(message);
+			  		}
+				});		
+
+				return;
+
+			}
+
+			var async = require("async");
+			var filelist = fs.readdirSync(this.widgetDir);
+			var realthis = this
+			var newList = {};
+			async.eachSeries(filelist, 
+				function(file, callback){
+				  var path = realthis.widgetDir +"/"+ file;
+				  var stat = fs.statSync(path);
+				  if(stat.isDirectory()){
+					  newList[file] = {file: file};
+					  newList[file].stat = stat;
+				  }
+				  callback();
+				},
+				function(){
+				  callback2(newList);
+				}
+			);
+		},
 
 	}
 

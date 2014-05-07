@@ -1,4 +1,3 @@
-
 /* 
 I think we need one place in teh code where entities have ids generated, and where ids can be turned back nto entities
 
@@ -31,7 +30,7 @@ function RenderManager(){
 
 
 
-		renderThingTypeEditable : function (container, thingType){
+		renderThingTypeEditable : function (thingType, container){
 			/*
 			 thingTypes need to be able to add: 
 			 	- allowable widgetTypes (that's ust the name of the widgetTypes)
@@ -40,9 +39,12 @@ function RenderManager(){
 				- default widgets that's the Widget with the config data
 				// the widget edit renderer should reveal the config data and make it editable
 			*/
-			var div = $("<div class='container />");
+			var div = $("<div class='container thingTypeEditable' />");
+			$(container).append(div);
 			var allowedRow = $("<div class='row' />");
 			$(div).append(allowedRow);
+
+			console.log(thingType);
 
 			$.each(thingType.allowedWidgetTypes, function(index, value){
 				allowedRow.append("<div class='col-md-4'>" + value.typeName + "</div>");
@@ -55,6 +57,10 @@ function RenderManager(){
 				defaultRow.append("<div class='col-md-4'>" + value.widgetType.typeName + " : " + value.uniqueName+ "</div>");
 			});
 
+			// add an all-pupose modal that can be filled with various content, and fired via javascript
+			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>');
+
+
 
 		},
 
@@ -62,11 +68,65 @@ function RenderManager(){
 			$(".entityDescriptor", container).text(thingType.category + " : " + thingType.typeName);
 
 
-			var action1 = $(".actionButton", container);
-			$(".actionLabel", action1).text("add Allowed Widget");
+			var action1 = $(".actionDropdown", container);
 			var action2 = $(action1).clone();
-			$(".actionLabel", action2).text("add Default Widget");
+
+
+			$(".actionLabel", action1).text('Add Allowed Widget');
+	        var widgetManager = require("./classes/widget.class.js").WidgetManager();
+            widgetManager.getWidgetList(function(list){
+            	console.log(list);
+
+				$.each(list, function(name, info){
+					var widgetAddDiv = $('<li class="addAllowedWidget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
+					$(".dropdown-menu", action1).append(widgetAddDiv);
+					$(widgetAddDiv).click(function(evt){
+						console.log("add clicked " + name);	
+						thingType.addAllowedWidgetType(name);
+					});
+				});          	
+            	// create list for de/selecting allowable widget
+            });
+
+
+            thingType.addListener('addAllowedWidgetType', function(params){
+            	var name = params.widgetTypeName;
+            	var targetThingType = params.entity;
+            	$("."+name, action1).remove();
+            });
+
+
+
+
+
+
+			$(".actionLabel", action2).html('Add Default Widget');
 			$(action1).after(action2); 
+
+			$.each(thingType.allowedWidgetTypes, function(index, name){
+				var widgetAddDiv = $('<li class="addDefault	Widget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
+				$(".dropdown-menu", action1).append(widgetAddDiv);
+				$(widgetAddDiv).click(function(evt){
+					console.log("add clicked " + name);	
+					// need to get the uniuename
+					$('#allPurposeModal').modal('show');
+
+//					thingType.addDefaultWidget(name);
+				});
+			});
+            thingType.addListener('addAllowedWidgetType', function(params){
+            	var name = params.widgetTypeName;
+            	var targetThingType = params.entity;
+				var widgetAddDiv = $('<li class="addDefault	Widget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
+				$(".dropdown-menu", action2).append(widgetAddDiv);
+				$(widgetAddDiv).click(function(evt){
+					console.log("add clicked " + name);	
+					$('#allPurposeModal').modal('show');
+					//thingType.addDefaultWidget(name);
+				});
+            });
+
+
 
 		}
 

@@ -2,49 +2,69 @@ function ThingManager(){
 
 	function ThingType(){};
 
+
 	ThingType.prototype = {
 
 		category : "ThingType",
 		typeName : "",
+		allowedWidgetTypes : [], // array of widgetType names (string[])
 		defaultWidgets : [], // array of {widgetType, Config }
-		allowedWidgetTypes : [], // array of {wdigetType}
 		defaultWidgetNames : [],
 
-		listeners : {};
+		listeners : {},
 
 		addListener : function(listenerName, callback){
-			if(!listeners[listenerName]){
-				listeners[listenerName] = [];
+			if(!this.listeners[listenerName]){
+				this.listeners[listenerName] = [];
 			}
-			listeners[listenerName].push(callback);
-		}
+			this.listeners[listenerName].push(callback);
+		},
 
 		fireEvent : function(listenerName, params){
-			$.each(listeners[listenerName], function(index, callback){
+			$.each(this.listeners[listenerName], function(index, callback){
+				console.log("firing event with ");
+				console.log()
 				callback(params);
 			});
-		}
+		},
 		
 
 		hasWidgetNamed : function(name){
 			return (Array.indexOf(name) >= 0);
 		},
 
-		addDefaultWidget : function(widget){
-			widget.thingType = this;
-			defaultWidgets.push(widget);
-			this.defaultWidgetNames.push(widget.uniqueName);
+		addDefaultWidget : function(widgetTypeName, widgetUniqueName){
+			var WidgetManager = require("./classes/widget.class.js").WidgetManager();
+			var Widget = WidgetManager.getWidget(widgetTypeName);
 
+			widget.thingType = this;
+
+			this.defaultWidgets.push(widget);
+			this.defaultWidgetNames.push(widget.uniqueName);
 			this.fireEvent("addDefaultWidget", {widget : widget, entity: this});
 		},
 
-		removeDefaultWidget : function(name){
-			var index = defaultWidgetNames.indexOf(name);
+		removeDefaultWidget : function(widgetUniqueName){
+			var index = defaultWidgetNames.indexOf(widgetUniqueName);
 			if(index >= 0){
 				this.defaultWidgets.splice(index, 1);
 				this.defaultWidgetNames.splice(index, 1);
 			}
-			this.fireEvent("removeDefaultWidget", {name : name, entity : this});
+			this.fireEvent("removeDefaultWidget", {widgetUniqueName : widgetUniqueName, entity : this});
+		},
+
+		addAllowedWidgetType : function(widgetTypeName){
+			console.log("Adding allowed WidgetType");
+			this.allowedWidgetTypes.push(widgetTypeName);
+			this.fireEvent("addAllowedWidgetType", {widgetTypeName : widgetTypeName, entity: this});
+		},
+
+		removeAllowedWidgetType : function(widgetTypeName){
+			var index = allowedWidgetTypes.indexOf(widgetTypeName);
+			if(index >= 0){
+				this.allowedWidgetTypes.splice(index, 1);
+			}
+			this.fireEvent("removeAllowedWidgetType", {widgetTypeName : widgetTypeName, entity : this});
 		}
 
 	}
@@ -61,20 +81,20 @@ function ThingManager(){
 		widgetInstances : [],
 		widgetInstanceNames : [],
 
-		listeners : {};
+		listeners : {},
 
 		addListener : function(listenerName, callback){
 			if(!listeners[listenerName]){
 				listeners[listenerName] = [];
 			}
 			listeners[listenerName].push(callback);
-		}
+		},
 
 		fireEvent : function(listenerName, params){
 			$.each(listeners[listenerName], function(index, callback){
 				callback(params);
 			});
-		}
+		},
 
 		addWidgetInstance : function(widgetInstance){
 			widgetInstance.thing = this;
