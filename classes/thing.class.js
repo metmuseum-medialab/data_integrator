@@ -13,6 +13,11 @@ function ThingManager(){
 
 		listeners : {},
 
+
+		getUniqueId : function(){
+			return this.typeName;
+		},
+
 		addListener : function(listenerName, callback){
 			if(!this.listeners[listenerName]){
 				this.listeners[listenerName] = [];
@@ -21,11 +26,14 @@ function ThingManager(){
 		},
 
 		fireEvent : function(listenerName, params){
-			$.each(this.listeners[listenerName], function(index, callback){
-				console.log("firing event with ");
-				console.log()
-				callback(params);
-			});
+			console.log(this.listeners);
+			if(this.listeners[listenerName]){
+				$.each(this.listeners[listenerName], function(index, callback){
+					console.log("firing event with " + index);
+					console.log(params);
+					callback(params);
+				});
+			}
 		},
 		
 
@@ -35,7 +43,7 @@ function ThingManager(){
 
 		addDefaultWidget : function(widgetTypeName, widgetUniqueName){
 			var WidgetManager = require("./classes/widget.class.js").WidgetManager();
-			var Widget = WidgetManager.getWidget(widgetTypeName);
+			var widget = WidgetManager.getWidget(widgetTypeName);
 
 			widget.thingType = this;
 
@@ -131,7 +139,10 @@ function ThingManager(){
 		}, 
 		createNewThingType : function(typeName){},
 		loadThingType : function(typeName){}, // returns ThingType 
-		saveThingType : function(thingType){},
+		saveThingType : function(thingType){
+			var db = require("./classes/db.class.js").DbManager();
+			db.saveThingType(thingType);
+		},
 		renderThingType : function(thingType, format){},
 		initializeThingType : function(thing){},
 
@@ -147,7 +158,8 @@ function ThingManager(){
 		},
 		createNewThing : function(type){}, // returns thing
 		loadThing : function(type, id){}, // returns thing
-		saveThing : function(thing){}, 
+		saveThing : function(thing){
+		}, 
 		renderThing : function(thing, format){}, // returns string, or dom, or JSON, or ...
 		initializeThing : function(thing){},
 

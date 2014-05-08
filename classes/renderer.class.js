@@ -59,7 +59,7 @@ function RenderManager(){
 
 			// add an all-pupose modal that can be filled with various content, and fired via javascript
 			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>');
-
+			$(div).append(modal);
 
 
 		},
@@ -83,12 +83,15 @@ function RenderManager(){
 					$(widgetAddDiv).click(function(evt){
 						console.log("add clicked " + name);	
 						thingType.addAllowedWidgetType(name);
+						var ThingManager = require("./classes/thing.class.js").ThingManager();
+						ThingManager.saveThingType(thingType);
+						
 					});
 				});          	
             	// create list for de/selecting allowable widget
             });
 
-
+            // once and allowedWidgetType is added, it doesn't need to be an option anymore.
             thingType.addListener('addAllowedWidgetType', function(params){
             	var name = params.widgetTypeName;
             	var targetThingType = params.entity;
@@ -99,31 +102,40 @@ function RenderManager(){
 
 
 
-
+            // dropdown for adding default widgets
 			$(".actionLabel", action2).html('Add Default Widget');
 			$(action1).after(action2); 
-
-			$.each(thingType.allowedWidgetTypes, function(index, name){
-				var widgetAddDiv = $('<li class="addDefault	Widget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
-				$(".dropdown-menu", action1).append(widgetAddDiv);
+			function addDefaultWidgetOption(widgetTypeName, dropdownContainer){
+				var widgetAddDiv = $('<li class="addDefault	Widget ' + widgetTypeName + '"><span class="glyphicon glyphicon-plus"></span>Add '+widgetTypeName+'</li>');
+				$(".dropdown-menu", dropdownContainer).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
-					console.log("add clicked " + name);	
+					console.log("add clicked 2 " + widgetTypeName);	
 					// need to get the uniuename
+					$('#allPurposeModal .modal-content').html('<h4>Enter Unique Name for this instance of this widget</h4>');
+					var formElem = $('<input type="text" class="form-control" placeholder="Username" />');
+					$('#allPurposeModal .modal-content').append(formElem);
 					$('#allPurposeModal').modal('show');
+					$('#allPurposeModal').off('hide.bs.modal');
+					$('#allPurposeModal').on('hide.bs.modal', function(evt){
+						// this code may also need to tell if the uniqueName is taken or not.
+						var widgetUniqueName = $(formElem).val();
+						console.log("uniqueName is " + widgetUniqueName);
+						thingType.addDefaultWidget(widgetTypeName, widgetUniqueName);
+						// if there's a problem, return false;
+					});
+				});				
+			}
 
-//					thingType.addDefaultWidget(name);
-				});
+			// when the page loads, adding the existing allowable widgets as options
+			$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
+				addDefaultWidgetOption(widgetTypeName, action2);
 			});
+
+			// when a new allowedWidgetType is added, adding to the options.
             thingType.addListener('addAllowedWidgetType', function(params){
-            	var name = params.widgetTypeName;
+            	var widgetTypeName = params.widgetTypeName;
             	var targetThingType = params.entity;
-				var widgetAddDiv = $('<li class="addDefault	Widget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
-				$(".dropdown-menu", action2).append(widgetAddDiv);
-				$(widgetAddDiv).click(function(evt){
-					console.log("add clicked " + name);	
-					$('#allPurposeModal').modal('show');
-					//thingType.addDefaultWidget(name);
-				});
+				addDefaultWidgetOption(widgetTypeName, action2);
             });
 
 

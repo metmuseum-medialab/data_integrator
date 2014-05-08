@@ -130,19 +130,21 @@ function WidgetManager(){
 		getBaseWidgetInstance : getBaseWidgetInstance,
 
 		getWidgetType : function(typeName){
-			var manager = require("./widget."+typeName+".class.js").Manager();
+			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
 			var type = manager.getWidgetType();
 			return type;
 		},
 		getWidget : function(typeName){
-			var manager = require("./widget."+typeName+".class.js").Manager();
+			var path = "./widgets/"+typeName+"/widget."+typeName+".class.js";
+			console.log("path to widget is  " + path);
+			var manager = require(path).Manager();
 			var widgetType = manager.getWidgetType(typeName);
 			var widget = manager.getWidget();
 			widget.widgetType = widgetType;
 			return widget;
 		},
 		getWidgetInstance : function(typeName){
-			var manager = require("./widget."+typeName+".class.js").Manager();
+			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
 			var widgetInstance = manager.getWidgetInstance();
 			widgetInstance.widget = widget;
 			return widgetInstance;			

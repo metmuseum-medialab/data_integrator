@@ -5,6 +5,8 @@ server for data-integrator
 
 var Percolator = require('percolator').Percolator;
 
+var IAMONTHECLIENT = false;
+
 var urlparser = require("url");
 var pathparser = require("path");
 var fs = require("fs");
@@ -98,6 +100,27 @@ server.route(
     },
     PUT : function(req, res){
     	// creating a NEW resource, or updating it.
+      console.log("@@@@@@@@@@@@@@@@@@@@@@@@ PUT REQUEST");
+      console.log(req.url) ;
+      console.log(req.headers) ;
+      var contentType = "application/json";
+      req.onJson(function(err, obj){
+        if(err){
+          console.log("PUT error in json "+ err);
+          res.writeHead(200, {'Content-Type': contentType});
+          res.end(JSON.stringify({message : "insert ERROR"}));
+          return;
+        }
+        console.log("json");
+        console.log(obj);
+        // do something with json data
+        var db = require("./classes/db.class.js").DbManager();
+        db.insertDoc(obj);
+        res.writeHead(200, {'Content-Type': contentType});
+        res.end(JSON.stringify({message : "insert OK"}));
+
+      });
+     
     },
   },
   '/widgetlist',  {
