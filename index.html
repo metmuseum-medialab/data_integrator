@@ -11,6 +11,7 @@
 
 <script type="text/javascript" language="javascript">
   var IAMONTHECLIENT = true;
+  
 	$(document).ready(function(){
 		var entityManager = require("./classes/entityManager.class.js").EntityManager();
 		var urlparser = require("node_modules/urlparser/index.js");
@@ -20,9 +21,13 @@
     console.log(parsed);
   	var entityId = parsed.query.parts[0];
 
-		var entity = entityManager.getEntity(entityId);
 
-		renderer.renderEntityEditable(entity, $(".navbar"), $(".mainview"));
+    function callback(entity){
+      renderer.renderEntityEditable(entity, $(".navbar"), $(".mainview"));
+    }
+
+		var entity = entityManager.getEntity(entityId, callback);
+
 
 
 		console.log(entity);

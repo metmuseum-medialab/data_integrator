@@ -33,7 +33,7 @@ function EntityManager(){
 			return id;
 		},
 
-		getEntity : function(id){
+		getEntity : function(id, callback){
 			console.log("path : "+ id);
 			if(id.match(/^\//)){
 				id = id.substring(1);
@@ -46,13 +46,18 @@ function EntityManager(){
 				console.log("got thingtype");
 				thingTypeName = split.shift();
 				console.log("thingType " + thingTypeName);
-				var thingManager = require("./classes/thing.class.js").ThingManager();
-				entity = thingManager.getThingType(thingTypeName);
+				var thingManager;
+				if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
+					thingManager = require("./thing.class.js").ThingManager();
+				}else{
+					thingManager = require("./classes/thing.class.js").ThingManager();
+				}
+				thingManager.loadThingType(thingTypeName, callback);
 				console.log("setting thingType to " + entity);
 			}else if (entityType == "thing"){
 				thingTypeName = split.shift();
 				thingId = split.shift();
-				entity = thingManager.getThingType(thingTypeName, thingId);
+				thingManager.getThing(thingTypeName, thingId, callback);
 			}else if (entityType == "widgetType"){
 
 			}else if (entityType == "widget"){

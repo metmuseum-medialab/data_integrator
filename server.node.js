@@ -87,13 +87,17 @@ server.route(
 
 
       // this is doign it server-side
-  		console.log("get");
-      var page = PageManager.createPage(req,res);
 
-      PageManager.populatePage(page);
+      var EntityManager = require("./classes/entityManager.class.js").EntityManager();
+      var entity = EntityManager.getEntity(req.url, function(entity){
+        console.log("got entity");
+        console.log(entity);
+        var contentType = "application/json";
+        res.writeHead(200, {'Content-Type': contentType});
+        res.end(JSON.stringify(entity));
 
-      console.log("got page");
-      PageManager.renderPage(page);
+      });
+
 
 //      res.object({message : 'Hello World!'}).send();
 
@@ -115,9 +119,11 @@ server.route(
         console.log(obj);
         // do something with json data
         var db = require("./classes/db.class.js").DbManager();
-        db.insertDoc(obj);
-        res.writeHead(200, {'Content-Type': contentType});
-        res.end(JSON.stringify({message : "insert OK"}));
+        db.insertDoc(obj, function(result){
+          res.writeHead(200, {'Content-Type': contentType});
+          res.end(JSON.stringify(result));
+         
+        });
 
       });
      

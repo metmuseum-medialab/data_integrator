@@ -68,7 +68,7 @@ function ThingManager(){
 		},
 
 		removeAllowedWidgetType : function(widgetTypeName){
-			var index = allowedWidgetTypes.indexOf(widgetTypeName);
+			var index = this.allowedWidgetTypes.indexOf(widgetTypeName);
 			if(index >= 0){
 				this.allowedWidgetTypes.splice(index, 1);
 			}
@@ -138,10 +138,34 @@ function ThingManager(){
 			return thingType;
 		}, 
 		createNewThingType : function(typeName){},
-		loadThingType : function(typeName){}, // returns ThingType 
-		saveThingType : function(thingType){
-			var db = require("./classes/db.class.js").DbManager();
-			db.saveThingType(thingType);
+		loadThingType : function(typeName, callback){
+			console.log("loading thing type " + typeName);
+
+			var db; 
+			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
+				db = require("./db.class.js").DbManager();
+			}else{
+				db = require("./classes/db.class.js").DbManager();
+			}
+
+			var thingType = this.getThingType(typeName);
+			db.loadThingType(typeName, function(doc){
+				if(doc){
+					thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
+					thingType._rev = doc._rev;
+				}
+				callback(thingType);	
+			});
+		}, // returns ThingType 
+		saveThingType : function(thingType, callback){
+			var db; 
+			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
+				db = require("./db.class.js").DbManager();
+			}else{
+				db = require("./classes/db.class.js").DbManager();
+			}
+			console.log(thingType);
+			db.saveThingType(thingType, callback);
 		},
 		renderThingType : function(thingType, format){},
 		initializeThingType : function(thing){},

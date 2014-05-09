@@ -33,7 +33,12 @@ function PageManager(){
 			console.log("in populatePage");
 			var path = page.request.uri.path();
 			console.log("path : "+ path);
-			var EntityManager = require("./entityManager.class.js").EntityManager();
+			var EntityManager;
+			if(IAMONTHECLIENT == true){
+				var EntityManager = require("./classes/entityManager.class.js").EntityManager();
+			}else{
+				var EntityManager = require("./entityManager.class.js").EntityManager();				
+			}
 			var entity = EntityManager.getEntity(path);
 			page.pageType = entity.category;
 			page.pageObject = entity;

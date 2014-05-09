@@ -71,6 +71,33 @@ function RenderManager(){
 			var action1 = $(".actionDropdown", container);
 			var action2 = $(action1).clone();
 
+			function createAddAllowedWidgetButton(thingType, container, name){
+				var widgetAddDiv = $('<li class="addAllowedWidget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
+				$(".dropdown-menu", action1).append(widgetAddDiv);
+				$(widgetAddDiv).click(function(evt){
+					thingType.addAllowedWidgetType(name);
+					console.log(thingType.allowedWidgetTypes);
+					var ThingManager = require("./classes/thing.class.js").ThingManager();
+					ThingManager.saveThingType(thingType, function(result){
+						// do thing with result here
+					});
+
+				});
+
+			}
+
+			function createRemoveAllowedWidgetButton(thingType, container, name){
+				var widgetAddDiv = $('<li class="removeAllowedWidget ' + name + '"><span class="glyphicon glyphicon-remove"></span>Remove '+name+'</li>');
+				$(".dropdown-menu", action1).append(widgetAddDiv);
+				$(widgetAddDiv).click(function(evt){
+					thingType.removeAllowedWidgetType(name);
+					console.log(thingType.allowedWidgetTypes);
+					var ThingManager = require("./classes/thing.class.js").ThingManager();
+					ThingManager.saveThingType(thingType, function(result){
+						// do thing with result here
+					});
+				});
+			}
 
 			$(".actionLabel", action1).text('Add Allowed Widget');
 	        var widgetManager = require("./classes/widget.class.js").WidgetManager();
@@ -78,24 +105,35 @@ function RenderManager(){
             	console.log(list);
 
 				$.each(list, function(name, info){
-					var widgetAddDiv = $('<li class="addAllowedWidget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
-					$(".dropdown-menu", action1).append(widgetAddDiv);
-					$(widgetAddDiv).click(function(evt){
-						console.log("add clicked " + name);	
-						thingType.addAllowedWidgetType(name);
-						var ThingManager = require("./classes/thing.class.js").ThingManager();
-						ThingManager.saveThingType(thingType);
-						
-					});
-				});          	
-            	// create list for de/selecting allowable widget
+					if($.inArray(name, thingType.allowedWidgetTypes) > -1){
+						return true;
+					}
+					createAddAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name)
+				});        	
+				$.each(list, function(name, info){
+					if($.inArray(name, thingType.allowedWidgetTypes) == -1){
+						return true;
+					}
+					createRemoveAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name)
+				});        	
             });
+
+
 
             // once and allowedWidgetType is added, it doesn't need to be an option anymore.
             thingType.addListener('addAllowedWidgetType', function(params){
             	var name = params.widgetTypeName;
             	var targetThingType = params.entity;
             	$("."+name, action1).remove();
+            	createRemoveAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name);
+            });
+
+            // once and allowedWidgetType is added, it doesn't need to be an option anymore.
+            thingType.addListener('removeAllowedWidgetType', function(params){
+            	var name = params.widgetTypeName;
+            	var targetThingType = params.entity;
+            	$("."+name, action1).remove();
+            	createAddAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name);
             });
 
 
@@ -126,6 +164,11 @@ function RenderManager(){
 				});				
 			}
 
+			function removeDefaultWidgetOption(widgetTypeName, dropdownContainer){
+				$("."+widgetTypeName, dropdownContainer).remove();
+			
+			}
+
 			// when the page loads, adding the existing allowable widgets as options
 			$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
 				addDefaultWidgetOption(widgetTypeName, action2);
@@ -136,6 +179,12 @@ function RenderManager(){
             	var widgetTypeName = params.widgetTypeName;
             	var targetThingType = params.entity;
 				addDefaultWidgetOption(widgetTypeName, action2);
+            });
+			// when a new allowedWidgetType is added, adding to the options.
+            thingType.addListener('removeAllowedWidgetType', function(params){
+            	var widgetTypeName = params.widgetTypeName;
+            	var targetThingType = params.entity;
+				removeDefaultWidgetOption(widgetTypeName, action2);
             });
 
 
