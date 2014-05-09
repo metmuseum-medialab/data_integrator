@@ -39,27 +39,34 @@ function RenderManager(){
 				- default widgets that's the Widget with the config data
 				// the widget edit renderer should reveal the config data and make it editable
 			*/
-			var div = $("<div class='container thingTypeEditable' />");
+			var div = $("<div class='container thingTypeEditable' ></div>");
 			$(container).append(div);
-			var allowedRow = $("<div class='row' />");
-			$(div).append(allowedRow);
-
-			console.log(thingType);
-
-			$.each(thingType.allowedWidgetTypes, function(index, value){
-				allowedRow.append("<div class='col-md-4'>" + value.typeName + "</div>");
-			});
 
 			var defaultRow = $("<div class='row' />");
 			$(div).append(defaultRow);
 
 			$.each(thingType.defaultWidgets, function(index, value){
-				defaultRow.append("<div class='col-md-4'>" + value.widgetType.typeName + " : " + value.uniqueName+ "</div>");
+				$(defaultRow).append("<div class='col-md-4'>" + value.widgetType.typeName + " : " + value.uniqueName+ "</div>");
 			});
 
 			// add an all-pupose modal that can be filled with various content, and fired via javascript
 			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>');
 			$(div).append(modal);
+
+
+            thingType.addListener("addDefaultWidget", function(params){
+            	console.log("default widget added, rendering to screen");
+            	var widget = params.widget;
+            	console.log(widget);
+            	// add to main body
+            	var widgetDiv = $('<div class="col-md-4">Default Widget</div>');
+            	$(defaultRow).append(widgetDiv);
+                $(widgetDiv).append('<h4>' + widget.widgetType.typeName + ' : ' + widget.uniqueName + '</h4>');
+            	var widgetConfigForm = $("<div></div>");
+            	$(widgetDiv).append(widgetConfigForm);
+            	widget.renderWidgetConfigEdit(widgetConfigForm);
+            });
+
 
 
 		},
@@ -76,7 +83,6 @@ function RenderManager(){
 				$(".dropdown-menu", action1).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.addAllowedWidgetType(name);
-					console.log(thingType.allowedWidgetTypes);
 					var ThingManager = require("./classes/thing.class.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
@@ -91,7 +97,6 @@ function RenderManager(){
 				$(".dropdown-menu", action1).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.removeAllowedWidgetType(name);
-					console.log(thingType.allowedWidgetTypes);
 					var ThingManager = require("./classes/thing.class.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
@@ -102,7 +107,6 @@ function RenderManager(){
 			$(".actionLabel", action1).text('Add Allowed Widget');
 	        var widgetManager = require("./classes/widget.class.js").WidgetManager();
             widgetManager.getWidgetList(function(list){
-            	console.log(list);
 
 				$.each(list, function(name, info){
 					if($.inArray(name, thingType.allowedWidgetTypes) > -1){
@@ -135,9 +139,6 @@ function RenderManager(){
             	$("."+name, action1).remove();
             	createAddAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name);
             });
-
-
-
 
 
             // dropdown for adding default widgets
@@ -186,6 +187,7 @@ function RenderManager(){
             	var targetThingType = params.entity;
 				removeDefaultWidgetOption(widgetTypeName, action2);
             });
+
 
 
 

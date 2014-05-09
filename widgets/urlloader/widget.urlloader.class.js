@@ -12,6 +12,15 @@ function UrlLoaderWidget(){
 		base = BaseWidgetManager.getBaseWidgetType();
 		var widgetType = Object.create(base);
 		widgetType.typeName = "UrlLoader";
+
+
+		/*
+		CODE TO ADD FUNCTIONALITY GOES HERE, I THINK 
+
+		*/
+
+
+
 		return widgetType;
 	}
 
@@ -19,6 +28,14 @@ function UrlLoaderWidget(){
 		base = BaseWidgetManager.getBaseWidget();
 		var widget = Object.create(base);
 		widget.widgetType = getWidgetType();
+
+		console.log("got widget");
+		// GO FOR RENDERING CONFIG FOR VIEWING AND EDITING GOES HERE, I THINK. ADD FUNCITONS TO THE WIDGET
+		widget.renderWidgetConfigEdit = function(container){
+			console.log("rendering editer");
+			$(container).append("<b>edit goes here</b>");			
+		}
+
 		return widget;
 	}
 
@@ -28,6 +45,13 @@ function UrlLoaderWidget(){
 		widgetInstance.widget = getWidget();
 		return widgetInstance;
 	}
+
+
+	function renderWidgetConfigEdit(widget, container){
+		var configEdit = $("<div>edit me here</div>");
+		$(container).append(configEdit);
+	}
+
 
 
 	var  Manager = {

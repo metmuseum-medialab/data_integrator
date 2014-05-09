@@ -43,12 +43,16 @@ function ThingManager(){
 
 		addDefaultWidget : function(widgetTypeName, widgetUniqueName){
 			var WidgetManager = require("./classes/widget.class.js").WidgetManager();
-			var widget = WidgetManager.getWidget(widgetTypeName);
+			var widget = WidgetManager.getWidget(widgetTypeName, widgetUniqueName);
 
 			widget.thingType = this;
 
 			this.defaultWidgets.push(widget);
 			this.defaultWidgetNames.push(widget.uniqueName);
+
+			console.log("default widget added");
+			console.log(widget);
+
 			this.fireEvent("addDefaultWidget", {widget : widget, entity: this});
 		},
 
@@ -151,8 +155,13 @@ function ThingManager(){
 			var thingType = this.getThingType(typeName);
 			db.loadThingType(typeName, function(doc){
 				if(doc){
-					thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
 					thingType._rev = doc._rev;
+					thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
+
+					// iterate through the defaultwidgetname, deserialize
+
+
+
 				}
 				callback(thingType);	
 			});

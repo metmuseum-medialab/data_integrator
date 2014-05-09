@@ -65,7 +65,7 @@ function EntityManager(){
 			}
 			// etc for widgettypes, widgets, widgetinstances
 			
-			return entity;
+			return entityType;
 		},
 
 		LoadWidgetInstancesForThing : function(thing){

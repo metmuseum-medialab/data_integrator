@@ -134,13 +134,16 @@ function WidgetManager(){
 			var type = manager.getWidgetType();
 			return type;
 		},
-		getWidget : function(typeName){
+		getWidget : function(typeName, uniqueName){
 			var path = "./widgets/"+typeName+"/widget."+typeName+".class.js";
 			console.log("path to widget is  " + path);
 			var manager = require(path).Manager();
 			var widgetType = manager.getWidgetType(typeName);
 			var widget = manager.getWidget();
 			widget.widgetType = widgetType;
+			widget.uniqueName = uniqueName;
+			console.log("returning widget");
+			console.log(widget);
 			return widget;
 		},
 		getWidgetInstance : function(typeName){
@@ -148,6 +151,20 @@ function WidgetManager(){
 			var widgetInstance = manager.getWidgetInstance();
 			widgetInstance.widget = widget;
 			return widgetInstance;			
+		},
+
+		serializeWidget : function(widget){
+			var doc = {};
+			doc.uniqueName = widget.uniqueName;
+			doc.widgetType = widget.widgetType;
+			doc.config = widget.config;
+			return doc;
+		},
+
+		deserializeWidget : function(widget, doc){
+			widget.uniqueName = doc.uniqueName;
+			widget.widgetType = doc.widgetType;
+			widget.config = doc.config;
 		},
 
 		renderWidget : function (widget, format){},

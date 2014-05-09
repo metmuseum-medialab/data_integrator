@@ -59,6 +59,11 @@ function DbManager(){
 
 			doc.allowedWidgetTypes = thingType.allowedWidgetTypes;
 
+			doc.defaultWidgets = {};
+			$.each(thingType.defaultWidgets, function(name, defaultWidget){
+//				var widgetDoc = 
+			});
+
 			this.insertDoc(doc, callback);
 		},
 
