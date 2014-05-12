@@ -11,7 +11,7 @@ function UrlLoader2Widget(){
 	function getWidgetType(){
 		base = BaseWidgetManager.getBaseWidgetType();
 		var widgetType = Object.create(base);
-		widgetType.typeName = "UrlLoader";
+		widgetType.typeName = "UrlLoader2";
 		return widgetType;
 	}
 

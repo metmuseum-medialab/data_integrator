@@ -31,9 +31,17 @@ function UrlLoaderWidget(){
 
 		console.log("got widget");
 		// GO FOR RENDERING CONFIG FOR VIEWING AND EDITING GOES HERE, I THINK. ADD FUNCITONS TO THE WIDGET
-		widget.renderWidgetConfigEdit = function(container){
-			console.log("rendering editer");
-			$(container).append("<b>edit goes here</b>");			
+
+
+		widget.renderWidgetConfigEditBody  = function (widgetBody){
+
+
+			var form = $("<div></div>")
+			$(widgetBody).append(form);			
+
+			var input1 = $('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control"></div>');
+
+			$(form).append(input1);
 		}
 
 		return widget;
@@ -44,12 +52,6 @@ function UrlLoaderWidget(){
 		var widgetInstance = Object.create(base);
 		widgetInstance.widget = getWidget();
 		return widgetInstance;
-	}
-
-
-	function renderWidgetConfigEdit(widget, container){
-		var configEdit = $("<div>edit me here</div>");
-		$(container).append(configEdit);
 	}
 
 

@@ -71,6 +71,36 @@ function WidgetManager(){
 				return false;
 			},
 
+			renderWidgetConfigEdit : function (widgetHeader, widgetBody, widgetFooter){
+				this.renderWidgetConfigEditFooter(widgetFooter);
+				this.renderWidgetConfigEditHeader(widgetHeader);
+				this.renderWidgetConfigEditBody(widgetBody);
+			},
+
+
+
+			renderWidgetConfigEditFooter : function(container){
+				var deletebutton = $('<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span> Remove</button>');
+				$(container).append(deletebutton);
+
+				widget = this;
+				deletebutton.click(function(){
+
+					console.log("deleting widget ");
+					console.log(widget);
+
+					widget.thingType.removeDefaultWidget(widget.uniqueName);
+				});
+			},
+			renderWidgetConfigEditHeader : function(container){
+				$(container).append("<h4>"+ this.widgetType.typeName  + " : " +  this.uniqueName);
+			},
+
+			renderWidgetConfigEditBody : function(container){
+				var configEdit = $("<div>renderWidgetConfigEdit not set up for this widget</div>");
+				$(container).append(configEdit);
+			},
+
 			saveConfig : function(){
 
 

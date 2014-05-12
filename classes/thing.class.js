@@ -57,7 +57,7 @@ function ThingManager(){
 		},
 
 		removeDefaultWidget : function(widgetUniqueName){
-			var index = defaultWidgetNames.indexOf(widgetUniqueName);
+			var index = this.defaultWidgetNames.indexOf(widgetUniqueName);
 			if(index >= 0){
 				this.defaultWidgets.splice(index, 1);
 				this.defaultWidgetNames.splice(index, 1);

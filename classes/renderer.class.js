@@ -42,7 +42,7 @@ function RenderManager(){
 			var div = $("<div class='container thingTypeEditable' ></div>");
 			$(container).append(div);
 
-			var defaultRow = $("<div class='row' />");
+			var defaultRow = $("<div class='row defaultWidgetList' />");
 			$(div).append(defaultRow);
 
 			$.each(thingType.defaultWidgets, function(index, value){
@@ -59,14 +59,30 @@ function RenderManager(){
             	var widget = params.widget;
             	console.log(widget);
             	// add to main body
-            	var widgetDiv = $('<div class="col-md-4">Default Widget</div>');
-            	$(defaultRow).append(widgetDiv);
-                $(widgetDiv).append('<h4>' + widget.widgetType.typeName + ' : ' + widget.uniqueName + '</h4>');
-            	var widgetConfigForm = $("<div></div>");
-            	$(widgetDiv).append(widgetConfigForm);
-            	widget.renderWidgetConfigEdit(widgetConfigForm);
+            	console.log(widget);
+            	var col = $('<div class="col-md-4 widget '+widget.uniqueName+'"></div>');
+            	$(defaultRow).append(col);
+
+            	var widgetDiv = $('<div class="panel panel-info"></div>');
+            	var widgetHeader = $('<div class="panel-heading"></div>');
+            	var widgetBody = $('<div class="panel-body"></div>');
+            	var widgetFooter = $('<div class="panel-footer"></div>');
+            	$(col).append(widgetDiv);
+            	$(widgetDiv).append(widgetHeader);
+            	$(widgetDiv).append(widgetBody);
+            	$(widgetDiv).append(widgetFooter);
+            	widget.renderWidgetConfigEdit(widgetHeader, widgetBody, widgetFooter);
+
             });
 
+            thingType.addListener("removeDefaultWidget", function(params){
+            	console.log("default widget removing, rendering to screen");
+            	console.log(params);
+            	var widgetUniqueName = params.widgetUniqueName;
+            	var selector = ".defaultWidgetList ."+widgetUniqueName;
+            	console.log("removing " + selector);
+            	$(".defaultWidgetList ."+widgetUniqueName).remove();
+            });
 
 
 		},
