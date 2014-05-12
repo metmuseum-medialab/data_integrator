@@ -18,6 +18,8 @@ function UrlLoader2Widget(){
 	function getWidget(){
 		base = BaseWidgetManager.getBaseWidget();
 		var widget = Object.create(base);
+		BaseWidgetManager.attachBaseWidgetRenderCode(widget);
+		
 		widget.widgetType = getWidgetType();
 		return widget;
 	}

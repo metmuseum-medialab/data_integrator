@@ -31,11 +31,10 @@ function UrlLoaderWidget(){
 
 		console.log("got widget");
 		// GO FOR RENDERING CONFIG FOR VIEWING AND EDITING GOES HERE, I THINK. ADD FUNCITONS TO THE WIDGET
+		BaseWidgetManager.attachBaseWidgetRenderCode(widget);
 
 
 		widget.renderWidgetConfigEditBody  = function (widgetBody){
-
-
 			var form = $("<div></div>")
 			$(widgetBody).append(form);			
 

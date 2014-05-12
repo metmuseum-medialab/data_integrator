@@ -71,35 +71,6 @@ function WidgetManager(){
 				return false;
 			},
 
-			renderWidgetConfigEdit : function (widgetHeader, widgetBody, widgetFooter){
-				this.renderWidgetConfigEditFooter(widgetFooter);
-				this.renderWidgetConfigEditHeader(widgetHeader);
-				this.renderWidgetConfigEditBody(widgetBody);
-			},
-
-
-
-			renderWidgetConfigEditFooter : function(container){
-				var deletebutton = $('<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span> Remove</button>');
-				$(container).append(deletebutton);
-
-				widget = this;
-				deletebutton.click(function(){
-
-					console.log("deleting widget ");
-					console.log(widget);
-
-					widget.thingType.removeDefaultWidget(widget.uniqueName);
-				});
-			},
-			renderWidgetConfigEditHeader : function(container){
-				$(container).append("<h4>"+ this.widgetType.typeName  + " : " +  this.uniqueName);
-			},
-
-			renderWidgetConfigEditBody : function(container){
-				var configEdit = $("<div>renderWidgetConfigEdit not set up for this widget</div>");
-				$(container).append(configEdit);
-			},
 
 			saveConfig : function(){
 
@@ -108,6 +79,44 @@ function WidgetManager(){
 		}
 		return baseWidget;
 	}
+
+
+	function attachBaseWidgetRenderCode(widget){
+
+
+		widget.renderWidgetConfigEdit = function (widgetHeader, widgetBody, widgetFooter){
+			this.renderWidgetConfigEditFooter(widgetFooter);
+			this.renderWidgetConfigEditHeader(widgetHeader);
+			this.renderWidgetConfigEditBody(widgetBody);
+		},
+
+
+
+		widget.renderWidgetConfigEditFooter = function(container){
+			var deletebutton = $('<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span> Remove</button>');
+			$(container).append(deletebutton);
+
+			thewidget = this;
+			deletebutton.click(function(){
+
+				console.log("deleting widget ");
+				console.log(widget);
+
+				thewidget.thingType.removeDefaultWidget(widget.uniqueName);
+			});
+		};
+
+		widget.renderWidgetConfigEditHeader = function(container){
+			$(container).append("<h4>"+ this.widgetType.typeName  + " : " +  this.uniqueName);
+		};
+
+		widget.renderWidgetConfigEditBody = function(container){
+			var configEdit = $("<div>renderWidgetConfigEdit not set up for this widget</div>");
+			$(container).append(configEdit);
+		};
+
+	}
+
 
 	var baseWidgetInstance = false;
 	function getBaseWidgetInstance(){
@@ -158,6 +167,7 @@ function WidgetManager(){
 		getBaseWidgetType : getBaseWidgetType,
 		getBaseWidget : getBaseWidget,
 		getBaseWidgetInstance : getBaseWidgetInstance,
+		attachBaseWidgetRenderCode : attachBaseWidgetRenderCode,
 
 		getWidgetType : function(typeName){
 			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
