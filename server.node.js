@@ -87,6 +87,20 @@ server.route(
 
 
       // this is doign it server-side
+      if(req.url.match(/^\/couchdb\//)){
+
+        var couchid = req.url.replace(/^\/couchdb\//, "");
+        console.log("couch request for " + couchid)
+        var  db = require("./classes/db.class.js").DbManager();
+        db.loadDoc(couchid, function(doc){
+          var contentType = "application/json";
+          console.log("returning doc");
+          console.log(doc);
+          res.writeHead(200, {'Content-Type': contentType});
+          res.end(JSON.stringify(doc));
+        });
+        return;
+      }
 
       var EntityManager = require("./classes/entityManager.class.js").EntityManager();
       var entity = EntityManager.getEntity(req.url, function(entity){

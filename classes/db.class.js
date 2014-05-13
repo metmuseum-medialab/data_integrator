@@ -59,9 +59,12 @@ function DbManager(){
 
 			doc.allowedWidgetTypes = thingType.allowedWidgetTypes;
 
-			doc.defaultWidgets = {};
-			$.each(thingType.defaultWidgets, function(name, defaultWidget){
-//				var widgetDoc = 
+			doc.defaultWidgets = [];
+			$.each(thingType.defaultWidgets, function(index, defaultWidget){
+				var widgetDoc = {name : defaultWidget.uniqueName,
+								config : defaultWidget.config,
+								widgetTypeName : defaultWidget.widgetType.typeName};
+				doc.defaultWidgets.push(widgetDoc);	
 			});
 
 			this.insertDoc(doc, callback);
@@ -83,7 +86,7 @@ function DbManager(){
 			this.connect();
 			console.log("calling loadDoc, id" + id);
 			if(this.thiscodeonclient){
-				var url = "./"+id;
+				var url = "./couchdb/"+id;
 				console.log("this code on client, calling " + url);
 				$.ajax({
 					url : url,

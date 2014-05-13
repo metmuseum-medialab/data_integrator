@@ -54,6 +54,7 @@ function ThingManager(){
 			console.log(widget);
 
 			this.fireEvent("addDefaultWidget", {widget : widget, entity: this});
+			return widget;
 		},
 
 		removeDefaultWidget : function(widgetUniqueName){
@@ -159,9 +160,14 @@ function ThingManager(){
 					thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
 
 					// iterate through the defaultwidgetname, deserialize
-
-
-
+					if(doc.defaultWidgets instanceof Array){
+						$.each(doc.defaultWidgets, function(index, widgetDoc){
+							var widgetTypeName = widgetDoc.widgetTypeName;
+							var uniqueName = widgetDoc.name;
+							var defaultWidget = thingType.addDefaultWidget(widgetTypeName, uniqueName);
+							defaultWidget.config = widgetDoc.config;
+						});
+					}
 				}
 				callback(thingType);	
 			});

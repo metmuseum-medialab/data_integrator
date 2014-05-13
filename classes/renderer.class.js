@@ -45,23 +45,10 @@ function RenderManager(){
 			var defaultRow = $("<div class='row defaultWidgetList' />");
 			$(div).append(defaultRow);
 
-			$.each(thingType.defaultWidgets, function(index, value){
-				$(defaultRow).append("<div class='col-md-4'>" + value.widgetType.typeName + " : " + value.uniqueName+ "</div>");
-			});
 
-			// add an all-pupose modal that can be filled with various content, and fired via javascript
-			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>');
-			$(div).append(modal);
-
-
-            thingType.addListener("addDefaultWidget", function(params){
-            	console.log("default widget added, rendering to screen");
-            	var widget = params.widget;
-            	console.log(widget);
-            	// add to main body
-            	console.log(widget);
+			function addDefaultWidgetPageItem(container, widget){
             	var col = $('<div class="col-md-4 widget '+widget.uniqueName+'"></div>');
-            	$(defaultRow).append(col);
+            	$(container).append(col);
 
             	var widgetDiv = $('<div class="panel panel-info"></div>');
             	var widgetHeader = $('<div class="panel-heading"></div>');
@@ -73,14 +60,29 @@ function RenderManager(){
             	$(widgetDiv).append(widgetFooter);
             	widget.renderWidgetConfigEdit(widgetHeader, widgetBody, widgetFooter);
 
+			}
+
+			$.each(thingType.defaultWidgets, function(index, widget){
+            	addDefaultWidgetPageItem($(defaultRow), widget);
+			});
+
+			// add an all-pupose modal that can be filled with various content, and fired via javascript
+			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>');
+			$(div).append(modal);
+
+			console.log("#$#$#$$#$$#$");
+			console.log(thingType.defaultWidgets);
+
+
+            thingType.addListener("addDefaultWidget", function(params){
+            	var widget = params.widget;
+            	addDefaultWidgetPageItem($(defaultRow), widget);
+
             });
 
             thingType.addListener("removeDefaultWidget", function(params){
-            	console.log("default widget removing, rendering to screen");
-            	console.log(params);
             	var widgetUniqueName = params.widgetUniqueName;
             	var selector = ".defaultWidgetList ."+widgetUniqueName;
-            	console.log("removing " + selector);
             	$(".defaultWidgetList ."+widgetUniqueName).remove();
             });
 
@@ -110,7 +112,7 @@ function RenderManager(){
 
 			function createRemoveAllowedWidgetButton(thingType, container, name){
 				var widgetAddDiv = $('<li class="removeAllowedWidget ' + name + '"><span class="glyphicon glyphicon-remove"></span>Remove '+name+'</li>');
-				$(".dropdown-menu", action1).append(widgetAddDiv);
+				$(container).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.removeAllowedWidgetType(name);
 					var ThingManager = require("./classes/thing.class.js").ThingManager();
