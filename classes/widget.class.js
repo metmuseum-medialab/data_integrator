@@ -98,10 +98,6 @@ function WidgetManager(){
 
 			thewidget = this;
 			deletebutton.click(function(){
-
-				console.log("deleting widget ");
-				console.log(widget);
-
 				thewidget.thingType.removeDefaultWidget(widget.uniqueName);
 			});
 		};
@@ -176,14 +172,11 @@ function WidgetManager(){
 		},
 		getWidget : function(typeName, uniqueName){
 			var path = "./widgets/"+typeName+"/widget."+typeName+".class.js";
-			console.log("path to widget is  " + path);
 			var manager = require(path).Manager();
 			var widgetType = manager.getWidgetType(typeName);
 			var widget = manager.getWidget();
 			widget.widgetType = widgetType;
 			widget.uniqueName = uniqueName;
-			console.log("returning widget");
-			console.log(widget);
 			return widget;
 		},
 		getWidgetInstance : function(typeName){

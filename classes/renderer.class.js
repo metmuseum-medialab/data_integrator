@@ -70,10 +70,6 @@ function RenderManager(){
 			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>');
 			$(div).append(modal);
 
-			console.log("#$#$#$$#$$#$");
-			console.log(thingType.defaultWidgets);
-
-
             thingType.addListener("addDefaultWidget", function(params){
             	var widget = params.widget;
             	addDefaultWidgetPageItem($(defaultRow), widget);
@@ -166,7 +162,6 @@ function RenderManager(){
 				var widgetAddDiv = $('<li class="addDefault	Widget ' + widgetTypeName + '"><span class="glyphicon glyphicon-plus"></span>Add '+widgetTypeName+'</li>');
 				$(".dropdown-menu", dropdownContainer).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
-					console.log("add clicked 2 " + widgetTypeName);	
 					// need to get the uniuename
 					$('#allPurposeModal .modal-content').html('<h4>Enter Unique Name for this instance of this widget</h4>');
 					var formElem = $('<input type="text" class="form-control" placeholder="Username" />');
@@ -176,7 +171,6 @@ function RenderManager(){
 					$('#allPurposeModal').on('hide.bs.modal', function(evt){
 						// this code may also need to tell if the uniqueName is taken or not.
 						var widgetUniqueName = $(formElem).val();
-						console.log("uniqueName is " + widgetUniqueName);
 						thingType.addDefaultWidget(widgetTypeName, widgetUniqueName);
 						// if there's a problem, return false;
 					});

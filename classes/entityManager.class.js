@@ -41,11 +41,10 @@ function EntityManager(){
 			var split = id.split("/");
 			var entityType = split.shift();
 			var entity = false;
-			console.log("entityType " + entityType);
+
 			if(entityType == "thingType"){
 				console.log("got thingtype");
 				thingTypeName = split.shift();
-				console.log("thingType " + thingTypeName);
 				var thingManager;
 				if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
 					thingManager = require("./thing.class.js").ThingManager();
@@ -53,7 +52,6 @@ function EntityManager(){
 					thingManager = require("./classes/thing.class.js").ThingManager();
 				}
 				thingManager.loadThingType(thingTypeName, callback);
-				console.log("setting thingType to " + entity);
 			}else if (entityType == "thing"){
 				thingTypeName = split.shift();
 				thingId = split.shift();

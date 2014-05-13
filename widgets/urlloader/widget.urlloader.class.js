@@ -31,7 +31,6 @@ function UrlLoaderWidget(){
 
 		// widget has a config array, which holds the values that get edited here.
 
-		console.log("got widget");
 		// GO FOR RENDERING CONFIG FOR VIEWING AND EDITING GOES HERE, I THINK. ADD FUNCITONS TO THE WIDGET
 		BaseWidgetManager.attachBaseWidgetRenderCode(widget);
 
@@ -47,16 +46,12 @@ function UrlLoaderWidget(){
 			var thiswidget = this;
 
 			$(input1).change(function(evt){
-				console.log("changed");
-				console.log(evt.target.value);
 				var newurl = evt.target.value;
 				thiswidget.config.url = newurl;
 				var ThingManager = require("./classes/thing.class.js").ThingManager();
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
-					console.log("thingType Saved");
 					// do thing with result here
 				});
-
 			});
 
 			$(form).append(input1);

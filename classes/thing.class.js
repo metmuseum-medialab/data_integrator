@@ -26,7 +26,6 @@ function ThingManager(){
 		},
 
 		fireEvent : function(listenerName, params){
-			console.log(this.listeners);
 			if(this.listeners[listenerName]){
 				$.each(this.listeners[listenerName], function(index, callback){
 					console.log("firing event with " + index);
@@ -50,9 +49,6 @@ function ThingManager(){
 			this.defaultWidgets.push(widget);
 			this.defaultWidgetNames.push(widget.uniqueName);
 
-			console.log("default widget added");
-			console.log(widget);
-
 			this.fireEvent("addDefaultWidget", {widget : widget, entity: this});
 			return widget;
 		},
@@ -67,7 +63,6 @@ function ThingManager(){
 		},
 
 		addAllowedWidgetType : function(widgetTypeName){
-			console.log("Adding allowed WidgetType");
 			this.allowedWidgetTypes.push(widgetTypeName);
 			this.fireEvent("addAllowedWidgetType", {widgetTypeName : widgetTypeName, entity: this});
 		},
@@ -137,14 +132,12 @@ function ThingManager(){
 
 		getThingType : function(typeName){
 			// either load existing, or create new
-			console.log("in getThignType");
 			var thingType = new ThingType();
 			thingType.typeName = typeName;
 			return thingType;
 		}, 
 		createNewThingType : function(typeName){},
 		loadThingType : function(typeName, callback){
-			console.log("loading thing type " + typeName);
 
 			var db; 
 			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
@@ -179,7 +172,6 @@ function ThingManager(){
 			}else{
 				db = require("./classes/db.class.js").DbManager();
 			}
-			console.log(thingType);
 			db.saveThingType(thingType, callback);
 		},
 		renderThingType : function(thingType, format){},
@@ -188,7 +180,6 @@ function ThingManager(){
 
 		getThing : function(typeName, id){
 			// either get existing, or create new if no id, or id doesn't exist
-			console.log("in getThing");
 			var thingType = this.getThingType(typeName);
 			var thing = new Thing();
 			thing.type = thingType;
