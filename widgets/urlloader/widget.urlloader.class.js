@@ -8,33 +8,33 @@ function UrlLoaderWidget(){
 	var BaseWidgetManager = require("./classes/widget.class.js").WidgetManager();
 
 
-	function getWidgetType(){
-		base = BaseWidgetManager.getBaseWidgetType();
-		var widgetType = Object.create(base);
+	function decorateWidgetType(widgetType, callback){
 		widgetType.typeName = "UrlLoader";
 
 
 		/*
 		CODE TO ADD FUNCTIONALITY GOES HERE, I THINK 
-
 		*/
+		widgetType.onLoad = function(widgetInstance){
+			// to run when this widget is loaded
+			console.log("this widgetInstance Loaded, urlloader");
+		};
+
+		widgetType.allLoaded = function(widgetInstance){
+			console.log("all WdigetInstances Loaded, urlloader");
+		//	widgetInstance.data.random = Math.random();
+		};
 
 
 
+		if(callback){
+			callback(widgetType);
+		}
 		return widgetType;
+
 	}
 
-	function getWidget(){
-		base = BaseWidgetManager.getBaseWidget();
-		var widget = Object.create(base);
-		widget.widgetType = getWidgetType();
-
-		// widget has a config array, which holds the values that get edited here.
-
-		// GO FOR RENDERING CONFIG FOR VIEWING AND EDITING GOES HERE, I THINK. ADD FUNCITONS TO THE WIDGET
-		BaseWidgetManager.attachBaseWidgetRenderCode(widget);
-
-
+	function decorateWidget(widget, callback){
 		widget.renderWidgetConfigEditBody  = function (widgetBody){
 			var form = $("<div></div>")
 			$(widgetBody).append(form);			
@@ -56,23 +56,35 @@ function UrlLoaderWidget(){
 
 			$(form).append(input1);
 		}
-
+		if(callback){
+			callback(widget);
+		}
 		return widget;
+
+
+
 	}
 
-	function getWidgetInstance(){
-		base = BaseWidgetManager.getBaseWidgetInstance();
-		var widgetInstance = Object.create(base);
-		widgetInstance.widget = getWidget();
+
+	function decorateWidgetInstance(widgetInstance, callback){
+
+		widgetInstance.renderWidgetInstancePageItemBody = function(container){
+			console.log(this.widget.config);
+			$(container).append("<h1>"+this.widget.config.url+"<BR>"+this.data.random+"</h1>")
+		}
+
+		if(callback){
+			callback(widgetInstance);
+		}
 		return widgetInstance;
+
 	}
-
-
 
 	var  Manager = {
-		getWidgetType : getWidgetType,
-		getWidget : getWidget,
-		getWidgetInstance : getWidgetInstance,
+		decorateWidgetType : decorateWidgetType,
+		decorateWidget : decorateWidget,
+		decorateWidgetInstance : decorateWidgetInstance,
+
 	}
 
 

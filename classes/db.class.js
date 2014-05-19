@@ -60,29 +60,60 @@ function DbManager(){
 			doc.allowedWidgetTypes = thingType.allowedWidgetTypes;
 
 			doc.defaultWidgets = [];
-			$.each(thingType.defaultWidgets, function(index, defaultWidget){
-				var widgetDoc = {name : defaultWidget.uniqueName,
+			$.each(thingType.defaultWidgets, function (index, defaultWidget){
+				var widgetDoc = {uniqueName : defaultWidget.uniqueName,
 								config : defaultWidget.config,
 								widgetTypeName : defaultWidget.widgetType.typeName};
 				doc.defaultWidgets.push(widgetDoc);	
 			});
 
-			this.insertDoc(doc, callback);
+			this.insertDoc(doc, function(rdata){
+				thingType._rev = rdata.rev;
+				callback(rdata);
+			});
 		},
 
-		loadThingType : function(thingTypeId, callback){
+
+		saveThing : function(thing, callback){
+			console.log("saving thing");
+			var doc = {};
+			doc._id = "thing/"+thing.id;
+			console.log("id is " + doc._id);
+			if(typeof thing._rev !== "undefined"){
+				doc._rev = thingType._rev;
+			}
+			doc.widgetInstances = [];
+			$.each(thing.widgetInstances, function (index, widgetInstance){
+				var widgetInstanceDoc = {
+					data: widgetInstance.data,
+					widgetTypeName : widgetInstance.widget.widgetType.typeName,
+					uniqueName : widgetInstance.widget.uniqueName
+				};
+				doc.widgetInstances.push(widgetInstanceDoc);
+			});
+			this.insertDoc(doc, function(rdata){
+				thing._rev = rdata.rev;
+				callback(rdata);
+			});
+		},
+
+		loadThingType : function(thingTypeId, callback, notFoundCallback){
 			
 			var id = "thingType/"+ thingTypeId;
 			console.log("calling load with id " + id);
-
-			this.loadDoc(id, callback);
-
-			
+			this.loadDoc(id, callback, notFoundCallback);
 			return false;
 		},
 
 
-		loadDoc : function(id, callback){
+		loadThing : function(thingId, callback, notFoundCallback){
+			var id = "thing/" + thingId;
+			console.log("calling thing load with id " + id);
+			this.loadDoc(id, callback, notFoundCallback);
+			return false;
+		},
+
+		loadDoc : function(id, callback, notFoundCallback){
 			this.connect();
 			console.log("calling loadDoc, id" + id);
 			if(this.thiscodeonclient){
@@ -98,10 +129,14 @@ function DbManager(){
 			  			callback(rdata);
 			  		},
 			  		error : function(jqXHR, status, message){
-			  			console.log("error ");
+			  			console.log("error !!!!  ");
 			  			console.log(status);
 			  			console.log(message);
-			  			callback(message);
+			  			if(message.message == "missing"){
+			  				notFoundCallback(message);
+			  			}else{
+				  			callback(message);
+				  		}
 			  		}
 				});
 				return;
@@ -109,6 +144,8 @@ function DbManager(){
 
 			this.db.get(id, {}, function(err, body){
 				if(err){
+					console.log("db error!!!");
+					err.notfound = true;
 					callback(err);
 					return;
 				}

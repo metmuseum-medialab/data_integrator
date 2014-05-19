@@ -40,9 +40,7 @@ function ThingManager(){
 			return (Array.indexOf(name) >= 0);
 		},
 
-		addDefaultWidget : function(widgetTypeName, widgetUniqueName){
-			var WidgetManager = require("./classes/widget.class.js").WidgetManager();
-			var widget = WidgetManager.getWidget(widgetTypeName, widgetUniqueName);
+		addDefaultWidget : function(widget){
 
 			widget.thingType = this;
 
@@ -60,6 +58,13 @@ function ThingManager(){
 				this.defaultWidgetNames.splice(index, 1);
 			}
 			this.fireEvent("removeDefaultWidget", {widgetUniqueName : widgetUniqueName, entity : this});
+		},
+
+		getDefaultWidget : function(widgetUniqueName){
+			var index = this.defaultWidgetNames.indexOf(widgetUniqueName);
+			if(index >= 0){
+				return this.defaultWidgets[index];
+			}
 		},
 
 		addAllowedWidgetType : function(widgetTypeName){
@@ -92,16 +97,19 @@ function ThingManager(){
 		listeners : {},
 
 		addListener : function(listenerName, callback){
-			if(!listeners[listenerName]){
-				listeners[listenerName] = [];
+			if(!this.listeners[listenerName]){
+				this.listeners[listenerName] = [];
 			}
-			listeners[listenerName].push(callback);
+			this.listeners[listenerName].push(callback);
 		},
 
 		fireEvent : function(listenerName, params){
-			$.each(listeners[listenerName], function(index, callback){
-				callback(params);
-			});
+			console.log(this.listeners);
+			if(this.listeners[listenerName]){
+				$.each(this.listeners[listenerName], function(index, callback){
+					callback(params);
+				});
+			}
 		},
 
 		addWidgetInstance : function(widgetInstance){
@@ -120,6 +128,8 @@ function ThingManager(){
 			this.fireEvent("removeWidgetInstance", {widgetUniqueName : widgetUniqueName, entity : this});	
 		},
 
+
+
 		runWidgets : function(){
 
 		},
@@ -130,24 +140,46 @@ function ThingManager(){
 	var Manager = {
 
 
-		getThingType : function(typeName){
-			// either load existing, or create new
-			var thingType = new ThingType();
-			thingType.typeName = typeName;
-			return thingType;
-		}, 
-		createNewThingType : function(typeName){},
-		loadThingType : function(typeName, callback){
+		getWidgetManager : function(){
+			var WidgetManager = false;
 
+			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
+				WidgetManager = require("./widget.class.js").WidgetManager();
+			}else{
+				WidgetManager = require("./classes/widget.class.js").WidgetManager();
+			}
+			return WidgetManager;
+		},
+
+		getDbManager : function(){
 			var db; 
 			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
 				db = require("./db.class.js").DbManager();
 			}else{
 				db = require("./classes/db.class.js").DbManager();
 			}
+			return db;
+		},
 
-			var thingType = this.getThingType(typeName);
+		createThingType : function(typeName){
+			// either load existing, or create new
+			var thingType = new ThingType();
+			thingType.typeName = typeName;
+			thingType.manager = this;
+			return thingType;
+		},
+
+		generateThingType : function(typeName, callback){
+
+			var db = this.getDbManager();
+			var WidgetManager = this.getWidgetManager();
+
+			var thingType = this.createThingType(typeName);
+			thingType.db= db;
+
 			db.loadThingType(typeName, function(doc){
+				console.log("doc");
+				console.log(doc);
 				if(doc){
 					thingType._rev = doc._rev;
 					thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
@@ -156,46 +188,134 @@ function ThingManager(){
 					if(doc.defaultWidgets instanceof Array){
 						$.each(doc.defaultWidgets, function(index, widgetDoc){
 							var widgetTypeName = widgetDoc.widgetTypeName;
-							var uniqueName = widgetDoc.name;
-							var defaultWidget = thingType.addDefaultWidget(widgetTypeName, uniqueName);
-							defaultWidget.config = widgetDoc.config;
+							var uniqueName = widgetDoc.uniqueName;
+							var defaultWidget = WidgetManager.createWidget(widgetTypeName, uniqueName);
+							WidgetManager.attachWidgetData(defaultWidget, widgetDoc);
+							thingType.addDefaultWidget(defaultWidget);
 						});
 					}
 				}
 				callback(thingType);	
+			},
+			function(notFoundDoc){
+				thingType.new = true;
+				callback(thingType);
 			});
 		}, // returns ThingType 
+
 		saveThingType : function(thingType, callback){
-			var db; 
-			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
-				db = require("./db.class.js").DbManager();
-			}else{
-				db = require("./classes/db.class.js").DbManager();
-			}
+			var db = this.getDbManager();
 			db.saveThingType(thingType, callback);
 		},
 		renderThingType : function(thingType, format){},
 		initializeThingType : function(thing){},
 
 
-		getThing : function(typeName, id){
-			// either get existing, or create new if no id, or id doesn't exist
-			var thingType = this.getThingType(typeName);
+		createThing : function(){
+			// either load existing, or create new
+
 			var thing = new Thing();
-			thing.type = thingType;
-			thing.id = id;
+			thing.manager = this;
 			return thing;
 		},
+
+
+
+		generateThing : function(typeName, id, callback){
+			// either get existing, or create new if no id, or id doesn't exist
+			console.log("getting thing " + typeName + " " + id);
+			var db = this.getDbManager();
+			var WidgetManager = this.getWidgetManager();
+			var thisManager = this;
+
+			var thing = this.createThing();
+			thing.id = id;
+			this.generateThingType(typeName, function(thingType){
+				thing.type = thingType;
+				thing.db = db;
+
+				db.loadThing(id, function(doc){
+
+					if(!doc){
+						console.log("no doc in db");
+					}else{
+						//load doc into thing, create widgets, etc.
+
+					}
+					thing.data = doc.data;
+					this._rev = doc._rev;
+					// iterate through the defaultwidgetname, deserialize
+					if(doc.widgetInstances instanceof Array){
+						$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
+							var widgetTypeName = widgetInstanceDoc.widgetTypeName;
+							var uniqueName = widgetInstanceDoc.uniqueName;
+
+							var defaultWidget = thing.type.getDefaultWidget(uniqueName);
+
+							var widgetInstance = WidgetManager.createWidgetInstance(thing, defaultWidget);
+							WidgetManager.attachWidgetInstanceData(widgetInstance, widgetInstanceDoc.data);
+							thing.addWidgetInstance(widgetInstance);
+
+						});
+					}
+
+					// add widget instances for thing, based on thingType.
+					thisManager.resolveThingWidgets(thing, callback);
+
+				},
+				function(notFoundDoc){
+					thisManager.resolveThingWidgets(thing, callback);
+				});
+			});
+		},
+
+
+		resolveThingWidgets : function(thing, callback){
+			// go through the default widgets, add them to this thing as instances if it doesn't already have them.
+			var WidgetManager = this.getWidgetManager();
+			var db = this.getDbManager();
+
+			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
+				console.log(defaultWidget);
+				var widgetInstance = false;
+				var index = thing.widgetInstanceNames.indexOf(defaultWidget.uniqueName);
+				if(index >= 0){
+					widgetInstance = thing.widgetInstances[index];
+					// all good, the instance is already there
+				}else{
+					// create the widget instance and add it.
+					widgetInstance = WidgetManager.createWidgetInstance(thing, defaultWidget);
+					thing.addWidgetInstance(widgetInstance);
+					console.log("adding WidgetInstance " + widgetInstance.widget.uniqueName);
+				}
+				widgetInstance.widget.widgetType.onLoad(widgetInstance);
+			});
+
+			$.each(thing.widgetInstances, function(index, widgetInstance){
+				widgetInstance.widget.widgetType.allLoaded(widgetInstance);
+
+			});
+
+			db.saveThing(thing, function(rdata){
+				console.log("thing saved");
+				console.log(rdata);
+			});
+
+
+			callback(thing);
+		},
+
 		createNewThing : function(type){}, // returns thing
-		loadThing : function(type, id){}, // returns thing
+		loadThing : function(type, id){
+
+		}, // returns thing
 		saveThing : function(thing){
 		}, 
 		renderThing : function(thing, format){}, // returns string, or dom, or JSON, or ...
 		initializeThing : function(thing){},
 
 		attachWidgetAsDefaultToThingType :  function(thingType, widgetType, config){},
-		loadThingsWidgets : function(thing){},
-		runThingsWidgets : function(thing){},
+		runThingWidgets : function(thing){},
 
 	}
 

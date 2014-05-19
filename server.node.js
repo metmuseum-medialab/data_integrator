@@ -23,7 +23,7 @@ var db = nano.use(db_name);
 
 var server = new Percolator();
 
-var PageManager = require("./classes/page.class.js").PageManager();
+//var PageManager = require("./classes/page.class.js").PageManager();
 
 /*
 URL examples:

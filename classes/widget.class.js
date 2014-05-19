@@ -18,6 +18,14 @@ function WidgetManager(){
 			typeName : false,
 			category : "WidgetType",
 			id : false,
+			onLoad  : function(widgetInstance){
+				// to run when this widget is loaded
+				console.log("this widgetInstance Loaded");
+			},
+
+			allLoaded : function(widgetInstance){
+				console.log("all WdigetInstances Loaded");
+			},
 
 		};
 
@@ -75,6 +83,12 @@ function WidgetManager(){
 			saveConfig : function(){
 
 
+			},
+
+
+			createWidgetInstance : function(thing){
+				// create a widget instance and attach it to the provided thing (?)
+
 			}
 		}
 		return baseWidget;
@@ -99,6 +113,12 @@ function WidgetManager(){
 			thewidget = this;
 			deletebutton.click(function(){
 				thewidget.thingType.removeDefaultWidget(widget.uniqueName);
+				var ThingManager = require("./classes/thing.class.js").ThingManager();
+
+				ThingManager.saveThingType(thewidget.thingType, function(result){
+					// do thing with result here
+				});
+
 			});
 		};
 
@@ -156,6 +176,34 @@ function WidgetManager(){
 	}
 
 
+	function attachBaseWidgetInstanceRenderCode(widgetInstance){
+
+
+		widgetInstance.renderWidgetInstancePageItem = function (widgetInstanceHeader, widgetInstanceBody, widgetInstanceFooter){
+			this.renderWidgetInstancePageItemFooter(widgetInstanceFooter);
+			this.renderWidgetInstancePageItemHeader(widgetInstanceHeader);
+			this.renderWidgetInstancePageItemBody(widgetInstanceBody);
+		},
+
+
+
+		widgetInstance.renderWidgetInstancePageItemFooter = function(container){
+		};
+
+		widgetInstance.renderWidgetInstancePageItemHeader = function(container){
+			console.log(widgetInstance.widget);
+			$(container).append("<h4>"+ widgetInstance.widget.widgetType.typeName  + " : " +  widgetInstance.widget.uniqueName);
+		};
+
+		widgetInstance.renderWidgetInstancePageItemBody = function(container){
+			var configEdit = $("<div>renderWidgetInstance not set up for this widget</div>");
+			$(container).append(configEdit);
+		};
+
+	}
+
+
+
 	var  Manager = {
 
 		widgetDir : "widgets",
@@ -164,26 +212,66 @@ function WidgetManager(){
 		getBaseWidget : getBaseWidget,
 		getBaseWidgetInstance : getBaseWidgetInstance,
 		attachBaseWidgetRenderCode : attachBaseWidgetRenderCode,
+		attachBaseWidgetInstanceRenderCode : attachBaseWidgetInstanceRenderCode,
 
-		getWidgetType : function(typeName){
+		createWidgetType : function(typeName){
+			base = this.getBaseWidgetType();
+			var widgetType = Object.create(base);
+
 			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
-			var type = manager.getWidgetType();
-			return type;
+
+			var widgetType = manager.decorateWidgetType(widgetType, false);
+			return widgetType;
 		},
-		getWidget : function(typeName, uniqueName){
+
+
+		createWidget : function(typeName, uniqueName){
 			var path = "./widgets/"+typeName+"/widget."+typeName+".class.js";
 			var manager = require(path).Manager();
-			var widgetType = manager.getWidgetType(typeName);
-			var widget = manager.getWidget();
+
+			var widgetType = this.createWidgetType(typeName);
+
+			base = this.getBaseWidget();
+			var widget = Object.create(base);
+			this.attachBaseWidgetRenderCode(widget);
 			widget.widgetType = widgetType;
-			widget.uniqueName = uniqueName;
+			widget.uniqueName = uniqueName;			
+			widget.widgetType = widgetType;
+
+			var widget = manager.decorateWidget(widget, false);
+
+			console.log("created widget  " + uniqueName);
 			return widget;
 		},
-		getWidgetInstance : function(typeName){
+		attachWidgetData : function(widget, data){
+			widget.uniqueName = data.uniqueName;
+			widget.config = data.config;
+		},
+
+		createWidgetInstance : function(thing, widget, data){
+			var typeName = widget.widgetType.typeName;
+			var uniqueName = widget.uniqueName;
+
 			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
-			var widgetInstance = manager.getWidgetInstance();
+
+			base = this.getBaseWidgetInstance();
+			var widgetInstance = Object.create(base);
+
+			this.attachBaseWidgetInstanceRenderCode(widgetInstance);
 			widgetInstance.widget = widget;
+			widgetInstance.thing = thing;
+			widgetInstance = manager.decorateWidgetInstance(widgetInstance, false);
+
+			if(data){
+				widgetInstance.data = data;
+			}
+
 			return widgetInstance;			
+		},
+
+		attachWidgetInstanceData :  function(widgetInstance, data){
+			widgetInstance.data = data;
+
 		},
 
 		serializeWidget : function(widget){

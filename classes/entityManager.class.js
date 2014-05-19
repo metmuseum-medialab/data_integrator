@@ -33,7 +33,9 @@ function EntityManager(){
 			return id;
 		},
 
-		getEntity : function(id, callback){
+		generateEntity : function(id, callback){
+			// genereate: if if exists, load it. If it doesn't, create it.
+
 			console.log("path : "+ id);
 			if(id.match(/^\//)){
 				id = id.substring(1);
@@ -51,11 +53,19 @@ function EntityManager(){
 				}else{
 					thingManager = require("./classes/thing.class.js").ThingManager();
 				}
-				thingManager.loadThingType(thingTypeName, callback);
+				thingManager.generateThingType(thingTypeName, callback);
+				return;
 			}else if (entityType == "thing"){
+				console.log("getting thing");
 				thingTypeName = split.shift();
 				thingId = split.shift();
-				thingManager.getThing(thingTypeName, thingId, callback);
+				if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
+					thingManager = require("./thing.class.js").ThingManager();
+				}else{
+					thingManager = require("./classes/thing.class.js").ThingManager();
+				}
+				thingManager.generateThing(thingTypeName, thingId, callback);
+				return
 			}else if (entityType == "widgetType"){
 
 			}else if (entityType == "widget"){
@@ -63,7 +73,7 @@ function EntityManager(){
 			}
 			// etc for widgettypes, widgets, widgetinstances
 			
-			return entityType;
+			callback(false);
 		},
 
 		LoadWidgetInstancesForThing : function(thing){

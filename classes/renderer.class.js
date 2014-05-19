@@ -19,6 +19,9 @@ function RenderManager(){
 			if(entity.category == "ThingType"){
 				this.renderThingTypeNav(entity, nav);
 				this.renderThingTypeEditable(entity, body);
+			}else if(entity.category == "Thing"){
+				this.renderThingNav(entity, nav);
+				this.renderThing(entity, body);
 			}
 		},
 
@@ -58,6 +61,9 @@ function RenderManager(){
             	$(widgetDiv).append(widgetHeader);
             	$(widgetDiv).append(widgetBody);
             	$(widgetDiv).append(widgetFooter);
+
+            	console.log(widget);
+
             	widget.renderWidgetConfigEdit(widgetHeader, widgetBody, widgetFooter);
 
 			}
@@ -137,7 +143,6 @@ function RenderManager(){
             });
 
 
-
             // once and allowedWidgetType is added, it doesn't need to be an option anymore.
             thingType.addListener('addAllowedWidgetType', function(params){
             	var name = params.widgetTypeName;
@@ -171,7 +176,12 @@ function RenderManager(){
 					$('#allPurposeModal').on('hide.bs.modal', function(evt){
 						// this code may also need to tell if the uniqueName is taken or not.
 						var widgetUniqueName = $(formElem).val();
-						thingType.addDefaultWidget(widgetTypeName, widgetUniqueName);
+
+						// get widgetManager
+						var widget = widgetManager.createWidget(widgetTypeName, widgetUniqueName);
+
+						thingType.addDefaultWidget(widget);
+						thingType.db.saveThingType(thingType, function(doc){console.log("saved");});
 						// if there's a problem, return false;
 					});
 				});				
@@ -203,7 +213,51 @@ function RenderManager(){
 
 
 
-		}
+		},
+
+
+		renderThing : function(thing, container){
+			var div = $("<div class='container thing' ></div>");
+			$(container).append(div);
+
+			var defaultRow = $("<div class='row widgetInstanceList' />");
+			$(div).append(defaultRow);
+
+
+			function addWidgetInstancePageItem(container, widgetInstance){
+				console.log(widgetInstance.widget);
+            	var col = $('<div class="col-md-4 widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
+            	$(container).append(col);
+
+            	var widgetDiv = $('<div class="panel panel-info"></div>');
+            	var widgetHeader = $('<div class="panel-heading"></div>');
+            	var widgetBody = $('<div class="panel-body"></div>');
+            	var widgetFooter = $('<div class="panel-footer"></div>');
+            	$(col).append(widgetDiv);
+            	$(widgetDiv).append(widgetHeader);
+            	$(widgetDiv).append(widgetBody);
+            	$(widgetDiv).append(widgetFooter);
+            	widgetInstance.renderWidgetInstancePageItem(widgetHeader, widgetBody, widgetFooter);
+
+			}
+			$.each(thing.widgetInstances, function(index, widgetInstance){
+				console.log(widgetInstance);
+				addWidgetInstancePageItem($(defaultRow), widgetInstance);
+			});
+
+
+			thing.addListener("addWidgetInstance", function(params){
+				console.log("widget Instance Added, in renderer callback");
+				addWidgetInstancePageItem($(defaultRow), widgetInstance);
+			});
+
+
+
+		},
+
+		renderThingNav : function(thing, container){
+
+		},
 
 	};
 
