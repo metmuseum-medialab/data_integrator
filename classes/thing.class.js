@@ -37,7 +37,7 @@ function ThingManager(){
 		
 
 		hasWidgetNamed : function(name){
-			return (Array.indexOf(name) >= 0);
+			return (this.defaultWidgetNames.indexOf(name) >= 0);
 		},
 
 		addDefaultWidget : function(widget){
@@ -251,6 +251,11 @@ function ThingManager(){
 							var uniqueName = widgetInstanceDoc.uniqueName;
 
 							var defaultWidget = thing.type.getDefaultWidget(uniqueName);
+
+							if (!defaultWidget) {
+								console.log("default widget no exist!");
+								return true;
+							};							
 
 							var widgetInstance = WidgetManager.createWidgetInstance(thing, defaultWidget);
 							WidgetManager.attachWidgetInstanceData(widgetInstance, widgetInstanceDoc.data);

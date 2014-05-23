@@ -73,7 +73,7 @@ function RenderManager(){
 			});
 
 			// add an all-pupose modal that can be filled with various content, and fired via javascript
-			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content">...</div></div></div>');
+			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
 			$(div).append(modal);
 
             thingType.addListener("addDefaultWidget", function(params){
@@ -168,14 +168,26 @@ function RenderManager(){
 				$(".dropdown-menu", dropdownContainer).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					// need to get the uniuename
-					$('#allPurposeModal .modal-content').html('<h4>Enter Unique Name for this instance of this widget</h4>');
-					var formElem = $('<input type="text" class="form-control" placeholder="Username" />');
-					$('#allPurposeModal .modal-content').append(formElem);
+					$('#allPurposeModal .modal-header').html('<h4>Enter Unique Name for this instance of this widget</h4>');
+					var formElem = $('<input type="text" class="form-control" placeholder="Unique Name" />');
+					$('#allPurposeModal .modal-body').append(formElem);
 					$('#allPurposeModal').modal('show');
 					$('#allPurposeModal').off('hide.bs.modal');
 					$('#allPurposeModal').on('hide.bs.modal', function(evt){
 						// this code may also need to tell if the uniqueName is taken or not.
-						var widgetUniqueName = $(formElem).val();
+						var widgetUniqueName = $(formElem).val().trim();
+
+						// make sure it's not blank, and that it's unique for this thingType
+
+						if(widgetUniqueName == ""){
+							$('#allPurposeModal .modal-footer').html("<h4>the name can't be blank</h4>");
+							return false;
+						}
+
+						if(thingType.hasWidgetNamed(widgetUniqueName)){
+							$('#allPurposeModal .modal-footer').html("<h4>that name is taken</h4>");
+							return false;							
+						}
 
 						// get widgetManager
 						var widget = widgetManager.createWidget(widgetTypeName, widgetUniqueName);
