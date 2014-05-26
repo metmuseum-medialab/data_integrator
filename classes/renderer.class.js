@@ -170,22 +170,23 @@ function RenderManager(){
 					// need to get the uniuename
 					$('#allPurposeModal .modal-header').html('<h4>Enter Unique Name for this instance of this widget</h4>');
 					var formElem = $('<input type="text" class="form-control" placeholder="Unique Name" />');
-					$('#allPurposeModal .modal-body').append(formElem);
+					$('#allPurposeModal .modal-body').html(formElem);
 					$('#allPurposeModal').modal('show');
 					$('#allPurposeModal').off('hide.bs.modal');
-					$('#allPurposeModal').on('hide.bs.modal', function(evt){
+
+					function processSubmission(evt){
 						// this code may also need to tell if the uniqueName is taken or not.
 						var widgetUniqueName = $(formElem).val().trim();
 
 						// make sure it's not blank, and that it's unique for this thingType
 
 						if(widgetUniqueName == ""){
-							$('#allPurposeModal .modal-footer').html("<h4>the name can't be blank</h4>");
+							$('#allPurposeModal .modal-footer').html("<span>the name can't be blank</span>");
 							return false;
 						}
 
 						if(thingType.hasWidgetNamed(widgetUniqueName)){
-							$('#allPurposeModal .modal-footer').html("<h4>that name is taken</h4>");
+							$('#allPurposeModal .modal-footer').html("<span>that name is taken</span>");
 							return false;							
 						}
 
@@ -195,7 +196,20 @@ function RenderManager(){
 						thingType.addDefaultWidget(widget);
 						thingType.db.saveThingType(thingType, function(doc){console.log("saved");});
 						// if there's a problem, return false;
+						return true;
+
+					}
+
+					$('#allPurposeModal').on('hide.bs.modal', function(evt){
+						return processSubmission(evt);
 					});
+
+					$(formElem).on('keydown', function(evt){
+						if(evt.keyCode == 13){
+							$('#allPurposeModal').modal("hide");
+						}
+					});
+
 				});				
 			}
 
