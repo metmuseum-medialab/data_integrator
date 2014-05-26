@@ -252,7 +252,8 @@ function RenderManager(){
 
 			function addWidgetInstancePageItem(container, widgetInstance){
 				console.log(widgetInstance.widget);
-            	var col = $('<div class="col-md-4 widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
+				var layoutWidth = (widgetInstance.widget.config.layoutWidth ? widgetInstance.widget.config.layoutWidth : 4)
+            	var col = $('<div class="col-md-'+layoutWidth+' widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
             	$(container).append(col);
 
             	var widgetDiv = $('<div class="panel panel-info"></div>');
@@ -267,13 +268,11 @@ function RenderManager(){
 
 			}
 			$.each(thing.widgetInstances, function(index, widgetInstance){
-				console.log(widgetInstance);
 				addWidgetInstancePageItem($(defaultRow), widgetInstance);
 			});
 
 
 			thing.addListener("addWidgetInstance", function(params){
-				console.log("widget Instance Added, in renderer callback");
 				addWidgetInstancePageItem($(defaultRow), widgetInstance);
 			});
 

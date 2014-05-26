@@ -28,8 +28,6 @@ function ThingManager(){
 		fireEvent : function(listenerName, params){
 			if(this.listeners[listenerName]){
 				$.each(this.listeners[listenerName], function(index, callback){
-					console.log("firing event with " + index);
-					console.log(params);
 					callback(params);
 				});
 			}
@@ -97,6 +95,7 @@ function ThingManager(){
 		listeners : {},
 
 		addListener : function(listenerName, callback){
+			console.log("adding listener " + listenerName);
 			if(!this.listeners[listenerName]){
 				this.listeners[listenerName] = [];
 			}
@@ -104,7 +103,8 @@ function ThingManager(){
 		},
 
 		fireEvent : function(listenerName, params){
-			console.log(this.listeners);
+			console.log("calling listener " + listenerName);
+
 			if(this.listeners[listenerName]){
 				$.each(this.listeners[listenerName], function(index, callback){
 					callback(params);
@@ -131,7 +131,7 @@ function ThingManager(){
 
 
 		runWidgets : function(){
-
+			console.log("calling runwidgets");
 		},
 
 	};
@@ -178,8 +178,6 @@ function ThingManager(){
 			thingType.db= db;
 
 			db.loadThingType(typeName, function(doc){
-				console.log("doc");
-				console.log(doc);
 				if(doc){
 					thingType._rev = doc._rev;
 					thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
@@ -223,7 +221,6 @@ function ThingManager(){
 
 		generateThing : function(typeName, id, callback){
 			// either get existing, or create new if no id, or id doesn't exist
-			console.log("getting thing " + typeName + " " + id);
 			var db = this.getDbManager();
 			var WidgetManager = this.getWidgetManager();
 			var thisManager = this;
@@ -280,8 +277,8 @@ function ThingManager(){
 			var WidgetManager = this.getWidgetManager();
 			var db = this.getDbManager();
 
+			var i =0;
 			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
-				console.log(defaultWidget);
 				var widgetInstance = false;
 				var index = thing.widgetInstanceNames.indexOf(defaultWidget.uniqueName);
 				if(index >= 0){
@@ -291,24 +288,24 @@ function ThingManager(){
 					// create the widget instance and add it.
 					widgetInstance = WidgetManager.createWidgetInstance(thing, defaultWidget);
 					thing.addWidgetInstance(widgetInstance);
-					console.log("adding WidgetInstance " + widgetInstance.widget.uniqueName);
 				}
-				widgetInstance.widget.widgetType.onLoad(widgetInstance);
-			});
-
-			$.each(thing.widgetInstances, function(index, widgetInstance){
-				widgetInstance.widget.widgetType.allLoaded(widgetInstance);
-
+				widgetInstance.onLoad();
+				i++;
+				if(thing.type.defaultWidgets.length == i){
+					console.log("all loaded allWidgetInstancesLoaded " );
+					thing.fireEvent("allWidgetInstancesLoaded", {thing : thing});
+				}
 			});
 
 			db.saveThing(thing, function(rdata){
-				console.log("thing saved");
-				console.log(rdata);
 			});
 
-
-			callback(thing);
+			if(callback){
+				callback(thing);
+			}
 		},
+
+
 
 		createNewThing : function(type){}, // returns thing
 		loadThing : function(type, id){

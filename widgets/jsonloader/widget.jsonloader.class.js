@@ -13,15 +13,6 @@ function JsonLoaderWidget(){
 		/*
 		CODE TO ADD FUNCTIONALITY GOES HERE, I THINK 
 		*/
-		widgetType.onLoad = function(widgetInstance){
-			// to run when this widget is loaded
-			console.log("this widgetInstance Loaded, jsonloader");
-		};
-
-		widgetType.allLoaded = function(widgetInstance){
-			console.log("all WdigetInstances Loaded, jsonloader");
-		//	widgetInstance.data.random = Math.random();
-		};
 
 		if(callback){
 			callback(widgetType);
@@ -52,7 +43,7 @@ function JsonLoaderWidget(){
 
 			$(form).append(input1);
 
-			var layoutWidth = (this.config.layoutWidth ? this.config.layoutWidth : "3");
+			var layoutWidth = (this.config.layoutWidth ? this.config.layoutWidth : "4");
 			var input2 = $('<div class="dropdown"><a data-toggle="dropdown" href="#">Layout: <span class="layoutWidthValue">'+layoutWidth+'</a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"></ul></div>');
 
 
@@ -92,9 +83,39 @@ function JsonLoaderWidget(){
 	function decorateWidgetInstance(widgetInstance, callback){
 
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
-			console.log(this.widget.config);
-			$(container).append("<h1>"+this.widget.config.url+"<BR>"+this.data.random+"</h1>")
+			var url = this.processTemplate(this.widget.config.url);
+			$(container).append("<h1>"+url+"<BR></h1>");
 		}
+
+
+		widgetInstance.run = function(){
+			console.log("in jsonloader, run");
+			var url = this.processTemplate(this.widget.config.url);
+			var proxy = require("/classes/proxy.class.js").ProxyManager();
+			proxy.callUrl(url, function(result){
+				console.log("in widgetInstance, got result!");
+				console.log(result);
+			});
+		}
+
+
+		widgetInstance.onLoad = function(){
+			// to run when this widget is loaded
+			realThis = this;
+			this.thing.addListener("allWidgetInstancesLoaded", function(params){
+				console.log("listener called");
+				realThis.allLoaded(params);
+			});
+			console.log("this widgetInstance Loaded, jsonloader");
+		}
+
+		widgetInstance.allLoaded = function(params){
+			console.log("all WidgetInstances Loaded, jsonloader");
+			this.run();
+		//	widgetInstance.data.random = Math.random();
+		};
+
+
 
 		if(callback){
 			callback(widgetInstance);

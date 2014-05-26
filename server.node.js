@@ -67,6 +67,7 @@ server.route(
       console.log(req.headers) ;
 
       if(req.url.match(/\.(html|js|jpg|jpeg|gif|png|css|ico|ttf|svg|woff)(\?.*)?$/i)){
+        console.log(req.url);
         if(!query.action){
           console.log("getting file " + parsed.pathname);
           // this is doing it client-side
@@ -85,6 +86,28 @@ server.route(
         return;
       }
 
+      if(req.url.match(/^\/proxy\//)){
+        console.log("calling proxy");
+        console.log(req.url);
+        var split = req.url.split("/");
+        console.log(split);
+        split.shift(); split.shift();
+        console.log(split);
+        var url = split.join("/");
+        console.log("url is " + url);
+
+        
+        var proxy = require("./classes/proxy.class.js").ProxyManager();
+        var result = proxy.callUrl(url, function(data){
+          console.log("got data");
+          console.log(data);
+          var contentType = "application/json";
+          res.writeHead(200, {'Content-Type': contentType});
+          res.end(JSON.stringify(data));
+        });
+
+        return;
+      }
 
       // this is doign it server-side
       if(req.url.match(/^\/couchdb\//)){

@@ -30,16 +30,16 @@ function DbManager(){
 
 			if(typeof IAMONTHECLIENT !== 'undefined' && IAMONTHECLIENT != false){
 				this.thiscodeonclient = true;
-				console.log("I'm on the client");
+//				console.log("I'm on the client");
 			}else{
-				console.log("I'm on the server");
+//				console.log("I'm on the server");
 				if(!this.connected){
 					var nano = require('nano')('http://localhost:5984');
 					var db_name = "integrator";
 					this.db = nano.use(db_name);
 
 					this.connected = true;
-					console.log("got conntected");
+//					console.log("got conntected");
 				}
 			}
 
@@ -48,9 +48,6 @@ function DbManager(){
 
 		saveThingType : function(thingType, callback){
 			// check if server or client side here. if client side, route through server
-
-
-			console.log(thingType);
 			var doc = {};
 			doc._id = "thingType/" + thingType.getUniqueId();
 			if(typeof thingType._rev !== "undefined"){
@@ -75,10 +72,8 @@ function DbManager(){
 
 
 		saveThing : function(thing, callback){
-			console.log("saving thing");
 			var doc = {};
 			doc._id = "thing/"+thing.id;
-			console.log("id is " + doc._id);
 			if(typeof thing._rev !== "undefined"){
 				doc._rev = thingType._rev;
 			}
@@ -100,7 +95,6 @@ function DbManager(){
 		loadThingType : function(thingTypeId, callback, notFoundCallback){
 			
 			var id = "thingType/"+ thingTypeId;
-			console.log("calling load with id " + id);
 			this.loadDoc(id, callback, notFoundCallback);
 			return false;
 		},
@@ -108,24 +102,19 @@ function DbManager(){
 
 		loadThing : function(thingId, callback, notFoundCallback){
 			var id = "thing/" + thingId;
-			console.log("calling thing load with id " + id);
 			this.loadDoc(id, callback, notFoundCallback);
 			return false;
 		},
 
 		loadDoc : function(id, callback, notFoundCallback){
 			this.connect();
-			console.log("calling loadDoc, id" + id);
 			if(this.thiscodeonclient){
 				var url = "./couchdb/"+id;
-				console.log("this code on client, calling " + url);
 				$.ajax({
 					url : url,
 					type : "GET",
 					contentType : 'application/json',
 			  		success : function(rdata, status){
-			  			console.log("success");
-			  			console.log(rdata);
 			  			callback(rdata);
 			  		},
 			  		error : function(jqXHR, status, message){
@@ -157,10 +146,7 @@ function DbManager(){
 		insertDoc : function(doc, callback2){
 			this.connect();
 
-			console.log("calling ajax");
-			console.log(doc);
 			if(this.thiscodeonclient){
-				console.log("this code on client, calling ./" + doc._id);
 				$.ajax({
 					url : "./"+ doc._id ,
 					type : "PUT",
@@ -168,8 +154,6 @@ function DbManager(){
 				//	processData : false,
 					contentType : 'application/json',
 			  		success : function(rdata, status){
-			  			console.log("success");
-			  			console.log(rdata);
 			  			callback2(rdata);
 			  		},
 
@@ -194,7 +178,6 @@ function DbManager(){
 					  callback2(error);
 					  return error;
 					}
-					console.log(http_body);
 					callback2(http_body);
 	    		}
     		);
