@@ -103,7 +103,7 @@ function RenderManager(){
 				$(".dropdown-menu", action1).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.addAllowedWidgetType(name);
-					var ThingManager = require("./classes/thing.class.js").ThingManager();
+					var ThingManager = require("./classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
 					});
@@ -117,7 +117,7 @@ function RenderManager(){
 				$(container).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.removeAllowedWidgetType(name);
-					var ThingManager = require("./classes/thing.class.js").ThingManager();
+					var ThingManager = require("./classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
 					});
@@ -125,7 +125,7 @@ function RenderManager(){
 			}
 
 			$(".actionLabel", action1).text('Add Allowed Widget');
-	        var widgetManager = require("./classes/widget.class.js").WidgetManager();
+	        var widgetManager = require("./classes/widget/widget.js").WidgetManager();
             widgetManager.getWidgetList(function(list){
 
 				$.each(list, function(name, info){

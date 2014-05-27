@@ -23,6 +23,12 @@ var db = nano.use(db_name);
 
 var server = new Percolator();
 
+console.log(process.env);
+
+GLOBAL.context = "server";
+
+
+
 //var PageManager = require("./classes/page.class.js").PageManager();
 
 /*
@@ -77,7 +83,7 @@ server.route(
       }
       if(req.url.match(/^\/widgetlist$/)){
         console.log("getting widgetlist");
-        var widgetManager = require("./classes/widget.class.js").WidgetManager();
+        var widgetManager = require("./classes/widget/widget.js").WidgetManager();
         var filelist = widgetManager.getWidgetList(function(list){
           var contentType = "application/json";
           res.writeHead(200, {'Content-Type': contentType});
@@ -97,7 +103,7 @@ server.route(
         console.log("url is " + url);
 
         
-        var proxy = require("./classes/proxy.class.js").ProxyManager();
+        var proxy = require("./classes/proxy/proxy.js").ProxyManager();
         var result = proxy.callUrl(url, function(data){
           console.log("got data");
           console.log(data);
@@ -114,7 +120,7 @@ server.route(
 
         var couchid = req.url.replace(/^\/couchdb\//, "");
         console.log("couch request for " + couchid)
-        var  db = require("./classes/db.class.js").DbManager();
+        var  db = require("./classes/db/db.js").DbManager();
         db.loadDoc(couchid, function(doc){
           var contentType = "application/json";
           console.log("returning doc");
@@ -125,7 +131,7 @@ server.route(
         return;
       }
 
-      var EntityManager = require("./classes/entityManager.class.js").EntityManager();
+      var EntityManager = require("./classes/entity/entity.js").EntityManager();
       var entity = EntityManager.getEntity(req.url, function(entity){
         console.log("got entity");
         console.log(entity);
@@ -155,7 +161,7 @@ server.route(
         console.log("json");
         console.log(obj);
         // do something with json data
-        var db = require("./classes/db.class.js").DbManager();
+        var db = require("./classes/db/db.js").DbManager();
         db.insertDoc(obj, function(result){
           res.writeHead(200, {'Content-Type': contentType});
           res.end(JSON.stringify(result));
@@ -169,7 +175,7 @@ server.route(
   '/widgetlist',  {
     GET : function(req, res){
       console.log("getting widgetlist");
-      var widgetManager = require("classes/widget.class.js");
+      var widgetManager = require("./classes/widget/widget.js");
       var filelist = widgetManager.getWidgetList(function(list){
         var contentType = "application/json";
         res.writeHead(200, {'Content-Type': contentType});

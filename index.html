@@ -1,22 +1,45 @@
 <!-- main page for data_integrator frontend -->
 <html>
 <head>
+
 <script type="text/javascript" src="./js/require.js"></script>
+<script type="text/javascript">
+var smoothie = {
+    'requirePaths': [
+      './node_modules',
+      './classes',
+      './widgets']
+    };
+</script>
+
 <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
 
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="js/bootstrap.min.js"></script>
 <!-- <script src="widgets/urlloader/widget.urlloader.class.js"></script>  -->
- <script src="classes/proxy.class.js"></script> 
+<!-- <script src="classes/proxy.class.js"></script> -->
 
 <script type="text/javascript" language="javascript">
   var IAMONTHECLIENT = true;
 
+  var GLOBAL = {};
+  GLOBAL.context = "client";
+
+
+
+  GLOBAL.myrequire = function(name){
+
+    var fullpath = "";
+    var required = false;
+  }
+
 	$(document).ready(function(){
-		var entityManager = require("./classes/entityManager.class.js").EntityManager();
+
+
+		var entityManager = require("classes/entity/entity").EntityManager();
 		var urlparser = require("node_modules/urlparser/index.js");
-		var renderer = require("./classes/renderer.class.js").RenderManager();
+		var renderer = require("classes/renderer/renderer").RenderManager();
 
 	  var parsed = urlparser.parse(location.href, true);
     console.log(parsed);

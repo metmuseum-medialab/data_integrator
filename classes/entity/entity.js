@@ -19,6 +19,8 @@ this code is a factory that turns ids into the appropriate entity.
 */
 function EntityManager(){
 
+	console.log("enittyManager");
+	console.log(GLOBAL.foo);
 
 	var EntityManager = {
 
@@ -51,7 +53,7 @@ function EntityManager(){
 				if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
 					thingManager = require("./thing.class.js").ThingManager();
 				}else{
-					thingManager = require("./classes/thing.class.js").ThingManager();
+					thingManager = require("./classes/thing/thing.js").ThingManager();
 				}
 				thingManager.generateThingType(thingTypeName, callback);
 				return;
@@ -62,7 +64,7 @@ function EntityManager(){
 				if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
 					thingManager = require("./thing.class.js").ThingManager();
 				}else{
-					thingManager = require("./classes/thing.class.js").ThingManager();
+					thingManager = require("./classes/thing/thing.js").ThingManager();
 				}
 				thingManager.generateThing(thingTypeName, thingId, callback);
 				return

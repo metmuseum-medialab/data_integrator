@@ -146,7 +146,7 @@ function ThingManager(){
 			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
 				WidgetManager = require("./widget.class.js").WidgetManager();
 			}else{
-				WidgetManager = require("./classes/widget.class.js").WidgetManager();
+				WidgetManager = require("./classes/widget/widget.js").WidgetManager();
 			}
 			return WidgetManager;
 		},
@@ -156,7 +156,7 @@ function ThingManager(){
 			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
 				db = require("./db.class.js").DbManager();
 			}else{
-				db = require("./classes/db.class.js").DbManager();
+				db = require("./classes/db/db.js").DbManager();
 			}
 			return db;
 		},
@@ -273,6 +273,10 @@ function ThingManager(){
 
 
 		resolveThingWidgets : function(thing, callback){
+
+
+			console.log("in resolveThingWidgets");
+			console.log(GLOBAL.blah);
 			// go through the default widgets, add them to this thing as instances if it doesn't already have them.
 			var WidgetManager = this.getWidgetManager();
 			var db = this.getDbManager();

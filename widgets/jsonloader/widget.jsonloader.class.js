@@ -5,7 +5,7 @@
 function JsonLoaderWidget(){
 
 
-	var BaseWidgetManager = require("./classes/widget.class.js").WidgetManager();
+	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -35,7 +35,7 @@ function JsonLoaderWidget(){
 			$(input1).change(function(evt){
 				var newurl = evt.target.value;
 				thiswidget.config.url = newurl;
-				var ThingManager = require("./classes/thing.class.js").ThingManager();
+				var ThingManager = require("./classes/thing/thing.js").ThingManager();
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
 					// do thing with result here
 				});
@@ -56,7 +56,7 @@ function JsonLoaderWidget(){
 				var newWidth = $(evt.target).attr('data-value');
 //				console.lgo()
 				thiswidget.config.layoutWidth = newWidth;
-				var ThingManager = require("./classes/thing.class.js").ThingManager();
+				var ThingManager = require("./classes/thing/thing.js").ThingManager();
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
 					$('.layoutWidthValue', input2).text(newWidth);
 					// do thing with result here
@@ -91,7 +91,7 @@ function JsonLoaderWidget(){
 		widgetInstance.run = function(){
 			console.log("in jsonloader, run");
 			var url = this.processTemplate(this.widget.config.url);
-			var proxy = require("/classes/proxy.class.js").ProxyManager();
+			var proxy = require("/classes/proxy/proxy.js").ProxyManager();
 			proxy.callUrl(url, function(result){
 				console.log("in widgetInstance, got result!");
 				console.log(result);
