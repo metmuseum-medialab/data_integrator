@@ -26,9 +26,76 @@ function JsonLoaderWidget(){
 
 			// making an accordian for different parts of config.
 
-			var form = $("<div></div>")
-			$(widgetBody).append(form);			
+			var accordion = $('<div class="panel-group" id="accordion">' +
+'  <div class="panel panel-default">' +
+'    <div class="panel-heading">' +
+'      <h4 class="panel-title">' +
+'        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">' +
+'          Dependencies' +
+'        </a>' +
+'      </h4>' +
+'    </div>' +
+'    <div id="collapseOne" class="panel-collapse collapse in">' +
+'      <div class="panel-body widgetDependencies">' +
+'      </div>' +
+'    </div>' +
+'  </div>' +
+'  <div class="panel panel-default">' +
+'    <div class="panel-heading">' +
+'     <h4 class="panel-title">' +
+'        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">' +
+'          Layout' +
+'        </a>' +
+'      </h4>' +
+'    </div>' +
+'    <div id="collapseTwo" class="panel-collapse collapse">' +
+'      <div class="panel-body widgetLayout">' +
+'      </div>' +
+'    </div>' +
+'  </div>' +
+'  <div class="panel panel-default">' +
+'    <div class="panel-heading">' +
+'      <h4 class="panel-title">' +
+'        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">' +
+'          Configuration ' +
+'        </a>' +
+'      </h4>' +
+'    </div>' +
+'    <div id="collapseThree" class="panel-collapse collapse">' +
+'      <div class="panel-body widgetConfig">' +
+'      </div>' +
+'   </div>' +
+'  </div>' +
+'</div>');
 
+
+			var form = $("<div></div>")
+			$(widgetBody).append(accordion);			
+
+
+			// other widget dependency dropdown
+			var widgetDependencies = (this.config.widgetDependencies ? this.config.widgetDependencies : {});
+			var wdInput = $('');
+			var defaultWidgets = this.thingType.defaultWidgets;
+			console.log(defaultWidgets);
+			for(var index in defaultWidgets){
+
+				var defaultWidget= defaultWidgets[index];
+				console.log(defaultWidget);
+				var name = defaultWidget.uniqueName;
+				if(name == this.uniqueName){ continue;}
+				
+				var label = $("<span class='label label-default'>"+ name+"</span>");
+				$(".widgetDependencies", accordion).append(label);
+
+				label.click(function(clicked){
+
+				});
+
+			}
+
+
+			// url entry widget
 			var url = (this.config.url ? this.config.url : "");
 			var input1 = $('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+url+'"></div>');
 			var thiswidget = this;
@@ -40,18 +107,16 @@ function JsonLoaderWidget(){
 					// do thing with result here
 				});
 			});
+			$(".widgetConfig", accordion).append(input1);
 
-			$(form).append(input1);
 
+			// layout width config
 			var layoutWidth = (this.config.layoutWidth ? this.config.layoutWidth : "4");
 			var input2 = $('<div class="dropdown"><a data-toggle="dropdown" href="#">Layout: <span class="layoutWidthValue">'+layoutWidth+'</a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"></ul></div>');
-
-
 			for(i = 1; i<=12 ;i++){
 				$(".dropdown-menu", input2).append("<li data-value='"+i+"'>"+i+"</li>");
 			}
 			var thiswidget = this;
-
 			$("li", input2).click(function(evt){
 				var newWidth = $(evt.target).attr('data-value');
 //				console.lgo()
@@ -65,7 +130,7 @@ function JsonLoaderWidget(){
 
 		
 
-			$(form).append(input2);
+			$(".widgetLayout", accordion).append(input2);
 
 
 
@@ -90,12 +155,17 @@ function JsonLoaderWidget(){
 
 		widgetInstance.run = function(){
 			console.log("in jsonloader, run");
+			var realthis = this;
 			var url = this.processTemplate(this.widget.config.url);
 			var proxy = require("/classes/proxy/proxy.js").ProxyManager();
 			proxy.callUrl(url, function(result){
 				console.log("in widgetInstance, got result!");
 				console.log(result);
+				realthis.data.json = JSON.parse(result);
+				console.log("in widgetInstance, got result!");
+				console.log(realthis.data.json);
 			});
+			this.fireEvent("run", {widgetInstance : this});
 		}
 
 

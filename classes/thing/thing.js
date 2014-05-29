@@ -7,9 +7,8 @@ function ThingManager(){
 
 		category : "ThingType",
 		typeName : "",
-		allowedWidgetTypes : [], // array of widgetType names (string[])
-		defaultWidgets : [], // array of {widgetType, Config }
-		defaultWidgetNames : [],
+		allowedWidgetTypes : {}, // array of widgetType names (string[])
+		defaultWidgets : {}, // array of {widgetType, Config }
 
 		listeners : {},
 
@@ -35,34 +34,31 @@ function ThingManager(){
 		
 
 		hasWidgetNamed : function(name){
-			return (this.defaultWidgetNames.indexOf(name) >= 0);
+			if(this.defaultWidgets[name]){
+				return true;
+			}
+			return false;
 		},
 
 		addDefaultWidget : function(widget){
 
 			widget.thingType = this;
 
-			this.defaultWidgets.push(widget);
-			this.defaultWidgetNames.push(widget.uniqueName);
+			this.defaultWidgets[widget.uniqueName] = widget;
 
 			this.fireEvent("addDefaultWidget", {widget : widget, entity: this});
 			return widget;
 		},
 
 		removeDefaultWidget : function(widgetUniqueName){
-			var index = this.defaultWidgetNames.indexOf(widgetUniqueName);
-			if(index >= 0){
-				this.defaultWidgets.splice(index, 1);
-				this.defaultWidgetNames.splice(index, 1);
+			if(this.defaultWidgets[widgetUniqueName]){
+				delete this.defaultWidgets[widgetUniqueName];
 			}
 			this.fireEvent("removeDefaultWidget", {widgetUniqueName : widgetUniqueName, entity : this});
 		},
 
 		getDefaultWidget : function(widgetUniqueName){
-			var index = this.defaultWidgetNames.indexOf(widgetUniqueName);
-			if(index >= 0){
-				return this.defaultWidgets[index];
-			}
+			return this.defaultWidgets[widgetUniqueName];
 		},
 
 		addAllowedWidgetType : function(widgetTypeName){
@@ -89,8 +85,7 @@ function ThingManager(){
 		category : "Thing",
 		id : false,
 		type: false,
-		widgetInstances : [],
-		widgetInstanceNames : [],
+		widgetInstances : {},
 
 		listeners : {},
 
@@ -114,16 +109,13 @@ function ThingManager(){
 
 		addWidgetInstance : function(widgetInstance){
 			widgetInstance.thing = this;
-			this.widgetInstances.push(widgetInstance);
-			this.widgetInstanceNames.push(widgetInstance.widget.uniqueName);
+			this.widgetInstances[widgetInstance.widget.uniqueName] = widgetInstance;
 			this.fireEvent("addWidgetInstance", {widgetInstance : widgetInstance, entity : this});	
 		},
 
 		removeWidgetInstance : function(widgetUniqueName){
-			var index = widgetInstanceNames.indexOf(widgetUniqueName);
-			if(index >= 0){
-				this.widgetInstances.splice(index, 1);
-				this.widgetInstanceNames.splice(index, 1);
+			if(this.widgetInstances[widgetUniqueName]){
+				delete this.widgetInstances[widgetUniqueName];
 			}
 			this.fireEvent("removeWidgetInstance", {widgetUniqueName : widgetUniqueName, entity : this});	
 		},
@@ -284,8 +276,7 @@ function ThingManager(){
 			var i =0;
 			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
 				var widgetInstance = false;
-				var index = thing.widgetInstanceNames.indexOf(defaultWidget.uniqueName);
-				if(index >= 0){
+				if(thing.widgetInstances[defaultWidget.uniqueName]){
 					widgetInstance = thing.widgetInstances[index];
 					// all good, the instance is already there
 				}else{
