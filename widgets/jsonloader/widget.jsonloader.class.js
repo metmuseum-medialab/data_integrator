@@ -26,16 +26,16 @@ function JsonLoaderWidget(){
 
 			// making an accordian for different parts of config.
 
-			var accordion = $('<div class="panel-group" id="accordion">' +
+			var accordion = $('<div class="panel-group" id="accordion'+this.uniqueName+'">' +
 '  <div class="panel panel-default">' +
 '    <div class="panel-heading">' +
 '      <h4 class="panel-title">' +
-'        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">' +
+'        <a data-toggle="collapse" data-parent="#accordion'+this.uniqueName+'" href="#collapseOne'+this.uniqueName+'">' +
 '          Dependencies' +
 '        </a>' +
 '      </h4>' +
 '    </div>' +
-'    <div id="collapseOne" class="panel-collapse collapse in">' +
+'    <div id="collapseOne'+this.uniqueName+'" class="panel-collapse collapse in">' +
 '      <div class="panel-body widgetDependencies">' +
 '      </div>' +
 '    </div>' +
@@ -43,12 +43,12 @@ function JsonLoaderWidget(){
 '  <div class="panel panel-default">' +
 '    <div class="panel-heading">' +
 '     <h4 class="panel-title">' +
-'        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">' +
+'        <a data-toggle="collapse" data-parent="#accordion'+this.uniqueName+'" href="#collapseTwo'+this.uniqueName+'">' +
 '          Layout' +
 '        </a>' +
 '      </h4>' +
 '    </div>' +
-'    <div id="collapseTwo" class="panel-collapse collapse">' +
+'    <div id="collapseTwo'+this.uniqueName+'" class="panel-collapse collapse">' +
 '      <div class="panel-body widgetLayout">' +
 '      </div>' +
 '    </div>' +
@@ -56,12 +56,12 @@ function JsonLoaderWidget(){
 '  <div class="panel panel-default">' +
 '    <div class="panel-heading">' +
 '      <h4 class="panel-title">' +
-'        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">' +
+'        <a data-toggle="collapse" data-parent="#accordion'+this.uniqueName+'" href="#collapseThree'+this.uniqueName+'">' +
 '          Configuration ' +
 '        </a>' +
 '      </h4>' +
 '    </div>' +
-'    <div id="collapseThree" class="panel-collapse collapse">' +
+'    <div id="collapseThree'+this.uniqueName+'" class="panel-collapse collapse">' +
 '      <div class="panel-body widgetConfig">' +
 '      </div>' +
 '   </div>' +
@@ -96,26 +96,24 @@ function JsonLoaderWidget(){
 					set = true;
 				}
 
-				var label = $("<span class='label "+classname+"' data-set='"+set+"'>"+ name+"</span>");
+				var label = $("<span class='label "+classname+"' data-set='"+set+"' data-name='"+name+"'>"+ name+"</span>");
 				$(".widgetDependencies", accordion).append(label);
 
 				label.click(function(target){
 					var setval = $(label).attr('data-set');
-					console.log(setval);
 					$(label).attr('data-set', (setval == "false" ? "true" : "false"));
 					$(label).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
-
 					if(setval == "false"){
 						// setting to true, so set it
-						realthis.config.widgetDependencies[name] = name;
+						realthis.config.widgetDependencies[$(label).attr('data-name')] = $(label).attr('data-name');
 					}else{
 						// otherwise, remove it
-						delete realthis.config.widgetDependencies[name];
+						delete realthis.config.widgetDependencies[$(label).attr('data-name')];
 					}
 					var ThingManager = require("./classes/thing/thing.js").ThingManager();
-
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
+//						console.log(result);
 					});
 
 				});
@@ -178,6 +176,8 @@ function JsonLoaderWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var url = this.processTemplate(this.widget.config.url);
 			$(container).append("<h1>"+url+"<BR></h1>");
+
+
 		}
 
 
@@ -200,16 +200,12 @@ function JsonLoaderWidget(){
 		widgetInstance.onLoad = function(){
 			// to run when this widget is loaded
 			realThis = this;
-			this.thing.addListener("allWidgetInstancesLoaded", function(params){
-				console.log("listener called");
-				realThis.allLoaded(params);
-			});
 			console.log("this widgetInstance Loaded, jsonloader");
 		}
 
 		widgetInstance.allLoaded = function(params){
 			console.log("all WidgetInstances Loaded, jsonloader");
-			this.run();
+//			this.run();
 		//	widgetInstance.data.random = Math.random();
 		};
 

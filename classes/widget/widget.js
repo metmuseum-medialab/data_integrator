@@ -154,17 +154,20 @@ function WidgetManager(){
 			listeners : {},
 
 			addListener : function(listenerName, callback){
-				if(!listeners[listenerName]){
-					listeners[listenerName] = [];
+				if(!this.listeners[listenerName]){
+					this.listeners[listenerName] = [];
 				}
-				listeners[listenerName].push(callback);
+				this.listeners[listenerName].push(callback);
 			},
 
 			fireEvent : function(listenerName, params){
-				$.each(listeners[listenerName], function(index, callback){
-					callback(params);
-				});
+				if(this.listeners[listenerName]){
+					$.each(this.listeners[listenerName], function(index, callback){
+						callback(params);
+					});
+				}
 			},			
+
 
 			loadData : function(){
 				// we'll assume couchdb for now

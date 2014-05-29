@@ -9,6 +9,7 @@ function ThingManager(){
 		typeName : "",
 		allowedWidgetTypes : {}, // array of widgetType names (string[])
 		defaultWidgets : {}, // array of {widgetType, Config }
+		numDefaultWidgets : 0,
 
 		listeners : {},
 
@@ -47,6 +48,7 @@ function ThingManager(){
 			this.defaultWidgets[widget.uniqueName] = widget;
 
 			this.fireEvent("addDefaultWidget", {widget : widget, entity: this});
+
 			return widget;
 		},
 
@@ -89,6 +91,8 @@ function ThingManager(){
 
 		listeners : {},
 
+		widgetsRan : {},		
+
 		addListener : function(listenerName, callback){
 			console.log("adding listener " + listenerName);
 			if(!this.listeners[listenerName]){
@@ -122,8 +126,44 @@ function ThingManager(){
 
 
 
+
 		runWidgets : function(){
+			var realthis = this;
 			console.log("calling runwidgets");
+			// 
+			var numRan = 1;
+			while(numRan > 0){
+				numRan = 0;
+				for (var name in this.widgetInstances){
+					if(this.widgetsRan[name]){
+						continue;
+					}
+					var widgetInstance = this.widgetInstances[name];
+					var deps = widgetInstance.widget.config.widgetDependencies;
+					if(Object.keys(deps).length == 0){
+						widgetInstance.addListener("run",function(params){
+							realthis.widgetsRan[this.uniqueName]=this.uniqueName;
+						});
+						widgetInstance.run();
+						numRan++;
+						continue;
+					}
+					var depsmet= 0;
+					for(var dep in deps){
+						if(this.widgetsRan[dep]){
+							depsmet++;
+						}
+					}
+					if(depsmet == Object.keys(deps).length){
+						widgetInstance.addListener("run",function(params){
+							realthis.widgetsRan[this.uniqueName]=this.uniqueName;
+						});
+						widgetInstance.run();
+						numRan++;
+						continue;
+					}
+				}
+			}
 		},
 
 	};
@@ -268,12 +308,12 @@ function ThingManager(){
 
 
 			console.log("in resolveThingWidgets");
-			console.log(GLOBAL.blah);
 			// go through the default widgets, add them to this thing as instances if it doesn't already have them.
 			var WidgetManager = this.getWidgetManager();
 			var db = this.getDbManager();
 
 			var i =0;
+			console.log(Object.keys(thing.type.defaultWidgets).length);
 			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
 				var widgetInstance = false;
 				if(thing.widgetInstances[defaultWidget.uniqueName]){
@@ -286,9 +326,10 @@ function ThingManager(){
 				}
 				widgetInstance.onLoad();
 				i++;
-				if(thing.type.defaultWidgets.length == i){
+				if(Object.keys(thing.type.defaultWidgets).length == i){
 					console.log("all loaded allWidgetInstancesLoaded " );
-					thing.fireEvent("allWidgetInstancesLoaded", {thing : thing});
+					thing.runWidgets();
+//					thing.fireEvent("allWidgetInstancesLoaded", {thing : thing});
 				}
 			});
 
