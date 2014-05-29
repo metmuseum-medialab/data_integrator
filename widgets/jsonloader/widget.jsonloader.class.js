@@ -75,20 +75,48 @@ function JsonLoaderWidget(){
 
 			// other widget dependency dropdown
 			var widgetDependencies = (this.config.widgetDependencies ? this.config.widgetDependencies : {});
+			this.config.widgetDependencies = widgetDependencies;
 			var wdInput = $('');
 			var defaultWidgets = this.thingType.defaultWidgets;
 			console.log(defaultWidgets);
+
+			var realthis = this;
+
 			for(var index in defaultWidgets){
 
 				var defaultWidget= defaultWidgets[index];
 				console.log(defaultWidget);
 				var name = defaultWidget.uniqueName;
 				if(name == this.uniqueName){ continue;}
-				
-				var label = $("<span class='label label-default'>"+ name+"</span>");
+
+				var classname = 'label-default';
+				var set = false;
+				if(this.config.widgetDependencies[name]){
+					classname = 'label-success';
+					set = true;
+				}
+
+				var label = $("<span class='label "+classname+"' data-set='"+set+"'>"+ name+"</span>");
 				$(".widgetDependencies", accordion).append(label);
 
-				label.click(function(clicked){
+				label.click(function(target){
+					var setval = $(label).attr('data-set');
+					console.log(setval);
+					$(label).attr('data-set', (setval == "false" ? "true" : "false"));
+					$(label).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
+
+					if(setval == "false"){
+						// setting to true, so set it
+						realthis.config.widgetDependencies[name] = name;
+					}else{
+						// otherwise, remove it
+						delete realthis.config.widgetDependencies[name];
+					}
+					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+
+					ThingManager.saveThingType(realthis.thingType, function(result){
+						// do thing with result here
+					});
 
 				});
 
