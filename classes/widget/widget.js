@@ -18,14 +18,7 @@ function WidgetManager(){
 			typeName : false,
 			category : "WidgetType",
 			id : false,
-			onLoad  : function(widgetInstance){
-				// to run when this widget is loaded
-				console.log("this widgetInstance Loaded");
-			},
 
-			allLoaded : function(widgetInstance){
-				console.log("all WdigetInstances Loaded");
-			},
 
 		};
 
@@ -115,7 +108,7 @@ function WidgetManager(){
 			thewidget = this;
 			deletebutton.click(function(){
 				thewidget.thingType.removeDefaultWidget(widget.uniqueName);
-				var ThingManager = require("./classes/thing.class.js").ThingManager();
+				var ThingManager = require("./classes/thing/thing.js").ThingManager();
 
 				ThingManager.saveThingType(thewidget.thingType, function(result){
 					// do thing with result here
@@ -161,13 +154,19 @@ function WidgetManager(){
 			},
 
 			fireEvent : function(listenerName, params){
+				console.log(this.widget.uniqueName + " in fireevent " + listenerName);
 				if(this.listeners[listenerName]){
+					console.log("firing");
 					$.each(this.listeners[listenerName], function(index, callback){
 						callback(params);
 					});
 				}
 			},			
 
+			init  : function(widgetInstance){
+				// to run when this widget is loaded
+				console.log("this widgetInstance Loaded");
+			},
 
 			loadData : function(){
 				// we'll assume couchdb for now
@@ -179,8 +178,17 @@ function WidgetManager(){
 
 
 			processTemplate : function(templateString, callback){
+				console.log("in processTemplate");
+				console.log(this);
 				var dot = require('node_modules/dot/doT.js');
-				var tpldata = {thing: this.thing, config: this.widget.config, data : this.data};
+				var deps = {};
+				for (var depname in this.widget.config.widgetDependencies){
+					console.log("adding deps data" + depname);
+					deps[depname] = this.thing.widgetInstances[depname].data;
+				}
+				var tpldata = {thing: this.thing, config: this.widget.config, data : this.data, deps: deps};
+				console.log("about to call with ");
+				console.log(tpldata);
 				var tplfn = dot.template(templateString);
 				var string = tplfn(tpldata);
 				if(callback){

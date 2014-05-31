@@ -87,6 +87,7 @@ function ThingManager(){
 		category : "Thing",
 		id : false,
 		type: false,
+		db: false,
 		widgetInstances : {},
 
 		listeners : {},
@@ -126,46 +127,59 @@ function ThingManager(){
 
 
 
+		// setup each widget to listen to the widgets it depends on.
+		setupWidgetDependencies : function(){
+			for (var name in this.widgetInstances){
+				this.widgetsRun = {};
+				var realthis = this;
+				var widgetInstance = this.widgetInstances[name];
 
-		runWidgets : function(){
-			var realthis = this;
-			console.log("calling runwidgets");
-			// 
-			var numRan = 1;
-			while(numRan > 0){
-				numRan = 0;
-				for (var name in this.widgetInstances){
-					if(this.widgetsRan[name]){
-						continue;
+				// attach a listener for when ALL the widgets have run.
+				widgetInstance.addListener("run", function(params){
+					realthis.widgetsRun[params.widgetInstance.widget.uniqueName] = params.widgetInstance.widget.uniqueName;
+					if(Object.keys(realthis.widgetsRun).length == Object.keys(realthis.widgetInstances).length){
+						console.log("all widgets ran");
+						console.log(realthis);
+						realthis.db.saveThing(realthis, function(rdata){
+				
+ 						});						
+						realthis.fireEvent("allWidgetsRan", {thing: realthis});
 					}
-					var widgetInstance = this.widgetInstances[name];
-					var deps = widgetInstance.widget.config.widgetDependencies;
-					if(Object.keys(deps).length == 0){
-						widgetInstance.addListener("run",function(params){
-							realthis.widgetsRan[this.uniqueName]=this.uniqueName;
-						});
-						widgetInstance.run();
-						numRan++;
-						continue;
-					}
-					var depsmet= 0;
-					for(var dep in deps){
-						if(this.widgetsRan[dep]){
-							depsmet++;
+				});
+
+				var deps = widgetInstance.widget.config.widgetDependencies;
+				widgetInstance.depsRan = 0;
+				widgetInstance.numDeps = Object.keys(deps).length;
+				widgetInstance.hasRun = false;
+				for(var  dep in deps){
+					var depWidget = this.widgetInstances[dep];
+					// setup the widget to listen for its dependency to run.
+					depWidget.addListener("run", function(params){
+						widgetInstance.depsRan++;
+						if(widgetInstance.depsRan == widgetInstance.numDeps && !widgetInstance.hasRun){
+							widgetInstance.run();
 						}
-					}
-					if(depsmet == Object.keys(deps).length){
-						widgetInstance.addListener("run",function(params){
-							realthis.widgetsRan[this.uniqueName]=this.uniqueName;
-						});
-						widgetInstance.run();
-						numRan++;
-						continue;
-					}
+					});
 				}
 			}
 		},
 
+
+		runWidgets : function(){
+			var realthis = this;
+			// 
+			var numRan = 1;
+			
+			var counter = 0;
+
+			for (var name in this.widgetInstances){
+				var widgetInstance = this.widgetInstances[name];
+				var deps = widgetInstance.widget.config.widgetDependencies;
+				if(Object.keys(deps).length == 0){
+					widgetInstance.run();
+				}			
+			}
+		}
 	};
 
 
@@ -202,7 +216,7 @@ function ThingManager(){
 		},
 
 		generateThingType : function(typeName, callback){
-
+			console.log(" in generateThingType");
 			var db = this.getDbManager();
 			var WidgetManager = this.getWidgetManager();
 
@@ -219,12 +233,14 @@ function ThingManager(){
 						$.each(doc.defaultWidgets, function(index, widgetDoc){
 							var widgetTypeName = widgetDoc.widgetTypeName;
 							var uniqueName = widgetDoc.uniqueName;
+							console.log("calling createWidget");
 							var defaultWidget = WidgetManager.createWidget(widgetTypeName, uniqueName);
 							WidgetManager.attachWidgetData(defaultWidget, widgetDoc);
 							thingType.addDefaultWidget(defaultWidget);
 						});
 					}
 				}
+				console.log("calling callback");
 				callback(thingType);	
 			},
 			function(notFoundDoc){
@@ -259,41 +275,45 @@ function ThingManager(){
 
 			var thing = this.createThing();
 			thing.id = id;
+			console.log("calling generateThingType");
 			this.generateThingType(typeName, function(thingType){
+				console.log("generateThingTypeCalled, in callback");
 				thing.type = thingType;
 				thing.db = db;
 
 				db.loadThing(id, function(doc){
-
+					console.log("loadThing done, in callback");
 					if(!doc){
 						console.log("no doc in db");
 					}else{
 						//load doc into thing, create widgets, etc.
+						thing.data = doc.data;
+						this._rev = doc._rev;
+						// iterate through the defaultwidgetname, deserialize
+						if(doc.widgetInstances instanceof Array){
+							console.log("got widgetInstances");
+							$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
+								var widgetTypeName = widgetInstanceDoc.widgetTypeName;
+								var uniqueName = widgetInstanceDoc.uniqueName;
 
-					}
-					thing.data = doc.data;
-					this._rev = doc._rev;
-					// iterate through the defaultwidgetname, deserialize
-					if(doc.widgetInstances instanceof Array){
-						$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
-							var widgetTypeName = widgetInstanceDoc.widgetTypeName;
-							var uniqueName = widgetInstanceDoc.uniqueName;
+								var defaultWidget = thing.type.getDefaultWidget(uniqueName);
 
-							var defaultWidget = thing.type.getDefaultWidget(uniqueName);
+								if (!defaultWidget) {
+									console.log("default widget no exist!");
+									return true;
+								};							
 
-							if (!defaultWidget) {
-								console.log("default widget no exist!");
-								return true;
-							};							
+								var widgetInstance = WidgetManager.createWidgetInstance(thing, defaultWidget);
+								WidgetManager.attachWidgetInstanceData(widgetInstance, widgetInstanceDoc.data);
+								thing.addWidgetInstance(widgetInstance);
 
-							var widgetInstance = WidgetManager.createWidgetInstance(thing, defaultWidget);
-							WidgetManager.attachWidgetInstanceData(widgetInstance, widgetInstanceDoc.data);
-							thing.addWidgetInstance(widgetInstance);
+							});
+						}
 
-						});
 					}
 
 					// add widget instances for thing, based on thingType.
+					console.log("about to call resolveThingWidgets");
 					thisManager.resolveThingWidgets(thing, callback);
 
 				},
@@ -314,7 +334,10 @@ function ThingManager(){
 
 			var i =0;
 			console.log(Object.keys(thing.type.defaultWidgets).length);
+			
 			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
+				console.log("in each");
+				
 				var widgetInstance = false;
 				if(thing.widgetInstances[defaultWidget.uniqueName]){
 					widgetInstance = thing.widgetInstances[index];
@@ -324,21 +347,23 @@ function ThingManager(){
 					widgetInstance = WidgetManager.createWidgetInstance(thing, defaultWidget);
 					thing.addWidgetInstance(widgetInstance);
 				}
-				widgetInstance.onLoad();
+				widgetInstance.init();
 				i++;
+				
 				if(Object.keys(thing.type.defaultWidgets).length == i){
 					console.log("all loaded allWidgetInstancesLoaded " );
+					thing.setupWidgetDependencies();
 					thing.runWidgets();
 //					thing.fireEvent("allWidgetInstancesLoaded", {thing : thing});
 				}
-			});
 
-			db.saveThing(thing, function(rdata){
+				
 			});
 
 			if(callback){
 				callback(thing);
 			}
+			
 		},
 
 

@@ -66,6 +66,7 @@ function EntityManager(){
 				}else{
 					thingManager = require("./classes/thing/thing.js").ThingManager();
 				}
+				console.log("about to call generateThing");
 				thingManager.generateThing(thingTypeName, thingId, callback);
 				return
 			}else if (entityType == "widgetType"){

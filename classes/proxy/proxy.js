@@ -61,10 +61,7 @@ function ProxyManager(){
 				var parser = require("url");
 				var parsed = parser.parse(proxyurl);
 
-
 				var http = require('http');
-
-
 
 				var options = {
 				  	host: parsed.hostname,

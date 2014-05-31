@@ -19,7 +19,7 @@ var smoothie = {
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <script src="js/bootstrap.min.js"></script>
 <!-- <script src="widgets/urlloader/widget.urlloader.class.js"></script>  -->
-<!-- <script src="classes/proxy.class.js"></script> -->
+ <script src="classes/thing/thing.js"></script> 
 
 <script type="text/javascript" language="javascript">
   var IAMONTHECLIENT = true;
@@ -48,6 +48,7 @@ var smoothie = {
     console.log(entityId);
 
     function callback(entity){
+      console.log("in final callback");
       renderer.renderEntityEditable(entity, $(".navbar"), $(".mainview"));
     }
 

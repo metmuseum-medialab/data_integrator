@@ -103,17 +103,21 @@ function JsonLoaderWidget(){
 					var setval = $(label).attr('data-set');
 					$(label).attr('data-set', (setval == "false" ? "true" : "false"));
 					$(label).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
+					var depname = $(label).attr('data-name');
 					if(setval == "false"){
 						// setting to true, so set it
-						realthis.config.widgetDependencies[$(label).attr('data-name')] = $(label).attr('data-name');
+						console.log("adding " + depname);
+						realthis.config.widgetDependencies[depname] = depname;
 					}else{
 						// otherwise, remove it
-						delete realthis.config.widgetDependencies[$(label).attr('data-name')];
+						console.log("removing" + depname);
+						delete realthis.config.widgetDependencies[depname];
 					}
+					console.log(realthis.config.widgetDependencies);
 					var ThingManager = require("./classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
-//						console.log(result);
+						console.log(result);
 					});
 
 				});
@@ -174,30 +178,45 @@ function JsonLoaderWidget(){
 	function decorateWidgetInstance(widgetInstance, callback){
 
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
-			var url = this.processTemplate(this.widget.config.url);
-			$(container).append("<h1>"+url+"<BR></h1>");
+			var realthis = this;
 
-
+			var urlcontent = $("<h5>"+this.widget.config.url+"</h5>");
+			if(this.data.parsedUrl){
+				$(urlcontent).text(this.data.parsedUrl);
+			}
+			var jsoncontent = $('<div class="panel-group" id="accordionJSON'+this.widget.uniqueName+'"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordionJSON'+this.widget.uniqueName+'" href="#collapseOneJSON'+this.widget.uniqueName+'">JSON </a><span class="loadingindicator"/></h4></div><div id="collapseOneJSON'+this.widget.uniqueName+'" class="panel-collapse collapse"><div class="panel-body"><pre/></div></div></div>');
+			container.append(urlcontent);
+			container.append(jsoncontent);
+			$(".loadingindicator", jsoncontent).text("loading...");
+			this.addListener("dataUpdated", function(params){
+				var url = realthis.data.parsedUrl;
+				$(urlcontent).text(url);
+				if(realthis.data.json){
+					$(".loadingindicator", jsoncontent).text("loaded");
+					$("pre",jsoncontent).text(JSON.stringify(realthis.data.json, null, 4));
+				}
+			});
 		}
 
 
 		widgetInstance.run = function(){
-			console.log("in jsonloader, run");
 			var realthis = this;
 			var url = this.processTemplate(this.widget.config.url);
+			this.data.parsedUrl = url;
+			this.fireEvent("dataUpdated", {widgetInstance : this});
 			var proxy = require("/classes/proxy/proxy.js").ProxyManager();
+			
 			proxy.callUrl(url, function(result){
-				console.log("in widgetInstance, got result!");
+				console.log("got result");
 				console.log(result);
 				realthis.data.json = JSON.parse(result);
-				console.log("in widgetInstance, got result!");
-				console.log(realthis.data.json);
-			});
-			this.fireEvent("run", {widgetInstance : this});
+				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
+				realthis.fireEvent("run", {widgetInstance : realthis});
+			});		
 		}
 
 
-		widgetInstance.onLoad = function(){
+		widgetInstance.init = function(){
 			// to run when this widget is loaded
 			realThis = this;
 			console.log("this widgetInstance Loaded, jsonloader");

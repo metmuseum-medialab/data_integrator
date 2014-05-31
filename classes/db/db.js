@@ -101,6 +101,7 @@ function DbManager(){
 
 
 		loadThing : function(thingId, callback, notFoundCallback){
+			console.log("calling laodthing");
 			var id = "thing/" + thingId;
 			this.loadDoc(id, callback, notFoundCallback);
 			return false;
@@ -110,11 +111,14 @@ function DbManager(){
 			this.connect();
 			if(this.thiscodeonclient){
 				var url = "./couchdb/"+id;
+				console.log("on client, calling url : " + url);
 				$.ajax({
 					url : url,
 					type : "GET",
 					contentType : 'application/json',
 			  		success : function(rdata, status){
+			  			console.log("got data " + url);
+
 			  			callback(rdata);
 			  		},
 			  		error : function(jqXHR, status, message){
@@ -126,6 +130,10 @@ function DbManager(){
 			  			}else{
 				  			callback(message);
 				  		}
+			  		},
+			  		complete : function (jqXHR, textStatus){
+			  			console.log("complete " + url);
+			  			console.log(textStatus);
 			  		}
 				});
 				return;
