@@ -1,7 +1,6 @@
 <!-- main page for data_integrator frontend -->
 <html>
 <head>
-<link href="css/integrator.css" rel="stylesheet">
 
 <script type="text/javascript" src="./js/require.js"></script>
 <script type="text/javascript">
@@ -14,18 +13,26 @@ var smoothie = {
 </script>
 
 <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+<!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+<script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="./ckeditor/adapters/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
 
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-<script src="js/bootstrap.min.js"></script>
-<!-- <script src="widgets/urlloader/widget.urlloader.class.js"></script>  -->
- <script src="classes/thing/thing.js"></script> 
+<link href="css/integrator.css" rel="stylesheet">
 
+
+
+<!--<script src="widgets/templaterenderer/widget.templaterenderer.class.js"></script>  -->
+<!-- <script src="classes/thing/thing.js"></script> -->
 <script type="text/javascript" language="javascript">
   var IAMONTHECLIENT = true;
 
   var GLOBAL = {};
   GLOBAL.context = "client";
+
 
 
 
@@ -37,6 +44,30 @@ var smoothie = {
 
 	$(document).ready(function(){
 
+
+    // bootstrap-ckeditor-modal-fix.js
+    // hack to fix ckeditor/bootstrap compatiability bug when ckeditor appears in a bootstrap modal dialog
+    //
+    // Include this AFTER both bootstrap and ckeditor are loaded.
+    // From: http://stackoverflow.com/questions/14420300/bootstrap-with-ckeditor-equals-problems
+    // Author: http://stackoverflow.com/users/185839/aaron
+     
+    $.fn.modal.Constructor.prototype.enforceFocus = function() {
+      modal_this = this
+      $(document).on('focusin.modal', function (e) {
+        if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length 
+        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select') 
+        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
+          modal_this.$element.focus()
+        }
+      })
+    };
+
+
+
+    $(".editor").ckeditor(function(elem){
+      console.log("editor loaded");
+    });
 
 		var entityManager = require("classes/entity/entity").EntityManager();
 		var urlparser = require("node_modules/urlparser/index.js");
@@ -89,6 +120,7 @@ var smoothie = {
 
     <div class="container mainview">
     </div>
+
 
 </body>
 

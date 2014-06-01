@@ -141,7 +141,8 @@ function ThingManager(){
 						console.log("all widgets ran");
 						console.log(realthis);
 						realthis.db.saveThing(realthis, function(rdata){
-				
+							console.log("saved thing");
+							console.log(rdata);
  						});						
 						realthis.fireEvent("allWidgetsRan", {thing: realthis});
 					}
@@ -288,7 +289,7 @@ function ThingManager(){
 					}else{
 						//load doc into thing, create widgets, etc.
 						thing.data = doc.data;
-						this._rev = doc._rev;
+						thing._rev = doc._rev;
 						// iterate through the defaultwidgetname, deserialize
 						if(doc.widgetInstances instanceof Array){
 							console.log("got widgetInstances");

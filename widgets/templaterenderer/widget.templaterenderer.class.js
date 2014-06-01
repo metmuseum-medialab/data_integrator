@@ -2,14 +2,14 @@
 
 //var util = require("util");
 
-function JsonLoaderWidget(){
+function TemplateRendererWidget(){
 
 
 	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
-		widgetType.typeName = "JsonLoader";
+		widgetType.typeName = "TemplateRenderer";
 		/*
 		CODE TO ADD FUNCTIONALITY GOES HERE, I THINK 
 		*/
@@ -23,6 +23,7 @@ function JsonLoaderWidget(){
 
 	function decorateWidget(widget, callback){
 		widget.renderWidgetConfigEditBody  = function (widgetBody){
+			var ThingManager = require("./classes/thing/thing.js").ThingManager();
 
 			// making an accordian for different parts of config.
 
@@ -114,7 +115,6 @@ function JsonLoaderWidget(){
 						delete realthis.config.widgetDependencies[depname];
 					}
 					console.log(realthis.config.widgetDependencies);
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
 						console.log(result);
@@ -123,21 +123,6 @@ function JsonLoaderWidget(){
 				});
 
 			}
-
-
-			// url entry widget
-			var url = (this.config.url ? this.config.url : "");
-			var input1 = $('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+url+'"></div>');
-			var thiswidget = this;
-			$(input1).change(function(evt){
-				var newurl = evt.target.value;
-				thiswidget.config.url = newurl;
-				var ThingManager = require("./classes/thing/thing.js").ThingManager();
-				ThingManager.saveThingType(thiswidget.thingType, function(result){
-					// do thing with result here
-				});
-			});
-			$(".widgetConfig", accordion).append(input1);
 
 
 			// layout width config
@@ -151,17 +136,55 @@ function JsonLoaderWidget(){
 				var newWidth = $(evt.target).attr('data-value');
 //				console.lgo()
 				thiswidget.config.layoutWidth = newWidth;
-				var ThingManager = require("./classes/thing/thing.js").ThingManager();
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
 					$('.layoutWidthValue', input2).text(newWidth);
 					// do thing with result here
 				});
 			});	
-
-		
-
 			$(".widgetLayout", accordion).append(input2);
 
+
+
+			// template design widget
+			var templatestring = (this.config.template ? this.config.template : "");
+			this.config.template = templatestring;
+			var input1 = $('<h5>Open Editor</h5>');
+			$(".widgetConfig", accordion).append(input1);
+			$(input1).click(function(evt){
+				$('#allPurposeModalLarge .modal-header').html('<h4>Edit Content</h4>');
+				var editorElem = $('<textarea></textarea>');
+				$('#allPurposeModalLarge .modal-body').html(editorElem);
+				$('#allPurposeModalLarge').modal('show');
+				$('#allPurposeModalLarge').off('hide.bs.modal');
+				$(editorElem).ckeditor(function(elem){},
+										{
+											baseFloatZIndex : 9000,
+										});
+				$(editorElem).val(templatestring);
+
+				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
+					console.log("hiding");
+					console.log($(editorElem).val());
+					thiswidget.config.template = $(editorElem).val();
+					console.log(ThingManager);
+					ThingManager.saveThingType(thiswidget.thingType, function(result){
+						// do thing with result here
+					});
+					$('#allPurposeModalLarge').off('hide.bs.modal');
+
+
+				});
+
+			});
+
+
+
+/*
+// when the template is saved set the data into thte config, save it, etc.
+				ThingManager.saveThingType(thiswidget.thingType, function(result){
+					// do thing with result here
+				});
+*/
 
 
 		}
@@ -180,50 +203,34 @@ function JsonLoaderWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var urlcontent = $("<h5>"+this.widget.config.url+"</h5>");
-			if(this.data.parsedUrl){
-				$(urlcontent).text(this.data.parsedUrl);
-			}
-			var jsoncontent = $('<div class="panel-group" id="accordionJSON'+this.widget.uniqueName+'"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordionJSON'+this.widget.uniqueName+'" href="#collapseOneJSON'+this.widget.uniqueName+'">JSON 	</a><span class="loadingindicator"/></h4></div><div id="collapseOneJSON'+this.widget.uniqueName+'" class="panel-collapse collapse"><div class="panel-body"><pre/></div></div></div>');
-			container.append(urlcontent);
-			container.append(jsoncontent);
-			$(".loadingindicator", jsoncontent).text("loading...");
-			this.addListener("dataUpdated", function(params){
-				var url = realthis.data.parsedUrl;
-				$(urlcontent).text(url);
-				if(realthis.data.json){
-					$(".loadingindicator", jsoncontent).text("loaded");
-					$("pre",jsoncontent).text(JSON.stringify(realthis.data.json, null, 4));
-				}
+			var parsedContentElem = $("<div>"+this.data.parsedTemplate+"</div>");
+
+			this.addListener("templateParsed", function(params){
+				$(parsedContentElem).html(realthis.data.parsedTemplate);
 			});
+
+			container.append(parsedContentElem);
 		}
 
 
 		widgetInstance.run = function(){
 			var realthis = this;
-			var url = this.processTemplate(this.widget.config.url);
-			this.data.parsedUrl = url;
-			this.fireEvent("dataUpdated", {widgetInstance : this});
-			var proxy = require("/classes/proxy/proxy.js").ProxyManager();
-			
-			proxy.callUrl(url, function(result){
-				console.log("got result");
-				console.log(result);
-				realthis.data.json = JSON.parse(result);
-				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
-				realthis.fireEvent("run", {widgetInstance : realthis});
-			});		
+			var parsed = this.processTemplate(this.widget.config.template);
+
+			this.data.parsedTemplate = parsed;
+			this.fireEvent("templateParsed", {widgetInstance : this});
+			this.fireEvent("run", {widgetInstance : this});
 		}
 
 
 		widgetInstance.init = function(){
 			// to run when this widget is loaded
 			realThis = this;
-			console.log("this widgetInstance Loaded, jsonloader");
+			console.log("this widgetInstance Loaded, templaterenderer");
 		}
 
 		widgetInstance.allLoaded = function(params){
-			console.log("all WidgetInstances Loaded, jsonloader");
+			console.log("all WidgetInstances Loaded, templaterenderer");
 //			this.run();
 		//	widgetInstance.data.random = Math.random();
 		};
@@ -249,4 +256,4 @@ function JsonLoaderWidget(){
 
 }
 
-module.exports.Manager = JsonLoaderWidget;
+module.exports.Manager = TemplateRendererWidget;

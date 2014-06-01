@@ -50,7 +50,8 @@ function RenderManager(){
 
 
 			function addDefaultWidgetPageItem(container, widget){
-            	var col = $('<div class="col-md-4 widget '+widget.uniqueName+'"></div>');
+				var layoutWidth = (widget.config.layoutWidth ? widget.config.layoutWidth : 4);
+            	var col = $('<div class="col-md-'+layoutWidth+' widget '+widget.uniqueName+'"></div>');
             	$(container).append(col);
 
             	var widgetDiv = $('<div class="panel panel-info"></div>');
@@ -75,6 +76,8 @@ function RenderManager(){
 			// add an all-pupose modal that can be filled with various content, and fired via javascript
 			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
 			$(div).append(modal);
+			var modalBig = $('<div id="allPurposeModalLarge" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
+			$(div).append(modalBig);
 
             thingType.addListener("addDefaultWidget", function(params){
             	var widget = params.widget;

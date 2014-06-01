@@ -75,7 +75,7 @@ function DbManager(){
 			var doc = {};
 			doc._id = "thing/"+thing.id;
 			if(typeof thing._rev !== "undefined"){
-				doc._rev = thingType._rev;
+				doc._rev = thing._rev;
 			}
 			doc.widgetInstances = [];
 			$.each(thing.widgetInstances, function (index, widgetInstance){
