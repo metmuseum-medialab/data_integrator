@@ -9,6 +9,7 @@ node_modules/path
 node_modules/async
 node_modules/fs
 node_modules/file
+node_modules/solr-client
 out.txt
 out.txt
 ckeditor

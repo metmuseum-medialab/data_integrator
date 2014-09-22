@@ -2,14 +2,15 @@
 
 //var util = require("util");
 
-function JsonLoaderWidget(){
+function SolrWidget(){
 
+	var solr = require("./node_modules/solr-client/main.js");
 
 	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
-		widgetType.typeName = "JsonLoader";
+		widgetType.typeName = "Solr";
 		/*
 		CODE TO ADD FUNCTIONALITY GOES HERE, I THINK 
 		*/
@@ -97,13 +98,14 @@ function JsonLoaderWidget(){
 				}
 
 				var label = $("<span class='label "+classname+"' data-set='"+set+"' data-name='"+name+"'>"+ name+"</span>");
-				$(".widgetDependencies", accordion).append(label);
 
 				label.click(function(target){
+
 					var setval = $(target.currentTarget).attr('data-set');
 					$(target.currentTarget).attr('data-set', (setval == "false" ? "true" : "false"));
 					$(target.currentTarget).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
 					var depname = $(target.currentTarget).attr('data-name');
+					console.log(depname);
 					if(setval == "false"){
 						// setting to true, so set it
 						console.log("adding " + depname);
@@ -121,6 +123,9 @@ function JsonLoaderWidget(){
 					});
 
 				});
+
+				$(".widgetDependencies", accordion).append(label);
+
 
 			}
 
@@ -180,50 +185,47 @@ function JsonLoaderWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var urlcontent = $("<h5>"+this.widget.config.url+"</h5>");
-			if(this.data.parsedUrl){
-				$(urlcontent).text(this.data.parsedUrl);
-			}
-			var jsoncontent = $('<div class="panel-group" id="accordionJSON'+this.widget.uniqueName+'"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordionJSON'+this.widget.uniqueName+'" href="#collapseOneJSON'+this.widget.uniqueName+'">JSON 	</a><span class="loadingindicator"/></h4></div><div id="collapseOneJSON'+this.widget.uniqueName+'" class="panel-collapse collapse"><div class="panel-body"><pre/></div></div></div>');
-			container.append(urlcontent);
-			container.append(jsoncontent);
-			$(".loadingindicator", jsoncontent).text("loading...");
+
 			this.addListener("dataUpdated", function(params){
-				var url = realthis.data.parsedUrl;
-				$(urlcontent).text(url);
-				if(realthis.data.json){
-					$(".loadingindicator", jsoncontent).text("loaded");
-					$("pre",jsoncontent).text(JSON.stringify(realthis.data.json, null, 4));
-				}
 			});
 		}
 
 
 		widgetInstance.run = function(){
 			var realthis = this;
-			var url = this.processTemplate(this.widget.config.url);
-			this.data.parsedUrl = url;
-			this.fireEvent("dataUpdated", {widgetInstance : this});
-			var proxy = require("/classes/proxy/proxy.js").ProxyManager();
+
+			var client = solr.createClient();
+
+			// Switch on "auto commit", by default `client.autoCommit = false`
+			client.autoCommit = true;
+			var docs = [];
+			for (var depname in this.widget.config.widgetDependencies){
+				var dep = this.thing.widgetInstances[depname].data;
+				console.log("got dep" + depname);
+				console.log(dep);
+				docs.push(dep);
+
+			}
+			// Add documents
+			client.add(docs,function(err,obj){
+			   if(err){
+			      console.log(err);
+			   }else{
+			      console.log(obj);
+			   }
+			});
 			
-			proxy.callUrl(url, function(result){
-				console.log("got result");
-				console.log(result);
-				realthis.data.json = JSON.parse(result);
-				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
-				realthis.fireEvent("run", {widgetInstance : realthis});
-			});		
 		}
 
 
 		widgetInstance.init = function(){
 			// to run when this widget is loaded
 			realThis = this;
-			console.log("this widgetInstance Loaded, jsonloader");
+			console.log("this widgetInstance Loaded, Solr");
 		}
 
 		widgetInstance.allLoaded = function(params){
-			console.log("all WidgetInstances Loaded, jsonloader");
+			console.log("all WidgetInstances Loaded, Solr");
 //			this.run();
 		//	widgetInstance.data.random = Math.random();
 		};
@@ -249,4 +251,4 @@ function JsonLoaderWidget(){
 
 }
 
-module.exports.Manager = JsonLoaderWidget;
+module.exports.Manager = SolrWidget;

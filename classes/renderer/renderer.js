@@ -51,7 +51,7 @@ function RenderManager(){
 
 			function addDefaultWidgetPageItem(container, widget){
 				var layoutWidth = (widget.config.layoutWidth ? widget.config.layoutWidth : 4);
-            	var col = $('<div class="col-md-'+layoutWidth+' widget '+widget.uniqueName+'"></div>');
+            	var col = $('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widget '+widget.uniqueName+'"></div>');
             	$(container).append(col);
 
             	var widgetDiv = $('<div class="panel panel-info"></div>');
@@ -256,7 +256,7 @@ function RenderManager(){
 			function addWidgetInstancePageItem(container, widgetInstance){
 				console.log(widgetInstance.widget);
 				var layoutWidth = (widgetInstance.widget.config.layoutWidth ? widgetInstance.widget.config.layoutWidth : 4)
-            	var col = $('<div class="col-md-'+layoutWidth+' widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
+            	var col = $('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
             	$(container).append(col);
 
             	var widgetDiv = $('<div class="panel panel-info"></div>');

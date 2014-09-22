@@ -2,3 +2,8 @@
 {
   overflow: visible;
 }
+
+.item { width: 25%; }
+.item.w2 { width: 50%; }
+.item.w3 { width: 75%; }
+.item.w4 { width: 100%; }

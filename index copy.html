@@ -21,7 +21,7 @@ var smoothie = {
 <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="./ckeditor/adapters/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="./js/masonry.pkgd.min.js"></script>
+<script src="/path/to/masonry.pkgd.min.js"></script>
 
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -48,14 +48,6 @@ var smoothie = {
 
 	$(document).ready(function(){
 
-
-
-    var container = document.querySelector('#maincontainer');
-    var msnry = new Masonry( container, {
-      // options
-      columnWidth: 200,
-      itemSelector: '.item'
-    });
 
     // bootstrap-ckeditor-modal-fix.js
     // hack to fix ckeditor/bootstrap compatiability bug when ckeditor appears in a bootstrap modal dialog
@@ -130,7 +122,7 @@ var smoothie = {
       </div>
     </div>
 
-    <div id="maincontainer" class="container mainview">
+    <div class="container mainview">
     </div>
 
 
