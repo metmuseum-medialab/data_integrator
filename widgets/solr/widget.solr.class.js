@@ -4,9 +4,7 @@
 
 function SolrWidget(){
 
-	var solr = require("./node_modules/solr-client/main.js");
-
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -193,6 +191,28 @@ function SolrWidget(){
 
 		widgetInstance.run = function(){
 			var realthis = this;
+			
+		}
+
+
+		widgetInstance.init = function(){
+			// to run when this widget is loaded
+			realThis = this;
+			console.log("this widgetInstance Loaded, Solr");
+		}
+
+		widgetInstance.allLoaded = function(params){
+			console.log("all WidgetInstances Loaded, Solr");
+//			this.run();
+		//	widgetInstance.data.random = Math.random();
+		};
+
+
+		widgetInstance.sendToSolr = function(){
+			// this should be happening server-side.
+			console.log("sending to Solr");
+
+			var solr = require("solr-client");
 
 			var client = solr.createClient();
 
@@ -214,20 +234,7 @@ function SolrWidget(){
 			      console.log(obj);
 			   }
 			});
-			
-		}
 
-
-		widgetInstance.init = function(){
-			// to run when this widget is loaded
-			realThis = this;
-			console.log("this widgetInstance Loaded, Solr");
-		}
-
-		widgetInstance.allLoaded = function(params){
-			console.log("all WidgetInstances Loaded, Solr");
-//			this.run();
-		//	widgetInstance.data.random = Math.random();
 		};
 
 
@@ -243,6 +250,52 @@ function SolrWidget(){
 		decorateWidgetType : decorateWidgetType,
 		decorateWidget : decorateWidget,
 		decorateWidgetInstance : decorateWidgetInstance,
+
+		registerServerSideFunctions : function(){
+			return  {
+				GET : {
+					solrIndex : {
+						match : /^\/solrIndex\//,
+						theFunction : function(req, res){
+							console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+							console.log("calling solrIndex The registerServerSideFunctions");
+
+							var urlparser = require("urlparser");
+							var parsed = urlparser.parse(req.url);
+							var path = parsed.path.base;
+
+							var split = path.split("/");
+							split.shift();
+
+							var fullId = split.join("/");
+
+							console.log(split);
+
+							var entityType = split.shift();
+							var entity = false;
+							var	thingTypeName = split.shift();
+							var	entityId = split.shift();
+
+							var uniqueWidgetName = split.shift();
+
+							var entityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity").EntityManager();
+						    console.log(entityId);
+
+						    function callback(entity){
+						    	console.log("got entity");
+						    	console.log(entity.widgetInstances);
+						    	entity.widgetInstances[uniqueWidgetName].sendToSolr();
+						    }
+
+							entityManager.generateEntity(fullId, callback);
+
+
+
+						}
+					}
+				}
+			}
+		}
 
 	}
 

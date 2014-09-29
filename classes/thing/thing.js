@@ -190,21 +190,13 @@ function ThingManager(){
 		getWidgetManager : function(){
 			var WidgetManager = false;
 
-			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
-				WidgetManager = require("./widget.class.js").WidgetManager();
-			}else{
-				WidgetManager = require("./classes/widget/widget.js").WidgetManager();
-			}
+			WidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
 			return WidgetManager;
 		},
 
 		getDbManager : function(){
 			var db; 
-			if(typeof IAMONTHECLIENT === 'undefined'  || IAMONTHECLIENT == false){
-				db = require("./db.class.js").DbManager();
-			}else{
-				db = require("./classes/db/db.js").DbManager();
-			}
+			db = require(GLOBAL.params.root_dir+"/classes/db/db.js").DbManager();
 			return db;
 		},
 

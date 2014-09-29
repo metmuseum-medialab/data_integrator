@@ -5,7 +5,7 @@
 function UrlLoader2Widget(){
 
 
-	var BaseWidgetManager = require("./classes/widget.class.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
 
 
 	function getWidgetType(){

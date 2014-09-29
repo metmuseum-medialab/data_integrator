@@ -5,7 +5,7 @@
 function TemplateRendererWidget(){
 
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){

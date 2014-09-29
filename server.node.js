@@ -27,7 +27,10 @@ console.log(process.env);
 
 GLOBAL.context = "server";
 
-
+GLOBAL.params = {
+  foo : "var",
+  root_dir : __dirname
+};
 
 //var PageManager = require("./classes/page.class.js").PageManager();
 
@@ -56,6 +59,19 @@ type: object/facedata/issmiles
 
 
 */
+
+
+// call the widgetMananger and find out if there are any server-side functions for widgets.
+var WidgetManager = require("./classes/widget/widget.js").WidgetManager();
+
+var widgetServerSideFunctions;
+
+WidgetManager.registerServerSideWidgetFunctions(function(list){
+  console.log("got server-side functions");
+  console.log(list);
+  widgetServerSideFunctions = list;
+});
+
 
 server.route(
 
@@ -131,8 +147,21 @@ server.route(
         return;
       }
 
-      var EntityManager = require("./classes/entity/entity.js").EntityManager();
-      var entity = EntityManager.getEntity(req.url, function(entity){
+
+      $.each(widgetServerSideFunctions.GET, function(index, theFunction){
+        console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        if(req.url.match(theFunction.match)){
+            theFunction.theFunction(req, res);
+        }
+      });
+
+      return;
+
+      var EntityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity.js").EntityManager();
+
+      console.log("valling getEntity");
+      console.log(EntityManager);
+      var entity = EntityManager.generateEntity(req.url, function(entity){
         console.log("got entity");
         console.log(entity);
         var contentType = "application/json";

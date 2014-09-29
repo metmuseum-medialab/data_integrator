@@ -5,7 +5,7 @@
 function JsonLoaderWidget(){
 
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -204,7 +204,7 @@ function JsonLoaderWidget(){
 			var url = this.processTemplate(this.widget.config.url);
 			this.data.parsedUrl = url;
 			this.fireEvent("dataUpdated", {widgetInstance : this});
-			var proxy = require("/classes/proxy/proxy.js").ProxyManager();
+			var proxy = require(GLOBAL.params.root_dir+"/classes/proxy/proxy.js").ProxyManager();
 			
 			proxy.callUrl(url, function(result){
 				console.log("got result");

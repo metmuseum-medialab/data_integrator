@@ -180,7 +180,7 @@ function WidgetManager(){
 			processTemplate : function(templateString, callback){
 				console.log("in processTemplate");
 				console.log(this);
-				var dot = require('node_modules/dot/doT.js');
+				var dot = require(GLOBAL.params.root_dir+'/node_modules/dot/doT.js');
 				var deps = {};
 				for (var depname in this.widget.config.widgetDependencies){
 					console.log("adding deps data" + depname);
@@ -244,7 +244,7 @@ function WidgetManager(){
 			base = this.getBaseWidgetType();
 			var widgetType = Object.create(base);
 
-			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
+			var manager = require(GLOBAL.params.root_dir+ "/widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
 
 			var widgetType = manager.decorateWidgetType(widgetType, false);
 			return widgetType;
@@ -252,7 +252,7 @@ function WidgetManager(){
 
 
 		createWidget : function(typeName, uniqueName){
-			var path = "./widgets/"+typeName+"/widget."+typeName+".class.js";
+			var path = GLOBAL.params.root_dir+ "/widgets/"+typeName+"/widget."+typeName+".class.js";
 			var manager = require(path).Manager();
 
 			var widgetType = this.createWidgetType(typeName);
@@ -278,7 +278,7 @@ function WidgetManager(){
 			var typeName = widget.widgetType.typeName;
 			var uniqueName = widget.uniqueName;
 
-			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
+			var manager = require(GLOBAL.params.root_dir+ "/widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
 
 			base = this.getBaseWidgetInstance();
 			var widgetInstance = Object.create(base);
@@ -315,6 +315,46 @@ function WidgetManager(){
 		},
 
 		renderWidget : function (widget, format){},
+
+
+
+		// need to enable widgets to be able to register server-side urls,
+		// so they can call code on the server that executes ... stuff.
+		registerServerSideWidgetFunctions : function(callback){
+			this.getWidgetList(function(widgetFileList){
+				// go through list of widgets, and ask each one if it has any server-side functions
+				callback(widgetFileList);
+
+				var serverSideFunctions = {
+					GET :{},
+					PUT :{},
+					POST :{},
+				};
+
+				$.each(widgetFileList, function(typeName, file){
+					console.log(typeName);
+
+					console.log(GLOBAL.params);
+
+					var manager = require(GLOBAL.params.root_dir+"/widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
+					if(manager.registerServerSideFunctions){
+						var theFunctions = manager.registerServerSideFunctions();
+						$.extend(serverSideFunctions.GET, theFunctions.GET);
+						$.extend(serverSideFunctions.PUT, theFunctions.PUT);
+						$.extend(serverSideFunctions.POST, theFunctions.POST);
+					}
+				});
+
+				callback(serverSideFunctions);
+
+//			var manager = require("./widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
+
+
+
+			});
+
+		},
+
 
 		getWidgetList : function(callback2){
 			// this code will only run server-side
