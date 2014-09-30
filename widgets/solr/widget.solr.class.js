@@ -193,8 +193,32 @@ function SolrWidget(){
 		widgetInstance.run = function(){
 			var realthis = this;
 
-			// call the server-side version of this code, to index to solr.
-			var path = "thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
+			if(GLOBAL.context == 'client'){
+
+				// call the server-side version of this code, to index to solr.
+				var path = "//solrIndex/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
+
+				console.log("path is " + path);
+
+				$.ajax({
+					url : path,
+					type : "GET",
+					contentType : 'application/json',
+			  		success : function(rdata, status){
+			  			console.log("send to solr done!");
+			  		},
+			  		error : function(jqXHR, status, message){
+			  			console.log("error !!!!  ");
+			  			console.log(status);
+			  			console.log(message);
+			  			if(message.message == "missing"){
+			  			}else{
+				  		}
+			  		}
+				});
+			}else{
+		//		this.sendToSolr();
+			}
 			
 		}
 
@@ -209,9 +233,6 @@ function SolrWidget(){
 			console.log("all WidgetInstances Loaded, Solr");
 //			this.run();
 		//	widgetInstance.data.random = Math.random();
-		    var numDeps = this.widget.config.widgetDependencies.length;
-		    var depsRun = 0;
-		    console.log("numDeps " + numDeps);
 
 
 		};
@@ -225,24 +246,52 @@ function SolrWidget(){
 
 			var client = solr.createClient();
 
+
+			var elasticsearch = require('elasticsearch');
+			var eclient = new elasticsearch.Client({
+			  host: 'localhost:9200',
+			  log: 'trace'
+			});
+
+
 			// Switch on "auto commit", by default `client.autoCommit = false`
 			client.autoCommit = true;
-			var docs = [];
+			var docs = { 	
+				index : "mainindex",
+				type : this.thing.type.typeName,
+				id : this.thing.id,
+
+			};
 			for (var depname in this.widget.config.widgetDependencies){
 				var dep = this.thing.widgetInstances[depname].data;
 				console.log("got dep" + depname);
 				console.log(dep);
-				docs.push(dep);
+				docs[depname] = dep;
 
 			}
+			console.log("submitting ");
+			console.log( docs);
 			// Add documents
-			client.add(docs,function(err,obj){
+			eclient.index(docs,function(err,obj){
 			   if(err){
+			   		console.log("submit solr error");
 			      console.log(err);
 			   }else{
+			   		console.log("submit solr success");
 			      console.log(obj);
 			   }
 			});
+			/*
+			client.add(docs,function(err,obj){
+			   if(err){
+			   		console.log("submit solr error");
+			      console.log(err);
+			   }else{
+			   		console.log("submit solr success");
+			      console.log(obj);
+			   }
+			});
+*/
 
 		};
 
@@ -275,6 +324,7 @@ function SolrWidget(){
 
 							var split = path.split("/");
 							split.shift();
+							var uniqueWidgetName = split.pop();
 
 							var fullId = split.join("/");
 
@@ -283,23 +333,24 @@ function SolrWidget(){
 							var	thingTypeName = split.shift();
 							var	entityId = split.shift();
 
-							var uniqueWidgetName = split.shift();
-
 							var entityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity").EntityManager();
 						    console.log(entityId);
 
-						    var numDeps = this.widget.config.widgetDependencies.length;
-						    var depsRun = 0;
-						    console.log("numDeps " + numDeps);
-
-
 						    function callback(entity){
 						    	console.log("got entity");
-						    	console.log(entity.widgetInstances);
 
-				    			for (var depname in this.widget.config.widgetDependencies){
-									var dep = this.thing.widgetInstances[depname];
+						    	var widgetInstance = entity.widgetInstances[uniqueWidgetName];
+						    	var widget = widgetInstance.widget;
+						    	console.log(widget);
+
+							    var numDeps = Object.keys(widget.config.widgetDependencies).length;
+							    var depsRun = 0;
+							    console.log("numDeps " + numDeps);
+
+				    			for (var depname in widget.config.widgetDependencies){
+									var dep = entity.widgetInstances[depname];
 									dep.addListener("run", function(){
+										console.log("a run happened " + depsRun + " " + numDeps);
 										depsRun++;
 										if(numDeps == depsRun){
 									    	entity.widgetInstances[uniqueWidgetName].sendToSolr();

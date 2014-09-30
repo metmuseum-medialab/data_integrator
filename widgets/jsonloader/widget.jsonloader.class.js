@@ -210,6 +210,7 @@ function JsonLoaderWidget(){
 				console.log("got result");
 				console.log(result);
 				realthis.data.json = JSON.parse(result);
+				console.log("back from callUrl");
 				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
 				realthis.fireEvent("run", {widgetInstance : realthis});
 			});		
