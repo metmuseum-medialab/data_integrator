@@ -189,8 +189,12 @@ function SolrWidget(){
 		}
 
 
+		// this won't run until dependencies have run.
 		widgetInstance.run = function(){
 			var realthis = this;
+
+			// call the server-side version of this code, to index to solr.
+			var path = "thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
 			
 		}
 
@@ -205,6 +209,11 @@ function SolrWidget(){
 			console.log("all WidgetInstances Loaded, Solr");
 //			this.run();
 		//	widgetInstance.data.random = Math.random();
+		    var numDeps = this.widget.config.widgetDependencies.length;
+		    var depsRun = 0;
+		    console.log("numDeps " + numDeps);
+
+
 		};
 
 
@@ -269,8 +278,6 @@ function SolrWidget(){
 
 							var fullId = split.join("/");
 
-							console.log(split);
-
 							var entityType = split.shift();
 							var entity = false;
 							var	thingTypeName = split.shift();
@@ -281,10 +288,24 @@ function SolrWidget(){
 							var entityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity").EntityManager();
 						    console.log(entityId);
 
+						    var numDeps = this.widget.config.widgetDependencies.length;
+						    var depsRun = 0;
+						    console.log("numDeps " + numDeps);
+
+
 						    function callback(entity){
 						    	console.log("got entity");
 						    	console.log(entity.widgetInstances);
-						    	entity.widgetInstances[uniqueWidgetName].sendToSolr();
+
+				    			for (var depname in this.widget.config.widgetDependencies){
+									var dep = this.thing.widgetInstances[depname];
+									dep.addListener("run", function(){
+										depsRun++;
+										if(numDeps == depsRun){
+									    	entity.widgetInstances[uniqueWidgetName].sendToSolr();
+										}
+									});
+						    	};
 						    }
 
 							entityManager.generateEntity(fullId, callback);
