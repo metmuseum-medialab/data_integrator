@@ -10,6 +10,7 @@ node_modules/async
 node_modules/fs
 node_modules/file
 node_modules/solr-client
+node_modules/elasticsearch
 out.txt
 out.txt
 ckeditor
