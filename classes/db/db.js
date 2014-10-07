@@ -30,16 +30,13 @@ function DbManager(){
 
 			if(typeof IAMONTHECLIENT !== 'undefined' && IAMONTHECLIENT != false){
 				this.thiscodeonclient = true;
-//				console.log("I'm on the client");
 			}else{
-//				console.log("I'm on the server");
 				if(!this.connected){
 					var nano = require('nano')('http://localhost:5984');
 					var db_name = "integrator";
 					this.db = nano.use(db_name);
 
 					this.connected = true;
-//					console.log("got conntected");
 				}
 			}
 
@@ -101,7 +98,6 @@ function DbManager(){
 
 
 		loadThing : function(thingId, callback, notFoundCallback){
-			console.log("calling laodthing");
 			var id = "thing/" + thingId;
 			this.loadDoc(id, callback, notFoundCallback);
 			return false;
@@ -111,13 +107,11 @@ function DbManager(){
 			this.connect();
 			if(this.thiscodeonclient){
 				var url = "./couchdb/"+id;
-				console.log("on client, calling url : " + url);
 				$.ajax({
 					url : url,
 					type : "GET",
 					contentType : 'application/json',
 			  		success : function(rdata, status){
-			  			console.log("got data " + url);
 
 			  			callback(rdata);
 			  		},

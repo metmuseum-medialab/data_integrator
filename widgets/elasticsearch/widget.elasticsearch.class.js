@@ -2,13 +2,13 @@
 
 //var util = require("util");
 
-function SolrWidget(){
+function ElasticSearchWidget(){
 
 	var BaseWidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
-		widgetType.typeName = "Solr";
+		widgetType.typeName = "ElasticSearch";
 		/*
 		CODE TO ADD FUNCTIONALITY GOES HERE, I THINK 
 		*/
@@ -77,14 +77,12 @@ function SolrWidget(){
 			this.config.widgetDependencies = widgetDependencies;
 			var wdInput = $('');
 			var defaultWidgets = this.thingType.defaultWidgets;
-			console.log(defaultWidgets);
 
 			var realthis = this;
 
 			for(var index in defaultWidgets){
 
 				var defaultWidget= defaultWidgets[index];
-				console.log(defaultWidget);
 				var name = defaultWidget.uniqueName;
 				if(name == this.uniqueName){ continue;}
 
@@ -103,21 +101,16 @@ function SolrWidget(){
 					$(target.currentTarget).attr('data-set', (setval == "false" ? "true" : "false"));
 					$(target.currentTarget).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
 					var depname = $(target.currentTarget).attr('data-name');
-					console.log(depname);
 					if(setval == "false"){
 						// setting to true, so set it
-						console.log("adding " + depname);
 						realthis.config.widgetDependencies[depname] = depname;
 					}else{
 						// otherwise, remove it
-						console.log("removing" + depname);
 						delete realthis.config.widgetDependencies[depname];
 					}
-					console.log(realthis.config.widgetDependencies);
 					var ThingManager = require("./classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
-						console.log(result);
 					});
 
 				});
@@ -183,8 +176,16 @@ function SolrWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
+			var indicator = $("<span class='elasticloadingindicator'>waiting on data...</span>");
+			container.append(indicator);
+
+			this.addListener("preRun", function(params){
+				$(indicator).text("sending to elasticsearch...");
+
+			});
 
 			this.addListener("dataUpdated", function(params){
+				$(indicator).text("indexed in elasticsearch: " + params.status + (params.message ? " : " + params.message : ""));
 			});
 		}
 
@@ -193,31 +194,29 @@ function SolrWidget(){
 		widgetInstance.run = function(){
 			var realthis = this;
 
+			this.fireEvent("preRun");
+
 			if(GLOBAL.context == 'client'){
 
-				// call the server-side version of this code, to index to solr.
-				var path = "//solrIndex/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
-
-				console.log("path is " + path);
+				// call the server-side version of this code, to index to elasticsearch.
+				var path = "/elasticSearchIndex/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
 
 				$.ajax({
 					url : path,
 					type : "GET",
 					contentType : 'application/json',
 			  		success : function(rdata, status){
-			  			console.log("send to solr done!");
+			  			realthis.fireEvent("dataUpdated", {status : status});
 			  		},
 			  		error : function(jqXHR, status, message){
 			  			console.log("error !!!!  ");
 			  			console.log(status);
 			  			console.log(message);
-			  			if(message.message == "missing"){
-			  			}else{
-				  		}
+			  			realthis.fireEvent("dataUpdated", {status : status, message : message});
 			  		}
 				});
 			}else{
-		//		this.sendToSolr();
+		//		this.sendToElasticSearch();
 			}
 			
 		}
@@ -226,11 +225,9 @@ function SolrWidget(){
 		widgetInstance.init = function(){
 			// to run when this widget is loaded
 			realThis = this;
-			console.log("this widgetInstance Loaded, Solr");
 		}
 
 		widgetInstance.allLoaded = function(params){
-			console.log("all WidgetInstances Loaded, Solr");
 //			this.run();
 		//	widgetInstance.data.random = Math.random();
 
@@ -238,14 +235,8 @@ function SolrWidget(){
 		};
 
 
-		widgetInstance.sendToSolr = function(){
+		widgetInstance.sendToElasticSearch = function(escallback){
 			// this should be happening server-side.
-			console.log("sending to Solr");
-
-			var solr = require("solr-client");
-
-			var client = solr.createClient();
-
 
 			var elasticsearch = require('elasticsearch');
 			var eclient = new elasticsearch.Client({
@@ -253,49 +244,29 @@ function SolrWidget(){
 			  log: 'trace'
 			});
 
-
-			// Switch on "auto commit", by default `client.autoCommit = false`
-			client.autoCommit = true;
 			var docs = { 	
 				index : "mainindex",
 				type : this.thing.type.typeName,
 				id : this.thing.id,
-
+				body : {}
 			};
 			for (var depname in this.widget.config.widgetDependencies){
 				var dep = this.thing.widgetInstances[depname].data;
-				console.log("got dep" + depname);
-				console.log(dep);
-				docs[depname] = dep;
+				docs.body[depname] = dep;
 
 			}
-			console.log("submitting ");
-			console.log( docs);
 			// Add documents
 			eclient.index(docs,function(err,obj){
 			   if(err){
-			   		console.log("submit solr error");
+			   		console.log("submit elastic error");
 			      console.log(err);
+			      	escallback({error: true , success: false, message : err});
 			   }else{
-			   		console.log("submit solr success");
-			      console.log(obj);
+			      	escallback({error: false, success: true, message: obj});
 			   }
 			});
-			/*
-			client.add(docs,function(err,obj){
-			   if(err){
-			   		console.log("submit solr error");
-			      console.log(err);
-			   }else{
-			   		console.log("submit solr success");
-			      console.log(obj);
-			   }
-			});
-*/
 
 		};
-
-
 
 		if(callback){
 			callback(widgetInstance);
@@ -312,11 +283,11 @@ function SolrWidget(){
 		registerServerSideFunctions : function(){
 			return  {
 				GET : {
-					solrIndex : {
-						match : /^\/solrIndex\//,
+					elasticSearchIndex : {
+						match : /^\/elasticSearchIndex\//,
 						theFunction : function(req, res){
 							console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-							console.log("calling solrIndex The registerServerSideFunctions");
+							console.log("calling elasticSearchIndex The registerServerSideFunctions");
 
 							var urlparser = require("urlparser");
 							var parsed = urlparser.parse(req.url);
@@ -334,26 +305,28 @@ function SolrWidget(){
 							var	entityId = split.shift();
 
 							var entityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity").EntityManager();
-						    console.log(entityId);
 
 						    function callback(entity){
-						    	console.log("got entity");
 
 						    	var widgetInstance = entity.widgetInstances[uniqueWidgetName];
 						    	var widget = widgetInstance.widget;
-						    	console.log(widget);
 
 							    var numDeps = Object.keys(widget.config.widgetDependencies).length;
 							    var depsRun = 0;
-							    console.log("numDeps " + numDeps);
+
+
+							    esCallback = function(esResult){
+   						           var contentType = "application/json";
+							       res.writeHead(200, {'Content-Type': contentType});
+						           res.end(JSON.stringify(esResult));
+							    }
 
 				    			for (var depname in widget.config.widgetDependencies){
 									var dep = entity.widgetInstances[depname];
 									dep.addListener("run", function(){
-										console.log("a run happened " + depsRun + " " + numDeps);
 										depsRun++;
 										if(numDeps == depsRun){
-									    	entity.widgetInstances[uniqueWidgetName].sendToSolr();
+									    	entity.widgetInstances[uniqueWidgetName].sendToElasticSearch(esCallback);
 										}
 									});
 						    	};
@@ -376,4 +349,4 @@ function SolrWidget(){
 
 }
 
-module.exports.Manager = SolrWidget;
+module.exports.Manager  = ElasticSearchWidget;

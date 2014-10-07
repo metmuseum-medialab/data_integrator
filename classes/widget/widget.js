@@ -153,10 +153,9 @@ function WidgetManager(){
 				this.listeners[listenerName].push(callback);
 			},
 
+
 			fireEvent : function(listenerName, params){
-				console.log(this.widget.uniqueName + " in fireevent " + listenerName);
 				if(this.listeners[listenerName]){
-					console.log("firing");
 					$.each(this.listeners[listenerName], function(index, callback){
 						callback(params);
 					});
@@ -165,7 +164,6 @@ function WidgetManager(){
 
 			init  : function(widgetInstance){
 				// to run when this widget is loaded
-				console.log("this widgetInstance Loaded");
 			},
 
 			loadData : function(){
@@ -178,17 +176,12 @@ function WidgetManager(){
 
 
 			processTemplate : function(templateString, callback){
-				console.log("in processTemplate");
-				console.log(this);
 				var dot = require(GLOBAL.params.root_dir+'/node_modules/dot/doT.js');
 				var deps = {};
 				for (var depname in this.widget.config.widgetDependencies){
-					console.log("adding deps data" + depname);
 					deps[depname] = this.thing.widgetInstances[depname].data;
 				}
 				var tpldata = {thing: this.thing, config: this.widget.config, data : this.data, deps: deps};
-				console.log("about to call with ");
-				console.log(tpldata);
 				var tplfn = dot.template(templateString);
 				var string = tplfn(tpldata);
 				if(callback){
@@ -217,7 +210,6 @@ function WidgetManager(){
 		};
 
 		widgetInstance.renderWidgetInstancePageItemHeader = function(container){
-			console.log(widgetInstance.widget);
 			$(container).append("<h4>"+ widgetInstance.widget.widgetType.typeName  + " : " +  widgetInstance.widget.uniqueName);
 		};
 
@@ -265,8 +257,6 @@ function WidgetManager(){
 			widget.widgetType = widgetType;
 
 			var widget = manager.decorateWidget(widget, false);
-
-			console.log("created widget  " + uniqueName);
 			return widget;
 		},
 		attachWidgetData : function(widget, data){
@@ -332,9 +322,6 @@ function WidgetManager(){
 				};
 
 				$.each(widgetFileList, function(typeName, file){
-					console.log(typeName);
-
-					console.log(GLOBAL.params);
 
 					var manager = require(GLOBAL.params.root_dir+"/widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
 					if(manager.registerServerSideFunctions){
@@ -364,7 +351,6 @@ function WidgetManager(){
 			try{
 				var fs= require("fs");
 			}catch(error){
-				console.log(error);
 				console.log("calling with ajax");
 				// we're on the client: call the server instead.
 				$.ajax({
@@ -373,8 +359,6 @@ function WidgetManager(){
 				//	processData : false,
 					contentType : 'json',
 			  		success : function(rdata, status){
-			  			console.log("success");
-			  			console.log(rdata);
 			  			callback2(rdata);
 			  		},
 

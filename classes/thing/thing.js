@@ -155,12 +155,15 @@ function ThingManager(){
 				for(var  dep in deps){
 					var depWidget = this.widgetInstances[dep];
 					// setup the widget to listen for its dependency to run.
-					depWidget.addListener("run", function(params){
-						widgetInstance.depsRan++;
-						if(widgetInstance.depsRan == widgetInstance.numDeps && !widgetInstance.hasRun){
-							widgetInstance.run();
-						}
-					});
+					(function(_widgetInstance, _name){
+						depWidget.addListener("run", function(params){
+							_widgetInstance.depsRan++;
+							if(_widgetInstance.depsRan == _widgetInstance.numDeps && !_widgetInstance.hasRun){
+								_widgetInstance.run();
+							}else{
+							}
+						});
+					})(widgetInstance, name);
 				}
 			}
 		},
@@ -226,14 +229,12 @@ function ThingManager(){
 						$.each(doc.defaultWidgets, function(index, widgetDoc){
 							var widgetTypeName = widgetDoc.widgetTypeName;
 							var uniqueName = widgetDoc.uniqueName;
-							console.log("calling createWidget");
 							var defaultWidget = WidgetManager.createWidget(widgetTypeName, uniqueName);
 							WidgetManager.attachWidgetData(defaultWidget, widgetDoc);
 							thingType.addDefaultWidget(defaultWidget);
 						});
 					}
 				}
-				console.log("calling callback");
 				callback(thingType);	
 			},
 			function(notFoundDoc){
@@ -268,14 +269,11 @@ function ThingManager(){
 
 			var thing = this.createThing();
 			thing.id = id;
-			console.log("calling generateThingType");
 			this.generateThingType(typeName, function(thingType){
-				console.log("generateThingTypeCalled, in callback");
 				thing.type = thingType;
 				thing.db = db;
 
 				db.loadThing(id, function(doc){
-					console.log("loadThing done, in callback");
 					if(!doc){
 						console.log("no doc in db");
 					}else{
@@ -284,7 +282,6 @@ function ThingManager(){
 						thing._rev = doc._rev;
 						// iterate through the defaultwidgetname, deserialize
 						if(doc.widgetInstances instanceof Array){
-							console.log("got widgetInstances");
 							$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
 								var widgetTypeName = widgetInstanceDoc.widgetTypeName;
 								var uniqueName = widgetInstanceDoc.uniqueName;
@@ -306,7 +303,6 @@ function ThingManager(){
 					}
 
 					// add widget instances for thing, based on thingType.
-					console.log("about to call resolveThingWidgets");
 					thisManager.resolveThingWidgets(thing, callback);
 
 				},
@@ -319,14 +315,11 @@ function ThingManager(){
 
 		resolveThingWidgets : function(thing, callback){
 
-
-			console.log("in resolveThingWidgets");
 			// go through the default widgets, add them to this thing as instances if it doesn't already have them.
 			var WidgetManager = this.getWidgetManager();
 			var db = this.getDbManager();
 
 			var i =0;
-			console.log(Object.keys(thing.type.defaultWidgets).length);
 			
 			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
 				console.log("in each");

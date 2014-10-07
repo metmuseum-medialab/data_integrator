@@ -67,8 +67,6 @@ var WidgetManager = require("./classes/widget/widget.js").WidgetManager();
 var widgetServerSideFunctions;
 
 WidgetManager.registerServerSideWidgetFunctions(function(list){
-  console.log("got server-side functions");
-  console.log(list);
   widgetServerSideFunctions = list;
 });
 
@@ -86,19 +84,15 @@ server.route(
 
       console.log("@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST");
       console.log(req.url) ;
-      console.log(req.headers) ;
-
+ 
       if(req.url.match(/\.(html|js|jpg|jpeg|gif|png|css|ico|ttf|svg|woff)(\?.*)?$/i)){
-        console.log(req.url);
         if(!query.action){
-          console.log("getting file " + parsed.pathname);
           // this is doing it client-side
           sendFile(parsed.pathname, query, res);
           return;
         }
       }
       if(req.url.match(/^\/widgetlist$/)){
-        console.log("getting widgetlist");
         var widgetManager = require("./classes/widget/widget.js").WidgetManager();
         var filelist = widgetManager.getWidgetList(function(list){
           var contentType = "application/json";
@@ -109,20 +103,12 @@ server.route(
       }
 
       if(req.url.match(/^\/proxy\//)){
-        console.log("calling proxy");
-        console.log(req.url);
         var split = req.url.split("/");
-        console.log(split);
         split.shift(); split.shift();
-        console.log(split);
         var url = split.join("/");
-        console.log("url is " + url);
-
         
         var proxy = require("./classes/proxy/proxy.js").ProxyManager();
         var result = proxy.callUrl(url, function(data){
-          console.log("got data");
-          console.log(data);
           var contentType = "application/json";
           res.writeHead(200, {'Content-Type': contentType});
           res.end(JSON.stringify(data));
@@ -135,12 +121,9 @@ server.route(
       if(req.url.match(/^\/couchdb\//)){
 
         var couchid = req.url.replace(/^\/couchdb\//, "");
-        console.log("couch request for " + couchid)
         var  db = require("./classes/db/db.js").DbManager();
         db.loadDoc(couchid, function(doc){
           var contentType = "application/json";
-          console.log("returning doc");
-          console.log(doc);
           res.writeHead(200, {'Content-Type': contentType});
           res.end(JSON.stringify(doc));
         });
@@ -150,6 +133,7 @@ server.route(
 
       $.each(widgetServerSideFunctions.GET, function(index, theFunction){
         console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        console.log(req.url);
         if(req.url.match(theFunction.match)){
             theFunction.theFunction(req, res);
         }
@@ -159,11 +143,7 @@ server.route(
 
       var EntityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity.js").EntityManager();
 
-      console.log("valling getEntity");
-      console.log(EntityManager);
       var entity = EntityManager.generateEntity(req.url, function(entity){
-        console.log("got entity");
-        console.log(entity);
         var contentType = "application/json";
         res.writeHead(200, {'Content-Type': contentType});
         res.end(JSON.stringify(entity));
@@ -178,7 +158,6 @@ server.route(
     	// creating a NEW resource, or updating it.
       console.log("@@@@@@@@@@@@@@@@@@@@@@@@ PUT REQUEST");
       console.log(req.url) ;
-      console.log(req.headers) ;
       var contentType = "application/json";
       req.onJson(function(err, obj){
         if(err){
@@ -187,8 +166,6 @@ server.route(
           res.end(JSON.stringify({message : "insert ERROR"}));
           return;
         }
-        console.log("json");
-        console.log(obj);
         // do something with json data
         var db = require("./classes/db/db.js").DbManager();
         db.insertDoc(obj, function(result){
@@ -203,7 +180,6 @@ server.route(
   },
   '/widgetlist',  {
     GET : function(req, res){
-      console.log("getting widgetlist");
       var widgetManager = require("./classes/widget/widget.js");
       var filelist = widgetManager.getWidgetList(function(list){
         var contentType = "application/json";
@@ -263,8 +239,6 @@ function sendFile(path, query, res){
         res.end(data);
       }else{
         res.writeHead(200, {'Content-Type': contentType});
-        console.log("writing file " + path);
-     //   console.log(data);
         //dataCache[path] = data;
         res.end(data);
       }

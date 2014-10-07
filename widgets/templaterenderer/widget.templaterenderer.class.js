@@ -79,14 +79,12 @@ function TemplateRendererWidget(){
 			this.config.widgetDependencies = widgetDependencies;
 			var wdInput = $('');
 			var defaultWidgets = this.thingType.defaultWidgets;
-			console.log(defaultWidgets);
 
 			var realthis = this;
 
 			for(var index in defaultWidgets){
 
 				var defaultWidget= defaultWidgets[index];
-				console.log(defaultWidget);
 				var name = defaultWidget.uniqueName;
 				if(name == this.uniqueName){ continue;}
 
@@ -107,17 +105,13 @@ function TemplateRendererWidget(){
 					var depname = $(label).attr('data-name');
 					if(setval == "false"){
 						// setting to true, so set it
-						console.log("adding " + depname);
 						realthis.config.widgetDependencies[depname] = depname;
 					}else{
 						// otherwise, remove it
-						console.log("removing" + depname);
 						delete realthis.config.widgetDependencies[depname];
 					}
-					console.log(realthis.config.widgetDependencies);
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
-						console.log(result);
 					});
 
 				});
@@ -163,10 +157,7 @@ function TemplateRendererWidget(){
 				$(editorElem).val(templatestring);
 
 				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
-					console.log("hiding");
-					console.log($(editorElem).val());
 					thiswidget.config.template = $(editorElem).val();
-					console.log(ThingManager);
 					ThingManager.saveThingType(thiswidget.thingType, function(result){
 						// do thing with result here
 					});
@@ -215,6 +206,7 @@ function TemplateRendererWidget(){
 
 		widgetInstance.run = function(){
 			var realthis = this;
+
 			var parsed = this.processTemplate(this.widget.config.template);
 
 			this.data.parsedTemplate = parsed;
@@ -226,11 +218,9 @@ function TemplateRendererWidget(){
 		widgetInstance.init = function(){
 			// to run when this widget is loaded
 			realThis = this;
-			console.log("this widgetInstance Loaded, templaterenderer");
 		}
 
 		widgetInstance.allLoaded = function(params){
-			console.log("all WidgetInstances Loaded, templaterenderer");
 //			this.run();
 		//	widgetInstance.data.random = Math.random();
 		};

@@ -78,14 +78,12 @@ function JsonLoaderWidget(){
 			this.config.widgetDependencies = widgetDependencies;
 			var wdInput = $('');
 			var defaultWidgets = this.thingType.defaultWidgets;
-			console.log(defaultWidgets);
 
 			var realthis = this;
 
 			for(var index in defaultWidgets){
 
 				var defaultWidget= defaultWidgets[index];
-				console.log(defaultWidget);
 				var name = defaultWidget.uniqueName;
 				if(name == this.uniqueName){ continue;}
 
@@ -106,18 +104,14 @@ function JsonLoaderWidget(){
 					var depname = $(target.currentTarget).attr('data-name');
 					if(setval == "false"){
 						// setting to true, so set it
-						console.log("adding " + depname);
 						realthis.config.widgetDependencies[depname] = depname;
 					}else{
 						// otherwise, remove it
-						console.log("removing" + depname);
 						delete realthis.config.widgetDependencies[depname];
 					}
-					console.log(realthis.config.widgetDependencies);
 					var ThingManager = require("./classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
-						console.log(result);
 					});
 
 				});
@@ -207,10 +201,7 @@ function JsonLoaderWidget(){
 			var proxy = require(GLOBAL.params.root_dir+"/classes/proxy/proxy.js").ProxyManager();
 			
 			proxy.callUrl(url, function(result){
-				console.log("got result");
-				console.log(result);
 				realthis.data.json = JSON.parse(result);
-				console.log("back from callUrl");
 				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
 				realthis.fireEvent("run", {widgetInstance : realthis});
 			});		
@@ -220,11 +211,9 @@ function JsonLoaderWidget(){
 		widgetInstance.init = function(){
 			// to run when this widget is loaded
 			realThis = this;
-			console.log("this widgetInstance Loaded, jsonloader");
 		}
 
 		widgetInstance.allLoaded = function(params){
-			console.log("all WidgetInstances Loaded, jsonloader");
 //			this.run();
 		//	widgetInstance.data.random = Math.random();
 		};
