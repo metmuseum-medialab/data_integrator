@@ -222,10 +222,12 @@ function RenderManager(){
 			}
 
 			// when the page loads, adding the existing allowable widgets as options
-			$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
-				addDefaultWidgetOption(widgetTypeName, action2);
-			});
-
+			if(thingType.allowedWidgetTypes){
+				$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
+					addDefaultWidgetOption(widgetTypeName, action2);
+				});
+			}
+			
 			// when a new allowedWidgetType is added, adding to the options.
             thingType.addListener('addAllowedWidgetType', function(params){
             	var widgetTypeName = params.widgetTypeName;
