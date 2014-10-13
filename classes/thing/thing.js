@@ -7,7 +7,7 @@ function ThingManager(){
 
 		category : "ThingType",
 		typeName : "",
-		allowedWidgetTypes : {}, // array of widgetType names (string[])
+		allowedWidgetTypes : [], // array of widgetType names (string[])
 		defaultWidgets : {}, // array of {widgetType, Config }
 		numDefaultWidgets : 0,
 
@@ -222,8 +222,11 @@ function ThingManager(){
 			db.loadThingType(typeName, function(doc){
 				if(doc){
 					thingType._rev = doc._rev;
-					thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
-
+					if(doc.allowedWidgetTypes){
+						thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
+					}else{
+						thingType.allowedWidgetTypes = [];
+					}
 					// iterate through the defaultwidgetname, deserialize
 					if(doc.defaultWidgets instanceof Array){
 						$.each(doc.defaultWidgets, function(index, widgetDoc){
