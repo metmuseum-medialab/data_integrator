@@ -54,7 +54,7 @@ function WidgetManager(){
 
 			fireEvent : function(listenerName, params){
 				if(this.listeners[listenerName]){
-					$.each(this.listeners[listenerName], function(index, callback){
+					GLOBAL.$.each(this.listeners[listenerName], function(index, callback){
 						callback(params);
 					});
 				}
@@ -321,7 +321,7 @@ function WidgetManager(){
 					POST :{},
 				};
 
-				$.each(widgetFileList, function(typeName, file){
+				GLOBAL.$.each(widgetFileList, function(typeName, file){
 
 					var manager = require(GLOBAL.params.root_dir+"/widgets/"+typeName+"/widget."+typeName+".class.js").Manager();
 					if(manager.registerServerSideFunctions){
