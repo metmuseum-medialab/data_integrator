@@ -199,7 +199,7 @@ function ElasticSearchWidget(){
 			if(GLOBAL.context == 'client'){
 
 				// call the server-side version of this code, to index to elasticsearch.
-				var path = "/elasticSearchIndex/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
+				var path = "elasticSearchIndex/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
 
 				$.ajax({
 					url : path,
