@@ -1,6 +1,18 @@
 data_integrator
 ===============
 
+Next Widgets:
+- a link-follower widget, so pages that generate lists of things (eg from searching another site), can call the individual thing pages, thereby populating them with content
+- computer vision widget
+- "comments" widget - embedded google doc?
+
+Layout/UI stuff
+- better use of space, smaller fonts, less whitespace
+- a "hidden" tray for the housekeeping widgets, small icons to indicate that they are running
+
+Refactoring:
+- separate template/display from logic in a sensible way.
+
 a platform for the read-write collections API
 
 basic terms:
