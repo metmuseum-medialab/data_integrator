@@ -99,10 +99,10 @@ function TemplateRendererWidget(){
 				$(".widgetDependencies", accordion).append(label);
 
 				label.click(function(target){
-					var setval = $(label).attr('data-set');
-					$(label).attr('data-set', (setval == "false" ? "true" : "false"));
-					$(label).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
-					var depname = $(label).attr('data-name');
+					var setval = $(target.currentTarget).attr('data-set');
+					$(target.currentTarget).attr('data-set', (setval == "false" ? "true" : "false"));
+					$(target.currentTarget).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
+					var depname = $(target.currentTarget).attr('data-name');
 					if(setval == "false"){
 						// setting to true, so set it
 						realthis.config.widgetDependencies[depname] = depname;
@@ -110,6 +110,7 @@ function TemplateRendererWidget(){
 						// otherwise, remove it
 						delete realthis.config.widgetDependencies[depname];
 					}
+					var ThingManager = require("./classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
 					});
@@ -158,6 +159,7 @@ function TemplateRendererWidget(){
 
 				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
 					thiswidget.config.template = $(editorElem).val();
+					templatestring = thiswidget.config.template;
 					ThingManager.saveThingType(thiswidget.thingType, function(result){
 						// do thing with result here
 					});
