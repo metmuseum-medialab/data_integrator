@@ -16,26 +16,26 @@ Refactoring:
 a platform for the read-write collections API
 
 basic terms:
-1. 'thing' - ie instance, object, etc
-2. 'thing type' - eg class : ie. things have a type: eg "joe is a person."
-3. widget - a piece of functionality that can be added to a thing
-4. widget type - eg, the class of widget
+- 'thing' - ie instance, object, etc
+- 'thing type' - eg class : ie. things have a type: eg "joe is a person."
+- widget - a piece of functionality that can be added to a thing
+- widget type - eg, the class of widget
 
 primary interactions:
-1. view and browse existing things
-2. 'attach' a widget of your own to an individual thing, that others will be able to see
-3. configure a widget to do special stuff.
-3. 'attach' a default widget to all things of the same type
-3. extract all the data from a thing in a computer-friendly format
-4. create a widget definition that can do all sorts of stuff.
-5. ability to add lots of basic sections via web interface. ie, a
+- view and browse existing things
+- 'attach' a widget of your own to an individual thing, that others will be able to see
+- configure a widget to do special stuff.
+- 'attach' a default widget to all things of the same type
+- extract all the data from a thing in a computer-friendly format
+- create a widget definition that can do all sorts of stuff.
+- ability to add lots of basic sections via web interface. ie, a
 
 things a widget might do:
-1. run some computation on other data the thing has, and present it.
-2. watch the things other data, and send a notice if it changes
-3. provide a graphical widget for manipulating data, and saving it with the thing so other people can see it
-4. call another webservice and display that data
-5. be a text field
+- run some computation on other data the thing has, and present it.
+- watch the things other data, and send a notice if it changes
+- provide a graphical widget for manipulating data, and saving it with the thing so other people can see it
+- call another webservice and display that data
+- be a text field
 
 widgets can be:
 - attached to individual things when available
