@@ -2,6 +2,23 @@
 
 //var util = require("util");
 
+/*
+<!-- 
+	 curl --data "html=<html>hi</html>&javascript=&css=" http://localhost:3100/api/save
+{
+  "html": "<html>hi</html>",
+  "settings": "{ processors: {} }",
+  "length": 7,
+  "url": "jop",
+  "revision": 1,
+  "streamingKey": "41ae2c47b6bf52027b24d15943128752",
+  "id": 12,
+  "summary": "hi"
+127.0.0.1 - - [Mon, 10 Nov 2014 03:49:15 GMT] "POST /api/save HTTP/1.1" 200 200 "-" "curl/7.30.0"
+-->
+
+*/
+
 function JsBinWidget(){
 
 
