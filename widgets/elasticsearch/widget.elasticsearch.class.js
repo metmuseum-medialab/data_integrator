@@ -4,7 +4,7 @@
 
 function ElasticSearchWidget(){
 
-	var BaseWidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -173,7 +173,7 @@ function ElasticSearchWidget(){
 							var	thingTypeName = split.shift();
 							var	entityId = split.shift();
 
-							var entityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity").EntityManager();
+							var entityManager = require("./classes/entity/entity.js").EntityManager();
 
 						    function callback(entity){
 

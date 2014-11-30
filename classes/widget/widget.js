@@ -53,7 +53,7 @@ function WidgetManager(){
 			},
 
 			fireEvent : function(listenerName, params){
-				var async = require(GLOBAL.params.root_dir+'/node_modules/async/lib/async.js');
+				var async = require("async");
 				if(this.listeners[listenerName]){
 					async.each(this.listeners[listenerName], function(listenerCallback, callback){
 						listenerCallback(params);
@@ -297,18 +297,14 @@ function WidgetManager(){
 
 
 			processTemplate : function(templateString, callback){
-				var dot = require(GLOBAL.params.root_dir+'/node_modules/dot/doT.js');
+				var dot = require("dot");
 				var deps = {};
 				for (var depname in this.widget.config.widgetDependencies){
 					deps[depname] = this.thing.widgetInstances[depname].data;
 				}
 				console.log(templateString);
 
-				var req_path = "node_modules/html-entities/index.js";
-				if(GLOBAL.context == 'server'){
-					req_path = "html-entities";
-				}
-				var Entities = require(req_path).AllHtmlEntities;
+				var Entities = require("html-entities").AllHtmlEntities;
 				var entities = new Entities();
 
 				// because content inside dot syntax might have been html-ified, we need to un-htmlify it before it gets processed.
@@ -381,7 +377,7 @@ function WidgetManager(){
 			base = this.getBaseWidgetType();
 			var widgetType = Object.create(base);
 
-			var manager = require(GLOBAL.params.root_dir+ "/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+			var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
 
 			var widgetType = manager.decorateWidgetType(widgetType, false);
 			return widgetType;
@@ -389,7 +385,7 @@ function WidgetManager(){
 
 
 		createWidget : function(typeName, uniqueName){
-			var path = GLOBAL.params.root_dir+ "/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
+			var path = "./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
 			console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 			console.log(path);
 			var manager = require(path).Manager();
@@ -415,7 +411,7 @@ function WidgetManager(){
 			var typeName = widget.widgetType.typeName;
 			var uniqueName = widget.uniqueName;
 
-			var manager = require(GLOBAL.params.root_dir+ "/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+			var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
 
 			base = this.getBaseWidgetInstance();
 			var widgetInstance = Object.create(base);
@@ -470,7 +466,7 @@ function WidgetManager(){
 
 				GLOBAL.$.each(widgetFileList, function(typeName, file){
 
-					var manager = require(GLOBAL.params.root_dir+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+					var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
 					if(manager.registerServerSideFunctions){
 						var theFunctions = manager.registerServerSideFunctions();
 						$.extend(serverSideFunctions.GET, theFunctions.GET);

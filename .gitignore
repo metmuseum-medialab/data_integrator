@@ -11,6 +11,11 @@ node_modules/fs
 node_modules/file
 node_modules/solr-client
 node_modules/elasticsearch
-out.txt
+node_modules/brfs
+node_modules/canvas
+node_modules/minimist
+node_modules/html-entities
+node_modules/html-entities
+node_modules/.bin
 out.txt
 ckeditor

@@ -15,6 +15,7 @@ var fs = require("fs");
 //$ = require("jquery");//(jsdom.jsdom().createWindow()); 
 
 
+
 var jsdom = require('jsdom');
 var $;
 
@@ -29,7 +30,6 @@ jsdom.env({
     get_server_started();
   } 
 });
-
 
 
 
@@ -50,6 +50,15 @@ GLOBAL.params = {
   foo : "var",
   root_dir : __dirname
 };
+
+
+GLOBAL.myrequire = function(name, params){
+
+  var fullpath = "";
+  var required = false;
+  return require(name);
+}
+
 
 //var PageManager = require("./classes/page.class.js").PageManager();
 
@@ -108,7 +117,7 @@ function get_server_started(){
         console.log("@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST");
         console.log(req.url) ;
    
-        if(req.url.match(/\.(html|js|jpg|jpeg|gif|png|css|ico|ttf|svg|woff)(\?.*)?$/i)){
+        if(req.url.match(/\.(json|html|js|jpg|jpeg|gif|png|css|ico|ttf|svg|woff)(\?.*)?$/i)){
           if(!query.action){
             // this is doing it client-side
             sendFile(parsed.pathname, query, res);
@@ -239,6 +248,9 @@ function sendFile(path, query, res){
   switch (extname) {
     case '.js':
       contentType = 'text/javascript';
+      break;
+    case ".json":
+      contentType = "application/json";
       break;
     case '.css':
       contentType = 'text/css';

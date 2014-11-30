@@ -193,13 +193,13 @@ function ThingManager(){
 		getWidgetManager : function(){
 			var WidgetManager = false;
 
-			WidgetManager = require(GLOBAL.params.root_dir+"/classes/widget/widget.js").WidgetManager();
+			WidgetManager = require("./classes/widget/widget.js").WidgetManager();
 			return WidgetManager;
 		},
 
 		getDbManager : function(){
 			var db; 
-			db = require(GLOBAL.params.root_dir+"/classes/db/db.js").DbManager();
+			db = require("./classes/db/db.js").DbManager();
 			return db;
 		},
 
@@ -229,16 +229,26 @@ function ThingManager(){
 					}
 					// iterate through the defaultwidgetname, deserialize
 					if(doc.defaultWidgets instanceof Array){
-						$.each(doc.defaultWidgets, function(index, widgetDoc){
+						var async = require("async");
+
+
+						async.each(doc.defaultWidgets, function(widgetDoc, callback){
 							var widgetTypeName = widgetDoc.widgetTypeName;
 							var uniqueName = widgetDoc.uniqueName;
 							var defaultWidget = WidgetManager.createWidget(widgetTypeName, uniqueName);
 							WidgetManager.attachWidgetData(defaultWidget, widgetDoc);
 							thingType.addDefaultWidget(defaultWidget);
-						});
+							callback();
+						},
+						function(err){
+							callback(thingType);	
+						}
+						);
 					}
+				}else{
+					thingType.new = true;
+					callback(thinkType);
 				}
-				callback(thingType);	
 			},
 			function(notFoundDoc){
 				thingType.new = true;

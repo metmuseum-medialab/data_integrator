@@ -6,6 +6,8 @@
 TODO: Check out Browserify
 -->
 
+<script type="text/javascript" src="./js/app_bundle.js"></script>
+<!--
 <script type="text/javascript" src="./js/require.js"></script>
 <script type="text/javascript">
 var smoothie = {
@@ -15,7 +17,7 @@ var smoothie = {
       './widgets']
     };
 </script>
-
+-->
 <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
 <!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
 <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
@@ -41,10 +43,20 @@ var smoothie = {
 
 
 
-  GLOBAL.myrequire = function(name){
+  GLOBAL.myrequire = function(name, params, callback){
 
-    var fullpath = "";
-    var required = false;
+    var lib = false;
+    var start_path = "";
+    var full_path = "";
+    if(params.node_module){
+      start_path = "node_modules/";
+      full_path = start_path + name;
+      var request = require("")
+      var json = require("./node_modules/"+ name+"/package.json");
+      console.log("json is");
+      console.log(json);
+    } 
+    return lib;
   }
 
 	$(document).ready(function(){
@@ -82,9 +94,12 @@ var smoothie = {
       console.log("editor loaded");
     });
 
-		var entityManager = require("classes/entity/entity").EntityManager();
-		var urlparser = require("node_modules/urlparser/index.js");
-		var renderer = require("classes/renderer/renderer").RenderManager();
+
+    var async = require("async");
+
+    var entityManager = require("./classes/entity/entity").EntityManager();
+		var urlparser = require("urlparser");
+		var renderer = require("./classes/renderer/renderer").RenderManager();
 
 	  var parsed = urlparser.parse(location.href, true);
     console.log(parsed);
