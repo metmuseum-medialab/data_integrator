@@ -106,7 +106,7 @@ function RenderManager(){
 				$(".dropdown-menu", action1).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.addAllowedWidgetType(name);
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
 					});
@@ -120,7 +120,7 @@ function RenderManager(){
 				$(container).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.removeAllowedWidgetType(name);
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
 					});

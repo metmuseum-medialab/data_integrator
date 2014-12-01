@@ -6,17 +6,20 @@ require("html-entities");
 require("minimist");
 require("path");
 require("urlparser");
-require("./classes/entity/entity.js");
+
+/*
 require("./classes/renderer/renderer.js");
 require("./classes/thing/thing.js");
 require("./classes/widget/widget.js");
 require("./classes/db/db.js");
 require("./classes/proxy/proxy.js");
+*/
 //require("./widgets/jsonloader/widget.jsonloader.class.js");
 
 //-r ./classes/renderer/renderer.js:renderer \
 //-r ./classes/thing/thing.js:thing \
 
+//-r ./classes/entity/entity.js:./classes/entity/entity.js \
 
 /*
 browserify -t brfs \
@@ -40,4 +43,21 @@ browserify -t brfs \
 -r urlparser \
 for_browserify.js  > js/app_bundle.js
 
+*/
+
+/*
+require=(function e(t,n,r){function s(o,u){
+	console.log(o);
+	console.log(n);
+	console.log(t);
+	if(!n[o]){
+		if(!t[o]){
+			var a=typeof require=="function"&&require;
+			if(!u&&a)return a(o,!0);
+			if(i)return i(o,!0);
+			var f=new Error("Cannot find module '"+o+"'");
+			console.log("throwing");
+			throw f.code="MODULE_NOT_FOUND",f
+		}
+		var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 */

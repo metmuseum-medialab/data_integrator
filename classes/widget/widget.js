@@ -115,7 +115,7 @@ function WidgetManager(){
 			thewidget = this;
 			deletebutton.click(function(){
 				thewidget.thingType.removeDefaultWidget(widget.uniqueName);
-				var ThingManager = require("./classes/thing/thing.js").ThingManager();
+				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 				ThingManager.saveThingType(thewidget.thingType, function(result){
 					// do thing with result here
@@ -215,7 +215,7 @@ function WidgetManager(){
 						// otherwise, remove it
 						delete realthis.config.widgetDependencies[depname];
 					}
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
 					});
@@ -377,7 +377,7 @@ function WidgetManager(){
 			base = this.getBaseWidgetType();
 			var widgetType = Object.create(base);
 
-			var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+			var manager = require(GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
 
 			var widgetType = manager.decorateWidgetType(widgetType, false);
 			return widgetType;
@@ -385,7 +385,7 @@ function WidgetManager(){
 
 
 		createWidget : function(typeName, uniqueName){
-			var path = "./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
+			var path = GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
 			console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 			console.log(path);
 			var manager = require(path).Manager();
@@ -411,7 +411,7 @@ function WidgetManager(){
 			var typeName = widget.widgetType.typeName;
 			var uniqueName = widget.uniqueName;
 
-			var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+			var manager = require(GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
 
 			base = this.getBaseWidgetInstance();
 			var widgetInstance = Object.create(base);
@@ -465,8 +465,8 @@ function WidgetManager(){
 				};
 
 				GLOBAL.$.each(widgetFileList, function(typeName, file){
-
-					var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+					var path = GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
+					var manager = require(path).Manager();
 					if(manager.registerServerSideFunctions){
 						var theFunctions = manager.registerServerSideFunctions();
 						$.extend(serverSideFunctions.GET, theFunctions.GET);

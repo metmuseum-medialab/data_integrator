@@ -47,14 +47,14 @@ function EntityManager(){
 				console.log("got thingtype");
 				thingTypeName = split.shift();
 				var thingManager;
-				thingManager = require("./classes/thing/thing.js").ThingManager();
+				thingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 				thingManager.generateThingType(thingTypeName, callback);
 				return;
 			}else if (entityType == "thing"){
 				console.log("getting thing");
 				thingTypeName = split.shift();
 				thingId = split.shift();
-				thingManager = require("./classes/thing/thing.js").ThingManager();
+				thingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 				console.log("about to call generateThing");
 				thingManager.generateThing(thingTypeName, thingId, callback);
 				return

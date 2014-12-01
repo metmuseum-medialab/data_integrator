@@ -24,7 +24,7 @@
 function JsBinWidget(){
 
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -65,7 +65,7 @@ function JsBinWidget(){
 				$(editorElem).val(templatestring);
 
 				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 					thiswidget.config.template = $(editorElem).val();
 					templatestring = thiswidget.config.template;

@@ -193,13 +193,13 @@ function ThingManager(){
 		getWidgetManager : function(){
 			var WidgetManager = false;
 
-			WidgetManager = require("./classes/widget/widget.js").WidgetManager();
+			WidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 			return WidgetManager;
 		},
 
 		getDbManager : function(){
 			var db; 
-			db = require("./classes/db/db.js").DbManager();
+			db = require(GLOBAL.params.require_prefix+"/classes/db/db.js").DbManager();
 			return db;
 		},
 

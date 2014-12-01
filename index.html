@@ -39,28 +39,14 @@ var smoothie = {
   var GLOBAL = {};
   GLOBAL.context = "client";
   GLOBAL.params = {};
-  GLOBAL.params.root_dir = "";
-
-
-
-  GLOBAL.myrequire = function(name, params, callback){
-
-    var lib = false;
-    var start_path = "";
-    var full_path = "";
-    if(params.node_module){
-      start_path = "node_modules/";
-      full_path = start_path + name;
-      var request = require("")
-      var json = require("./node_modules/"+ name+"/package.json");
-      console.log("json is");
-      console.log(json);
-    } 
-    return lib;
-  }
+  GLOBAL.params.root_dir = ".";
+  GLOBAL.params.require_prefix = "";
 
 	$(document).ready(function(){
 
+console.log("111");
+    var e1ntityManager = require(GLOBAL.params.require_prefix+"/classes/entity/entity.js").EntityManager();
+console.log("222");
 
 
     var container = document.querySelector('#maincontainer');
@@ -96,10 +82,11 @@ var smoothie = {
 
 
     var async = require("async");
+    var urlparser = require("urlparser");
 
-    var entityManager = require("./classes/entity/entity").EntityManager();
-		var urlparser = require("urlparser");
-		var renderer = require("./classes/renderer/renderer").RenderManager();
+//    var entityManager = require("./classes/entity/entity.js").EntityManager();
+    var entityManager = require(GLOBAL.params.require_prefix+"/classes/entity/entity.js").EntityManager();
+    var renderer = require(GLOBAL.params.require_prefix+"/classes/renderer/renderer.js").RenderManager();
 
 	  var parsed = urlparser.parse(location.href, true);
     console.log(parsed);

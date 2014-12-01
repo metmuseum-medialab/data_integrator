@@ -4,7 +4,7 @@
 
 function ElasticSearchWidget(){
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -25,7 +25,7 @@ function ElasticSearchWidget(){
 			var widgetBody = params.container;
 			var accordion = params.accordion;
 			var thiswidget = params.widget;
-			var ThingManager = require("./classes/thing/thing.js").ThingManager();
+			var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 			// currently no config fields in this widget, nothing to do here
 		});
@@ -173,7 +173,7 @@ function ElasticSearchWidget(){
 							var	thingTypeName = split.shift();
 							var	entityId = split.shift();
 
-							var entityManager = require("./classes/entity/entity.js").EntityManager();
+							var entityManager = require(GLOBAL.params.require_prefix+"/classes/entity/entity.js").EntityManager();
 
 						    function callback(entity){
 

@@ -3,6 +3,9 @@ server for data-integrator
 */
 //var GLOBAL = {};
 
+
+
+
 var Percolator = require('percolator').Percolator;
 
 var IAMONTHECLIENT = false;
@@ -48,16 +51,9 @@ GLOBAL.context = "server";
 
 GLOBAL.params = {
   foo : "var",
-  root_dir : __dirname
+  root_dir : __dirname,
+  require_prefix : __dirname
 };
-
-
-GLOBAL.myrequire = function(name, params){
-
-  var fullpath = "";
-  var required = false;
-  return require(name);
-}
 
 
 //var PageManager = require("./classes/page.class.js").PageManager();

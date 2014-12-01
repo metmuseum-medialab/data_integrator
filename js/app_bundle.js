@@ -7,17 +7,20 @@ require("html-entities");
 require("minimist");
 require("path");
 require("urlparser");
-require("./classes/entity/entity.js");
+
+/*
 require("./classes/renderer/renderer.js");
 require("./classes/thing/thing.js");
 require("./classes/widget/widget.js");
 require("./classes/db/db.js");
 require("./classes/proxy/proxy.js");
+*/
 //require("./widgets/jsonloader/widget.jsonloader.class.js");
 
 //-r ./classes/renderer/renderer.js:renderer \
 //-r ./classes/thing/thing.js:thing \
 
+//-r ./classes/entity/entity.js:./classes/entity/entity.js \
 
 /*
 browserify -t brfs \
@@ -42,7 +45,24 @@ browserify -t brfs \
 for_browserify.js  > js/app_bundle.js
 
 */
-},{"./classes/db/db.js":undefined,"./classes/entity/entity.js":undefined,"./classes/proxy/proxy.js":undefined,"./classes/renderer/renderer.js":undefined,"./classes/thing/thing.js":undefined,"./classes/widget/widget.js":undefined,"async":"async","dot":"dot","file":"file","fs":"fs","html-entities":"html-entities","minimist":"minimist","path":"path","urlparser":"urlparser"}],2:[function(require,module,exports){
+
+/*
+require=(function e(t,n,r){function s(o,u){
+	console.log(o);
+	console.log(n);
+	console.log(t);
+	if(!n[o]){
+		if(!t[o]){
+			var a=typeof require=="function"&&require;
+			if(!u&&a)return a(o,!0);
+			if(i)return i(o,!0);
+			var f=new Error("Cannot find module '"+o+"'");
+			console.log("throwing");
+			throw f.code="MODULE_NOT_FOUND",f
+		}
+		var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+*/
+},{"async":"async","dot":"dot","file":"file","fs":"fs","html-entities":"html-entities","minimist":"minimist","path":"path","urlparser":"urlparser"}],2:[function(require,module,exports){
 // doT.js
 // 2011, Laura Doktorova, https://github.com/olado/doT
 // Licensed under the MIT license.
@@ -41911,14 +41931,14 @@ function EntityManager(){
 				console.log("got thingtype");
 				thingTypeName = split.shift();
 				var thingManager;
-				thingManager = require("./classes/thing/thing.js").ThingManager();
+				thingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 				thingManager.generateThingType(thingTypeName, callback);
 				return;
 			}else if (entityType == "thing"){
 				console.log("getting thing");
 				thingTypeName = split.shift();
 				thingId = split.shift();
-				thingManager = require("./classes/thing/thing.js").ThingManager();
+				thingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 				console.log("about to call generateThing");
 				thingManager.generateThing(thingTypeName, thingId, callback);
 				return
@@ -42031,7 +42051,7 @@ function EntityManager(){
 module.exports.EntityManager = EntityManager;
 
 
-},{"./classes/thing/thing.js":undefined}],"/classes/proxy/proxy.js":[function(require,module,exports){
+},{}],"/classes/proxy/proxy.js":[function(require,module,exports){
 /*
 proxy manager
 
@@ -42241,7 +42261,7 @@ function RenderManager(){
 				$(".dropdown-menu", action1).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.addAllowedWidgetType(name);
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
 					});
@@ -42255,7 +42275,7 @@ function RenderManager(){
 				$(container).append(widgetAddDiv);
 				$(widgetAddDiv).click(function(evt){
 					thingType.removeAllowedWidgetType(name);
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
 						// do thing with result here
 					});
@@ -42434,7 +42454,7 @@ function RenderManager(){
 module.exports.RenderManager = RenderManager;
 
 
-},{"./classes/thing/thing.js":undefined,"./classes/widget/widget.js":undefined}],"/classes/thing/thing.js":[function(require,module,exports){
+},{"./classes/widget/widget.js":undefined}],"/classes/thing/thing.js":[function(require,module,exports){
 function ThingManager(){
 
 	function ThingType(){};
@@ -42630,13 +42650,13 @@ function ThingManager(){
 		getWidgetManager : function(){
 			var WidgetManager = false;
 
-			WidgetManager = require("./classes/widget/widget.js").WidgetManager();
+			WidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 			return WidgetManager;
 		},
 
 		getDbManager : function(){
 			var db; 
-			db = require("./classes/db/db.js").DbManager();
+			db = require(GLOBAL.params.require_prefix+"/classes/db/db.js").DbManager();
 			return db;
 		},
 
@@ -42823,7 +42843,7 @@ function ThingManager(){
 
 module.exports.ThingManager = ThingManager;
 
-},{"./classes/db/db.js":undefined,"./classes/widget/widget.js":undefined,"async":"async"}],"/classes/widget/widget.js":[function(require,module,exports){
+},{"async":"async"}],"/classes/widget/widget.js":[function(require,module,exports){
 
 
 // a widget is attached to a THING, and does stuff. All widgets have common methods that the thing can call when assembling them
@@ -42941,7 +42961,7 @@ function WidgetManager(){
 			thewidget = this;
 			deletebutton.click(function(){
 				thewidget.thingType.removeDefaultWidget(widget.uniqueName);
-				var ThingManager = require("./classes/thing/thing.js").ThingManager();
+				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 				ThingManager.saveThingType(thewidget.thingType, function(result){
 					// do thing with result here
@@ -43041,7 +43061,7 @@ function WidgetManager(){
 						// otherwise, remove it
 						delete realthis.config.widgetDependencies[depname];
 					}
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(realthis.thingType, function(result){
 						// do thing with result here
 					});
@@ -43203,7 +43223,7 @@ function WidgetManager(){
 			base = this.getBaseWidgetType();
 			var widgetType = Object.create(base);
 
-			var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+			var manager = require(GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
 
 			var widgetType = manager.decorateWidgetType(widgetType, false);
 			return widgetType;
@@ -43211,7 +43231,7 @@ function WidgetManager(){
 
 
 		createWidget : function(typeName, uniqueName){
-			var path = "./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
+			var path = GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
 			console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 			console.log(path);
 			var manager = require(path).Manager();
@@ -43237,7 +43257,7 @@ function WidgetManager(){
 			var typeName = widget.widgetType.typeName;
 			var uniqueName = widget.uniqueName;
 
-			var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+			var manager = require(GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
 
 			base = this.getBaseWidgetInstance();
 			var widgetInstance = Object.create(base);
@@ -43291,8 +43311,8 @@ function WidgetManager(){
 				};
 
 				GLOBAL.$.each(widgetFileList, function(typeName, file){
-
-					var manager = require("./widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js").Manager();
+					var path = GLOBAL.params.require_prefix+"/widgets/"+typeName.toLowerCase()+"/widget."+typeName.toLowerCase()+".class.js";
+					var manager = require(path).Manager();
 					if(manager.registerServerSideFunctions){
 						var theFunctions = manager.registerServerSideFunctions();
 						$.extend(serverSideFunctions.GET, theFunctions.GET);
@@ -43369,7 +43389,7 @@ function WidgetManager(){
 }
 
 module.exports.WidgetManager = WidgetManager;
-},{"./classes/thing/thing.js":undefined,"async":"async","dot":"dot","html-entities":"html-entities"}],265:[function(require,module,exports){
+},{"async":"async","dot":"dot","html-entities":"html-entities"}],265:[function(require,module,exports){
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
 // THIS IS NOT TESTED NOR LIKELY TO WORK OUTSIDE V8!
@@ -61656,7 +61676,7 @@ module.exports = function(arr, obj){
 
 function ElasticSearchWidget(){
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -61677,7 +61697,7 @@ function ElasticSearchWidget(){
 			var widgetBody = params.container;
 			var accordion = params.accordion;
 			var thiswidget = params.widget;
-			var ThingManager = require("./classes/thing/thing.js").ThingManager();
+			var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 			// currently no config fields in this widget, nothing to do here
 		});
@@ -61825,7 +61845,7 @@ function ElasticSearchWidget(){
 							var	thingTypeName = split.shift();
 							var	entityId = split.shift();
 
-							var entityManager = require("./classes/entity/entity.js").EntityManager();
+							var entityManager = require(GLOBAL.params.require_prefix+"/classes/entity/entity.js").EntityManager();
 
 						    function callback(entity){
 
@@ -61871,7 +61891,7 @@ function ElasticSearchWidget(){
 }
 
 module.exports.Manager  = ElasticSearchWidget;
-},{"./classes/entity/entity.js":undefined,"./classes/thing/thing.js":undefined,"./classes/widget/widget.js":undefined,"elasticsearch":213,"urlparser":"urlparser"}],"/widgets/jsbin/widget.jsbin.class.js":[function(require,module,exports){
+},{"elasticsearch":213,"urlparser":"urlparser"}],"/widgets/jsbin/widget.jsbin.class.js":[function(require,module,exports){
 // this is a specific widget that does stuff, that the Thing can call
 
 //var util = require("util");
@@ -61898,7 +61918,7 @@ module.exports.Manager  = ElasticSearchWidget;
 function JsBinWidget(){
 
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -61939,7 +61959,7 @@ function JsBinWidget(){
 				$(editorElem).val(templatestring);
 
 				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 					thiswidget.config.template = $(editorElem).val();
 					templatestring = thiswidget.config.template;
@@ -62032,7 +62052,7 @@ function JsBinWidget(){
 }
 
 module.exports.Manager = JsBinWidget;
-},{"./classes/thing/thing.js":undefined,"./classes/widget/widget.js":undefined}],"/widgets/jsonloader/widget.jsonloader.class.js":[function(require,module,exports){
+},{}],"/widgets/jsonloader/widget.jsonloader.class.js":[function(require,module,exports){
 // this is a specific widget that does stuff, that the Thing can call
 
 //var util = require("util");
@@ -62040,7 +62060,7 @@ module.exports.Manager = JsBinWidget;
 function JsonLoaderWidget(){
 
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -62061,7 +62081,7 @@ function JsonLoaderWidget(){
 			var widgetBody = params.container;
 			var accordion = params.accordion;
 			var thiswidget = params.widget;
-			var ThingManager = require("./classes/thing/thing.js").ThingManager();
+			var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 			// url entry widget
 			var url = (thiswidget.config.url ? thiswidget.config.url : "");
@@ -62069,7 +62089,7 @@ function JsonLoaderWidget(){
 			$(input1).change(function(evt){
 				var newurl = evt.target.value;
 				thiswidget.config.url = newurl;
-				var ThingManager = require("./classes/thing/thing.js").ThingManager();
+				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
 					// do thing with result here
 				});
@@ -62119,7 +62139,7 @@ function JsonLoaderWidget(){
 			var url = this.processTemplate(this.widget.config.url);
 			this.data.parsedUrl = url;
 			this.fireEvent("dataUpdated", {widgetInstance : this});
-			var proxy = require("./classes/proxy/proxy.js").ProxyManager();
+			var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
 			
 			proxy.callUrl(url, function(result){
 				realthis.data.json = JSON.parse(result);
@@ -62161,7 +62181,7 @@ function JsonLoaderWidget(){
 }
 
 module.exports.Manager = JsonLoaderWidget;
-},{"./classes/proxy/proxy.js":undefined,"./classes/thing/thing.js":undefined,"./classes/widget/widget.js":undefined}],"/widgets/templaterenderer/widget.templaterenderer.class.js":[function(require,module,exports){
+},{}],"/widgets/templaterenderer/widget.templaterenderer.class.js":[function(require,module,exports){
 // this is a specific widget that does stuff, that the Thing can call
 
 //var util = require("util");
@@ -62169,7 +62189,7 @@ module.exports.Manager = JsonLoaderWidget;
 function TemplateRendererWidget(){
 
 
-	var BaseWidgetManager = require("./classes/widget/widget.js").WidgetManager();
+	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
 
 	function decorateWidgetType(widgetType, callback){
@@ -62210,7 +62230,7 @@ function TemplateRendererWidget(){
 				$(editorElem).val(templatestring);
 
 				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
-					var ThingManager = require("./classes/thing/thing.js").ThingManager();
+					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 					thiswidget.config.template = $(editorElem).val();
 					templatestring = thiswidget.config.template;
@@ -62300,7 +62320,7 @@ function TemplateRendererWidget(){
 }
 
 module.exports.Manager = TemplateRendererWidget;
-},{"./classes/thing/thing.js":undefined,"./classes/widget/widget.js":undefined}],"async":[function(require,module,exports){
+},{}],"async":[function(require,module,exports){
 (function (process){
 /*!
  * async
