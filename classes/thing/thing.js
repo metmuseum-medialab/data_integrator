@@ -27,7 +27,7 @@ function ThingManager(){
 
 		fireEvent : function(listenerName, params){
 			if(this.listeners[listenerName]){
-				$.each(this.listeners[listenerName], function(index, callback){
+				GLOBAL.$.each(this.listeners[listenerName], function(index, callback){
 					callback(params);
 				});
 			}
@@ -106,7 +106,7 @@ function ThingManager(){
 			console.log("calling listener " + listenerName);
 
 			if(this.listeners[listenerName]){
-				$.each(this.listeners[listenerName], function(index, callback){
+				GLOBAL.$.each(this.listeners[listenerName], function(index, callback){
 					callback(params);
 				});
 			}
@@ -136,15 +136,16 @@ function ThingManager(){
 
 				// attach a listener for when ALL the widgets have run.
 				widgetInstance.addListener("run", function(params){
+					console.log(params.widgetInstance.widget.uniqueName + " ran ");
 					realthis.widgetsRun[params.widgetInstance.widget.uniqueName] = params.widgetInstance.widget.uniqueName;
 					if(Object.keys(realthis.widgetsRun).length == Object.keys(realthis.widgetInstances).length){
 						console.log("all widgets ran");
-						console.log(realthis);
 						realthis.db.saveThing(realthis, function(rdata){
 							console.log("saved thing");
-							console.log(rdata);
  						});						
 						realthis.fireEvent("allWidgetsRan", {thing: realthis});
+					}else{
+						console.log("not all widgets ran yet " + Object.keys(realthis.widgetsRun).length + " , " + Object.keys(realthis.widgetInstances).length);
 					}
 				});
 
@@ -295,7 +296,7 @@ function ThingManager(){
 						thing._rev = doc._rev;
 						// iterate through the defaultwidgetname, deserialize
 						if(doc.widgetInstances instanceof Array){
-							$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
+							GLOBAL.$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
 								var widgetTypeName = widgetInstanceDoc.widgetTypeName;
 								var uniqueName = widgetInstanceDoc.uniqueName;
 
@@ -334,7 +335,7 @@ function ThingManager(){
 
 			var i =0;
 			
-			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
+			GLOBAL.$.each(thing.type.defaultWidgets, function(index, defaultWidget){
 				console.log("in each");
 				
 				var widgetInstance = false;

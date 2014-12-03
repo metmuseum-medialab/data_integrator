@@ -41,12 +41,9 @@ var smoothie = {
   GLOBAL.params = {};
   GLOBAL.params.root_dir = ".";
   GLOBAL.params.require_prefix = "";
+  GLOBAL.$= $;
 
-	$(document).ready(function(){
-
-console.log("111");
-    var e1ntityManager = require(GLOBAL.params.require_prefix+"/classes/entity/entity.js").EntityManager();
-console.log("222");
+	GLOBAL.$(document).ready(function(){
 
 
     var container = document.querySelector('#maincontainer');
@@ -63,9 +60,9 @@ console.log("222");
     // From: http://stackoverflow.com/questions/14420300/bootstrap-with-ckeditor-equals-problems
     // Author: http://stackoverflow.com/users/185839/aaron
      
-    $.fn.modal.Constructor.prototype.enforceFocus = function() {
+    GLOBAL.$.fn.modal.Constructor.prototype.enforceFocus = function() {
       modal_this = this
-      $(document).on('focusin.modal', function (e) {
+      GLOBAL.$(document).on('focusin.modal', function (e) {
         if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length 
         && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select') 
         && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
@@ -76,7 +73,7 @@ console.log("222");
 
 
 
-    $(".editor").ckeditor(function(elem){
+    GLOBAL.$(".editor").ckeditor(function(elem){
       console.log("editor loaded");
     });
 

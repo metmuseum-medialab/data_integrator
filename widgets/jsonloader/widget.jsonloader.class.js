@@ -30,8 +30,8 @@ function JsonLoaderWidget(){
 
 			// url entry widget
 			var url = (thiswidget.config.url ? thiswidget.config.url : "");
-			var input1 = $('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+url+'"></div>');
-			$(input1).change(function(evt){
+			var input1 = GLOBAL.$('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+url+'"></div>');
+			GLOBAL.$(input1).change(function(evt){
 				var newurl = evt.target.value;
 				thiswidget.config.url = newurl;
 				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
@@ -39,7 +39,7 @@ function JsonLoaderWidget(){
 					// do thing with result here
 				});
 			});
-			$(".widgetConfig", accordion).append(input1);
+			GLOBAL.$(".widgetConfig", accordion).append(input1);
 
 		});
 
@@ -60,20 +60,20 @@ function JsonLoaderWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var urlcontent = $("<h5>"+this.widget.config.url+"</h5>");
+			var urlcontent = GLOBAL.$("<h5>"+this.widget.config.url+"</h5>");
 			if(this.data.parsedUrl){
-				$(urlcontent).text(this.data.parsedUrl);
+				GLOBAL.$(urlcontent).text(this.data.parsedUrl);
 			}
-			var jsoncontent = $('<div class="panel-group" id="accordionJSON'+this.widget.uniqueName+'"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordionJSON'+this.widget.uniqueName+'" href="#collapseOneJSON'+this.widget.uniqueName+'">JSON 	</a><span class="loadingindicator"/></h4></div><div id="collapseOneJSON'+this.widget.uniqueName+'" class="panel-collapse collapse"><div class="panel-body"><pre/></div></div></div>');
+			var jsoncontent = GLOBAL.$('<div class="panel-group" id="accordionJSON'+this.widget.uniqueName+'"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordionJSON'+this.widget.uniqueName+'" href="#collapseOneJSON'+this.widget.uniqueName+'">JSON 	</a><span class="loadingindicator"/></h4></div><div id="collapseOneJSON'+this.widget.uniqueName+'" class="panel-collapse collapse"><div class="panel-body"><pre/></div></div></div>');
 			container.append(urlcontent);
 			container.append(jsoncontent);
-			$(".loadingindicator", jsoncontent).text("loading...");
+			GLOBAL.$(".loadingindicator", jsoncontent).text("loading...");
 			this.addListener("dataUpdated", function(params){
 				var url = realthis.data.parsedUrl;
-				$(urlcontent).text(url);
+				GLOBAL.$(urlcontent).text(url);
 				if(realthis.data.json){
-					$(".loadingindicator", jsoncontent).text("loaded");
-					$("pre",jsoncontent).text(JSON.stringify(realthis.data.json, null, 4));
+					GLOBAL.$(".loadingindicator", jsoncontent).text("loaded");
+					GLOBAL.$("pre",jsoncontent).text(JSON.stringify(realthis.data.json, null, 4));
 				}
 			});
 		}

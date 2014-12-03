@@ -42,26 +42,26 @@ function RenderManager(){
 				- default widgets that's the Widget with the config data
 				// the widget edit renderer should reveal the config data and make it editable
 			*/
-			var div = $("<div class='container thingTypeEditable' ></div>");
-			$(container).append(div);
+			var div = GLOBAL.$("<div class='container thingTypeEditable' ></div>");
+			GLOBAL.$(container).append(div);
 
-			var defaultRow = $("<div class='row defaultWidgetList' />");
-			$(div).append(defaultRow);
+			var defaultRow = GLOBAL.$("<div class='row defaultWidgetList' />");
+			GLOBAL.$(div).append(defaultRow);
 
 
 			function addDefaultWidgetPageItem(container, widget){
 				var layoutWidth = (widget.config.layoutWidth ? widget.config.layoutWidth : 4);
-            	var col = $('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widget '+widget.uniqueName+'"></div>');
-            	$(container).append(col);
+            	var col = GLOBAL.$('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widget '+widget.uniqueName+'"></div>');
+            	GLOBAL.$(container).append(col);
 
-            	var widgetDiv = $('<div class="panel panel-info"></div>');
-            	var widgetHeader = $('<div class="panel-heading"></div>');
-            	var widgetBody = $('<div class="panel-body"></div>');
-            	var widgetFooter = $('<div class="panel-footer"></div>');
-            	$(col).append(widgetDiv);
-            	$(widgetDiv).append(widgetHeader);
-            	$(widgetDiv).append(widgetBody);
-            	$(widgetDiv).append(widgetFooter);
+            	var widgetDiv = GLOBAL.$('<div class="panel panel-info"></div>');
+            	var widgetHeader = GLOBAL.$('<div class="panel-heading"></div>');
+            	var widgetBody = GLOBAL.$('<div class="panel-body"></div>');
+            	var widgetFooter = GLOBAL.$('<div class="panel-footer"></div>');
+            	GLOBAL.$(col).append(widgetDiv);
+            	GLOBAL.$(widgetDiv).append(widgetHeader);
+            	GLOBAL.$(widgetDiv).append(widgetBody);
+            	GLOBAL.$(widgetDiv).append(widgetFooter);
 
             	console.log(widget);
 
@@ -69,42 +69,42 @@ function RenderManager(){
 
 			}
 
-			$.each(thingType.defaultWidgets, function(index, widget){
-            	addDefaultWidgetPageItem($(defaultRow), widget);
+			GLOBAL.$.each(thingType.defaultWidgets, function(index, widget){
+            	addDefaultWidgetPageItem(GLOBAL.$(defaultRow), widget);
 			});
 
 			// add an all-pupose modal that can be filled with various content, and fired via javascript
-			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
+			var modal = GLOBAL.$('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
 			$(div).append(modal);
-			var modalBig = $('<div id="allPurposeModalLarge" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
+			var modalBig = GLOBAL.$('<div id="allPurposeModalLarge" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
 			$(div).append(modalBig);
 
             thingType.addListener("addDefaultWidget", function(params){
             	var widget = params.widget;
-            	addDefaultWidgetPageItem($(defaultRow), widget);
+            	addDefaultWidgetPageItem(GLOBAL.$(defaultRow), widget);
 
             });
 
             thingType.addListener("removeDefaultWidget", function(params){
             	var widgetUniqueName = params.widgetUniqueName;
             	var selector = ".defaultWidgetList ."+widgetUniqueName;
-            	$(".defaultWidgetList ."+widgetUniqueName).remove();
+            	GLOBAL.$(".defaultWidgetList ."+widgetUniqueName).remove();
             });
 
 
 		},
 
 		renderThingTypeNav : function (thingType, container){
-			$(".entityDescriptor", container).text(thingType.category + " : " + thingType.typeName);
+			GLOBAL.$(".entityDescriptor", container).text(thingType.category + " : " + thingType.typeName);
 
 
-			var action1 = $(".actionDropdown", container);
-			var action2 = $(action1).clone();
+			var action1 = GLOBAL.$(".actionDropdown", container);
+			var action2 = GLOBAL.$(action1).clone();
 
 			function createAddAllowedWidgetButton(thingType, container, name){
-				var widgetAddDiv = $('<li class="addAllowedWidget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
-				$(".dropdown-menu", action1).append(widgetAddDiv);
-				$(widgetAddDiv).click(function(evt){
+				var widgetAddDiv = GLOBAL.$('<li class="addAllowedWidget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
+				GLOBAL.$(".dropdown-menu", action1).append(widgetAddDiv);
+				GLOBAL.$(widgetAddDiv).click(function(evt){
 					thingType.addAllowedWidgetType(name);
 					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
@@ -116,9 +116,9 @@ function RenderManager(){
 			}
 
 			function createRemoveAllowedWidgetButton(thingType, container, name){
-				var widgetAddDiv = $('<li class="removeAllowedWidget ' + name + '"><span class="glyphicon glyphicon-remove"></span>Remove '+name+'</li>');
-				$(container).append(widgetAddDiv);
-				$(widgetAddDiv).click(function(evt){
+				var widgetAddDiv = GLOBAL.$('<li class="removeAllowedWidget ' + name + '"><span class="glyphicon glyphicon-remove"></span>Remove '+name+'</li>');
+				GLOBAL.$(container).append(widgetAddDiv);
+				GLOBAL.$(widgetAddDiv).click(function(evt){
 					thingType.removeAllowedWidgetType(name);
 					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
@@ -127,21 +127,21 @@ function RenderManager(){
 				});
 			}
 
-			$(".actionLabel", action1).text('Add Allowed Widget');
+			GLOBAL.$(".actionLabel", action1).text('Add Allowed Widget');
 	        var widgetManager = require("./classes/widget/widget.js").WidgetManager();
             widgetManager.getWidgetList(function(list){
 
-				$.each(list, function(name, info){
-					if($.inArray(name, thingType.allowedWidgetTypes) > -1){
+				GLOBAL.$.each(list, function(name, info){
+					if(GLOBAL.$.inArray(name, thingType.allowedWidgetTypes) > -1){
 						return true;
 					}
-					createAddAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name)
+					createAddAllowedWidgetButton(thingType, GLOBAL.$(".dropdown-menu", action1), name)
 				});        	
-				$.each(list, function(name, info){
+				GLOBAL.$.each(list, function(name, info){
 					if($.inArray(name, thingType.allowedWidgetTypes) == -1){
 						return true;
 					}
-					createRemoveAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name)
+					createRemoveAllowedWidgetButton(thingType, GLOBAL.$(".dropdown-menu", action1), name)
 				});        	
             });
 
@@ -150,7 +150,7 @@ function RenderManager(){
             thingType.addListener('addAllowedWidgetType', function(params){
             	var name = params.widgetTypeName;
             	var targetThingType = params.entity;
-            	$("."+name, action1).remove();
+            	GLOBAL.$("."+name, action1).remove();
             	createRemoveAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name);
             });
 
@@ -158,38 +158,38 @@ function RenderManager(){
             thingType.addListener('removeAllowedWidgetType', function(params){
             	var name = params.widgetTypeName;
             	var targetThingType = params.entity;
-            	$("."+name, action1).remove();
-            	createAddAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name);
+            	GLOBAL.$("."+name, action1).remove();
+            	createAddAllowedWidgetButton(thingType, GLOBAL.$(".dropdown-menu", action1), name);
             });
 
 
             // dropdown for adding default widgets
-			$(".actionLabel", action2).html('Add Default Widget');
-			$(action1).after(action2); 
+			GLOBAL.$(".actionLabel", action2).html('Add Default Widget');
+			GLOBAL.$(action1).after(action2); 
 			function addDefaultWidgetOption(widgetTypeName, dropdownContainer){
 				var widgetAddDiv = $('<li class="addDefault	Widget ' + widgetTypeName + '"><span class="glyphicon glyphicon-plus"></span>Add '+widgetTypeName+'</li>');
-				$(".dropdown-menu", dropdownContainer).append(widgetAddDiv);
-				$(widgetAddDiv).click(function(evt){
+				GLOBAL.$(".dropdown-menu", dropdownContainer).append(widgetAddDiv);
+				GLOBAL.$(widgetAddDiv).click(function(evt){
 					// need to get the uniuename
-					$('#allPurposeModal .modal-header').html('<h4>Enter Unique Name for this instance of this widget</h4>');
+					GLOBAL.$('#allPurposeModal .modal-header').html('<h4>Enter Unique Name for this instance of this widget</h4>');
 					var formElem = $('<input type="text" class="form-control" placeholder="Unique Name" />');
-					$('#allPurposeModal .modal-body').html(formElem);
-					$('#allPurposeModal').modal('show');
-					$('#allPurposeModal').off('hide.bs.modal');
+					GLOBAL.$('#allPurposeModal .modal-body').html(formElem);
+					GLOBAL.$('#allPurposeModal').modal('show');
+					GLOBAL.$('#allPurposeModal').off('hide.bs.modal');
 
 					function processSubmission(evt){
 						// this code may also need to tell if the uniqueName is taken or not.
-						var widgetUniqueName = $(formElem).val().trim();
+						var widgetUniqueName = GLOBAL.$(formElem).val().trim();
 
 						// make sure it's not blank, and that it's unique for this thingType
 
 						if(widgetUniqueName == ""){
-							$('#allPurposeModal .modal-footer').html("<span>the name can't be blank</span>");
+							GLOBAL.$('#allPurposeModal .modal-footer').html("<span>the name can't be blank</span>");
 							return false;
 						}
 
 						if(thingType.hasWidgetNamed(widgetUniqueName)){
-							$('#allPurposeModal .modal-footer').html("<span>that name is taken</span>");
+							GLOBAL.$('#allPurposeModal .modal-footer').html("<span>that name is taken</span>");
 							return false;							
 						}
 
@@ -203,13 +203,13 @@ function RenderManager(){
 
 					}
 
-					$('#allPurposeModal').on('hide.bs.modal', function(evt){
+					GLOBAL.$('#allPurposeModal').on('hide.bs.modal', function(evt){
 						return processSubmission(evt);
 					});
 
-					$(formElem).on('keydown', function(evt){
+					GLOBAL.$(formElem).on('keydown', function(evt){
 						if(evt.keyCode == 13){
-							$('#allPurposeModal').modal("hide");
+							GLOBAL.$('#allPurposeModal').modal("hide");
 						}
 					});
 
@@ -217,13 +217,13 @@ function RenderManager(){
 			}
 
 			function removeDefaultWidgetOption(widgetTypeName, dropdownContainer){
-				$("."+widgetTypeName, dropdownContainer).remove();
+				GLOBAL.$("."+widgetTypeName, dropdownContainer).remove();
 			
 			}
 
 			// when the page loads, adding the existing allowable widgets as options
 			if(thingType.allowedWidgetTypes){
-				$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
+				GLOBAL.$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
 					addDefaultWidgetOption(widgetTypeName, action2);
 				});
 			}
@@ -258,27 +258,27 @@ function RenderManager(){
 			function addWidgetInstancePageItem(container, widgetInstance){
 				console.log(widgetInstance.widget);
 				var layoutWidth = (widgetInstance.widget.config.layoutWidth ? widgetInstance.widget.config.layoutWidth : 4)
-            	var col = $('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
-            	$(container).append(col);
+            	var col = GLOBAL.$('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
+            	GLOBAL.$(container).append(col);
 
-            	var widgetDiv = $('<div class="panel panel-info"></div>');
-            	var widgetHeader = $('<div class="panel-heading"></div>');
-            	var widgetBody = $('<div class="panel-body"></div>');
-            	var widgetFooter = $('<div class="panel-footer"></div>');
-            	$(col).append(widgetDiv);
-            	$(widgetDiv).append(widgetHeader);
-            	$(widgetDiv).append(widgetBody);
-            	$(widgetDiv).append(widgetFooter);
+            	var widgetDiv = GLOBAL.$('<div class="panel panel-info"></div>');
+            	var widgetHeader = GLOBAL.$('<div class="panel-heading"></div>');
+            	var widgetBody = GLOBAL.$('<div class="panel-body"></div>');
+            	var widgetFooter = GLOBAL.$('<div class="panel-footer"></div>');
+            	GLOBAL.$(col).append(widgetDiv);
+            	GLOBAL.$(widgetDiv).append(widgetHeader);
+            	GLOBAL.$(widgetDiv).append(widgetBody);
+            	GLOBAL.$(widgetDiv).append(widgetFooter);
             	widgetInstance.renderWidgetInstancePageItem(widgetHeader, widgetBody, widgetFooter);
 
 			}
-			$.each(thing.widgetInstances, function(index, widgetInstance){
-				addWidgetInstancePageItem($(defaultRow), widgetInstance);
+			GLOBAL.$.each(thing.widgetInstances, function(index, widgetInstance){
+				addWidgetInstancePageItem(GLOBAL.$(defaultRow), widgetInstance);
 			});
 
 
 			thing.addListener("addWidgetInstance", function(params){
-				addWidgetInstancePageItem($(defaultRow), widgetInstance);
+				addWidgetInstancePageItem(GLOBAL.$(defaultRow), widgetInstance);
 			});
 
 

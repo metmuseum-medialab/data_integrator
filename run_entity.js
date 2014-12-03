@@ -22,15 +22,11 @@ var pathparser = require("path");
 GLOBAL = {};
 GLOBAL.context = "server";
 GLOBAL.params = {
-  root_dir : __dirname
+  root_dir : __dirname,
+  require_prefix : __dirname
+
 };
 
-GLOBAL.myrequire = function(name, params){
-
-var fullpath = "";
-var required = false;
-return require(name);
-}
 
 
 var jsdom = require('jsdom');
@@ -42,23 +38,34 @@ jsdom.env({
     'http://code.jquery.com/jquery-1.5.min.js'
   ],
   done : function (err, window) {
+    console.log("running entitye " + entityId);
     $ = window.jQuery;
     GLOBAL.$ = $;
-    get_server_started();
+    run_entity(entityId);
   } 
 });
 
 
+function run_entity(entityId){
+  var EntityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity.js").EntityManager();
 
+  function callback(entity){
+    console.log("in final callback");
+    console.log(entity);
+    console.log("done showing entity");
+    entity.addListener("allWidgetsRan", function(params){
+      console.log("this thing is all done!");
+      console.log(params);
+      console.log("done now?");
+    });
+    return;
+  }
 
-var EntityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity.js").EntityManager();
+  EntityManager.generateEntity(entityId, callback);
+  return;
 
-function callback(entity){
-  console.log("in final callback");
-  console.log(entity);
 }
 
-EntityManager.generateEntity(entityId, callback);
 
 
 

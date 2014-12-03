@@ -31,29 +31,29 @@ function TemplateRendererWidget(){
 			// template design widget
 			var templatestring = (thiswidget.config.template ? thiswidget.config.template : "");
 			thiswidget.config.template = templatestring;
-			var input1 = $('<h5>Open Editor</h5>');
-			$(".widgetConfig", accordion).append(input1);
-			$(input1).click(function(evt){
-				$('#allPurposeModalLarge .modal-header').html('<h4>Edit Content</h4>');
-				var editorElem = $('<textarea></textarea>');
-				$('#allPurposeModalLarge .modal-body').html(editorElem);
-				$('#allPurposeModalLarge').modal('show');
-				$('#allPurposeModalLarge').off('hide.bs.modal');
-				$(editorElem).ckeditor(function(elem){},
+			var input1 = GLOBAL.$('<h5>Open Editor</h5>');
+			GLOBAL.$(".widgetConfig", accordion).append(input1);
+			GLOBAL.$(input1).click(function(evt){
+				GLOBAL.$('#allPurposeModalLarge .modal-header').html('<h4>Edit Content</h4>');
+				var editorElem = GLOBAL.$('<textarea></textarea>');
+				GLOBAL.$('#allPurposeModalLarge .modal-body').html(editorElem);
+				GLOBAL.$('#allPurposeModalLarge').modal('show');
+				GLOBAL.$('#allPurposeModalLarge').off('hide.bs.modal');
+				GLOBAL.$(editorElem).ckeditor(function(elem){},
 										{
 											baseFloatZIndex : 9000,
 										});
-				$(editorElem).val(templatestring);
+				GLOBAL.$(editorElem).val(templatestring);
 
-				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
+				GLOBAL.$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
 					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
-					thiswidget.config.template = $(editorElem).val();
+					thiswidget.config.template = GLOBAL.$(editorElem).val();
 					templatestring = thiswidget.config.template;
 					ThingManager.saveThingType(thiswidget.thingType, function(result){
 						// do thing with result here
 					});
-					$('#allPurposeModalLarge').off('hide.bs.modal');
+					GLOBAL.$('#allPurposeModalLarge').off('hide.bs.modal');
 				});
 			});
 		});
@@ -83,10 +83,10 @@ function TemplateRendererWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var parsedContentElem = $("<div>"+this.data.parsedTemplate+"</div>");
+			var parsedContentElem = GLOBAL.$("<div>"+this.data.parsedTemplate+"</div>");
 
 			this.addListener("templateParsed", function(params){
-				$(parsedContentElem).html(realthis.data.parsedTemplate);
+				GLOBAL.$(parsedContentElem).html(realthis.data.parsedTemplate);
 			});
 
 			container.append(parsedContentElem);

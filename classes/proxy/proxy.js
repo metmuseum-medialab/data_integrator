@@ -79,7 +79,6 @@ function ProxyManager(){
 				  	resp.on("end", function(){
 				  		console.log("in callback for response ");
 				  		console.log(proxyurl);
-				  		console.log(resultBody);
 				  		callback(resultBody);
 				  	});
 				}).on("error", function(e){

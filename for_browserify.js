@@ -23,7 +23,7 @@ require("./classes/proxy/proxy.js");
 
 /*
 browserify -t brfs \
--r ./classes/entity/entity.js:./classes/entity/entity.js \
+-r ./classes/entity/entity.js:"./classes/entity/entity.js" \
 -r ./classes/renderer/renderer.js:./classes/renderer/renderer.js \
 -r ./classes/thing/thing.js:./classes/thing/thing.js \
 -r ./classes/widget/widget.js:./classes/widget/widget.js \

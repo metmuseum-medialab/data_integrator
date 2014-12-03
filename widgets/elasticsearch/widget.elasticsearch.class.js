@@ -45,22 +45,23 @@ function ElasticSearchWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var indicator = $("<span class='elasticloadingindicator'>waiting on data...</span>");
+			var indicator = GLOBAL.$("<span class='elasticloadingindicator'>waiting on data...</span>");
 			container.append(indicator);
 
 			this.addListener("preRun", function(params){
-				$(indicator).text("sending to elasticsearch...");
+				GLOBAL.$(indicator).text("sending to elasticsearch...");
 
 			});
 
 			this.addListener("dataUpdated", function(params){
-				$(indicator).text("indexed in elasticsearch: " + params.status + (params.message ? " : " + params.message : ""));
+				GLOBAL.$(indicator).text("indexed in elasticsearch: " + params.status + (params.message ? " : " + params.message : ""));
 			});
 		}
 
 
 		// this won't run until dependencies have run.
 		widgetInstance.run = function(){
+			console.log("running elasticsearch.run");
 			var realthis = this;
 
 			this.fireEvent("preRun");
@@ -70,12 +71,13 @@ function ElasticSearchWidget(){
 				// call the server-side version of this code, to index to elasticsearch.
 				var path = "elasticSearchIndex/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
 
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : path,
 					type : "GET",
 					contentType : 'application/json',
 			  		success : function(rdata, status){
 			  			realthis.fireEvent("dataUpdated", {status : status});
+						realthis.fireEvent("run", {widgetInstance : realthis});
 			  		},
 			  		error : function(jqXHR, status, message){
 			  			console.log("error !!!!  ");
@@ -85,7 +87,12 @@ function ElasticSearchWidget(){
 			  		}
 				});
 			}else{
-		//		this.sendToElasticSearch();
+				this.sendToElasticSearch(function(){
+					console.log("sent to elasticsearch");
+		  			realthis.fireEvent("dataUpdated", {status : true});
+					realthis.fireEvent("run", {widgetInstance : realthis});
+
+				});
 			}
 			
 		}

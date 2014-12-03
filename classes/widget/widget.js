@@ -109,8 +109,8 @@ function WidgetManager(){
 
 
 		widget.renderWidgetConfigEditFooter = function(container){
-			var deletebutton = $('<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span> Remove</button>');
-			$(container).append(deletebutton);
+			var deletebutton = GLOBAL.$('<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span> Remove</button>');
+			GLOBAL.$(container).append(deletebutton);
 
 			thewidget = this;
 			deletebutton.click(function(){
@@ -125,14 +125,14 @@ function WidgetManager(){
 		};
 
 		widget.renderWidgetConfigEditHeader = function(container){
-			$(container).append("<h4>"+ this.widgetType.typeName  + " : " +  this.uniqueName);
+			GLOBAL.$(container).append("<h4>"+ this.widgetType.typeName  + " : " +  this.uniqueName);
 		};
 
 		widget.renderWidgetConfigEditBody = function(container){
 			this.fireEvent("renderWidgetConfigEditBody_before", {container : container});
 
 
-			var accordion = $('<div class="panel-group" id="accordion'+this.uniqueName+'">' +
+			var accordion = GLOBAL.$('<div class="panel-group" id="accordion'+this.uniqueName+'">' +
 '  <div class="panel panel-default">' +
 '    <div class="panel-heading">' +
 '      <h4 class="panel-title">' +
@@ -175,14 +175,14 @@ function WidgetManager(){
 '</div>');
 
 
-			var form = $("<div></div>")
-			$(container).append(accordion);			
+			var form = GLOBAL.$("<div></div>")
+			GLOBAL.$(container).append(accordion);			
 
 
 			// other widget dependency dropdown
 			var widgetDependencies = (this.config.widgetDependencies ? this.config.widgetDependencies : {});
 			this.config.widgetDependencies = widgetDependencies;
-			var wdInput = $('');
+			var wdInput = GLOBAL.$('');
 			var defaultWidgets = this.thingType.defaultWidgets;
 
 			var realthis = this;
@@ -200,14 +200,14 @@ function WidgetManager(){
 					set = true;
 				}
 
-				var label = $("<span class='label "+classname+"' data-set='"+set+"' data-name='"+name+"'>"+ name+"</span>");
-				$(".widgetDependencies", accordion).append(label);
+				var label = GLOBAL.$("<span class='label "+classname+"' data-set='"+set+"' data-name='"+name+"'>"+ name+"</span>");
+				GLOBAL.$(".widgetDependencies", accordion).append(label);
 
 				label.click(function(target){
-					var setval = $(target.currentTarget).attr('data-set');
-					$(target.currentTarget).attr('data-set', (setval == "false" ? "true" : "false"));
-					$(target.currentTarget).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
-					var depname = $(target.currentTarget).attr('data-name');
+					var setval = GLOBAL.$(target.currentTarget).attr('data-set');
+					GLOBAL.$(target.currentTarget).attr('data-set', (setval == "false" ? "true" : "false"));
+					GLOBAL.$(target.currentTarget).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
+					var depname = GLOBAL.$(target.currentTarget).attr('data-name');
 					if(setval == "false"){
 						// setting to true, so set it
 						realthis.config.widgetDependencies[depname] = depname;
@@ -227,21 +227,21 @@ function WidgetManager(){
 
 			// layout width config
 			var layoutWidth = (this.config.layoutWidth ? this.config.layoutWidth : "4");
-			var input2 = $('<div class="dropdown"><a data-toggle="dropdown" href="#">Layout: <span class="layoutWidthValue">'+layoutWidth+'</a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"></ul></div>');
+			var input2 = GLOBAL.$('<div class="dropdown"><a data-toggle="dropdown" href="#">Layout: <span class="layoutWidthValue">'+layoutWidth+'</a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"></ul></div>');
 			for(i = 1; i<=12 ;i++){
-				$(".dropdown-menu", input2).append("<li data-value='"+i+"'>"+i+"</li>");
+				GLOBAL.$(".dropdown-menu", input2).append("<li data-value='"+i+"'>"+i+"</li>");
 			}
 			var thiswidget = this;
-			$("li", input2).click(function(evt){
-				var newWidth = $(evt.target).attr('data-value');
+			GLOBAL.$("li", input2).click(function(evt){
+				var newWidth = GLOBAL.$(evt.target).attr('data-value');
 //				console.lgo()
 				thiswidget.config.layoutWidth = newWidth;
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
-					$('.layoutWidthValue', input2).text(newWidth);
+					GLOBAL.$('.layoutWidthValue', input2).text(newWidth);
 					// do thing with result here
 				});
 			});	
-			$(".widgetLayout", accordion).append(input2);
+			GLOBAL.$(".widgetLayout", accordion).append(input2);
 
 
 			this.fireEvent("renderWidgetConfigEditBody_after", {widget: this, container : container, accordion : accordion});
@@ -277,7 +277,7 @@ function WidgetManager(){
 
 			fireEvent : function(listenerName, params){
 				if(this.listeners[listenerName]){
-					$.each(this.listeners[listenerName], function(index, callback){
+					GLOBAL.$.each(this.listeners[listenerName], function(index, callback){
 						callback(params);
 					});
 				}
@@ -351,12 +351,12 @@ function WidgetManager(){
 		};
 
 		widgetInstance.renderWidgetInstancePageItemHeader = function(container){
-			$(container).append("<h4>"+ widgetInstance.widget.widgetType.typeName  + " : " +  widgetInstance.widget.uniqueName);
+			GLOBAL.$(container).append("<h4>"+ widgetInstance.widget.widgetType.typeName  + " : " +  widgetInstance.widget.uniqueName);
 		};
 
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
-			var configEdit = $("<div>renderWidgetInstance not set up for this widget</div>");
-			$(container).append(configEdit);
+			var configEdit = GLOBAL.$("<div>renderWidgetInstance not set up for this widget</div>");
+			GLOBAL.$(container).append(configEdit);
 		};
 
 	}
@@ -469,9 +469,9 @@ function WidgetManager(){
 					var manager = require(path).Manager();
 					if(manager.registerServerSideFunctions){
 						var theFunctions = manager.registerServerSideFunctions();
-						$.extend(serverSideFunctions.GET, theFunctions.GET);
-						$.extend(serverSideFunctions.PUT, theFunctions.PUT);
-						$.extend(serverSideFunctions.POST, theFunctions.POST);
+						GLOBAL.$.extend(serverSideFunctions.GET, theFunctions.GET);
+						GLOBAL.$.extend(serverSideFunctions.PUT, theFunctions.PUT);
+						GLOBAL.$.extend(serverSideFunctions.POST, theFunctions.POST);
 					}
 				});
 
@@ -496,7 +496,7 @@ function WidgetManager(){
 			}catch(error){
 				console.log("calling with ajax");
 				// we're on the client: call the server instead.
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : "./widgetlist" ,
 					type : "GET",
 				//	processData : false,

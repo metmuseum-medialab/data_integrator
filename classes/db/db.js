@@ -54,7 +54,7 @@ function DbManager(){
 			doc.allowedWidgetTypes = thingType.allowedWidgetTypes;
 
 			doc.defaultWidgets = [];
-			$.each(thingType.defaultWidgets, function (index, defaultWidget){
+			GLOBAL.$.each(thingType.defaultWidgets, function (index, defaultWidget){
 				var widgetDoc = {uniqueName : defaultWidget.uniqueName,
 								config : defaultWidget.config,
 								widgetTypeName : defaultWidget.widgetType.typeName};
@@ -75,7 +75,7 @@ function DbManager(){
 				doc._rev = thing._rev;
 			}
 			doc.widgetInstances = [];
-			$.each(thing.widgetInstances, function (index, widgetInstance){
+			GLOBAL.$.each(thing.widgetInstances, function (index, widgetInstance){
 				var widgetInstanceDoc = {
 					data: widgetInstance.data,
 					widgetTypeName : widgetInstance.widget.widgetType.typeName,
@@ -107,7 +107,7 @@ function DbManager(){
 			this.connect();
 			if(this.thiscodeonclient){
 				var url = "./couchdb/"+id;
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : url,
 					type : "GET",
 					contentType : 'application/json',
@@ -149,7 +149,7 @@ function DbManager(){
 			this.connect();
 
 			if(this.thiscodeonclient){
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : "./"+ doc._id ,
 					type : "PUT",
 					data : JSON.stringify(doc),
