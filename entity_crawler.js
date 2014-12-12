@@ -9,13 +9,19 @@ run an entity server side. The output may vary, depending on arguments, but prob
 
 console.log("starting");
 var argv = require('minimist')(process.argv.slice(2));
-var entityId = argv._[0];
+var entityIdTemplate = argv._[0]; // format url/{{id}}
+var startid = argv._[1];  
+var endid = argv._[2];
 console.log(argv);
-console.log(entityId);
+console.log(entityIdTemplate);
+console.log("ID start: " + startid);
+console.log("ID End: " +endid);
 
 // requireses
 var urlparser = require("url");
 var pathparser = require("path");
+
+
 
 
 // set up globals
@@ -38,10 +44,10 @@ jsdom.env({
     'http://code.jquery.com/jquery-1.5.min.js'
   ],
   done : function (err, window) {
-    console.log("running entitye " + entityId);
     $ = window.jQuery;
     GLOBAL.$ = $;
-    run_entity(entityId);
+    var currentid = startid;
+    crawl_entities(entityIdTemplate, currentid, endid);
   } 
 });
 
@@ -49,8 +55,14 @@ jsdom.env({
 
 
 
-function run_entity(entityId){
+function crawl_entities(entityIdTemplate, currentid, endid){
   var EntityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity.js").EntityManager();
+
+  if(currentid > endid){
+    return;
+  }
+
+  var entityId = entityIdTemplate.replace(/\{\{id\}\}/, currentid);
 
   function callback(entity){
     entity.addListener("allWidgetsRan", function(params){
@@ -58,6 +70,9 @@ function run_entity(entityId){
       console.log(params.thing);
       console.log(params.thing.widgetInstances);
       console.log("done now?");
+      currentid++;
+      console.log("calling with " + currentid);
+      crawl_entities(entityIdTemplate, currentid, endid);
     });
     return;
   }

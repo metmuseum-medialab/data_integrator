@@ -140,9 +140,13 @@ function ThingManager(){
 					realthis.widgetsRun[params.widgetInstance.widget.uniqueName] = params.widgetInstance.widget.uniqueName;
 					if(Object.keys(realthis.widgetsRun).length == Object.keys(realthis.widgetInstances).length){
 						console.log("all widgets ran");
+						console.log(realthis.widgetInstances);
 						realthis.db.saveThing(realthis, function(rdata){
 							console.log("saved thing");
- 						});						
+ 						});	
+ 						console.log("~~~~");					
+						console.log(realthis);
+ 						console.log("~~~~");					
 						realthis.fireEvent("allWidgetsRan", {thing: realthis});
 					}else{
 						console.log("not all widgets ran yet " + Object.keys(realthis.widgetsRun).length + " , " + Object.keys(realthis.widgetInstances).length);
