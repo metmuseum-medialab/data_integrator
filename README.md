@@ -1,6 +1,10 @@
 data_integrator
 ===============
 
+TODO
+- "require serverside load" - a widgetType variable that says that for every page load, there should be a simultaneous backend load of the entity as well, so that all server-side stuff happens in one go. (eg, saving to elasticsearch and a graphdb shouldn't require two loads of the same node. But, the client-side needs to have awareness of when that work has completed. hmmmmm....
+
+
 Next Widgets:
 - a link-follower widget, so pages that generate lists of things (eg from searching another site), can call the individual thing pages, thereby populating them with content
 - computer vision widget
