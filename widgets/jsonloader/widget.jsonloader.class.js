@@ -87,6 +87,9 @@ function JsonLoaderWidget(){
 			var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
 			
 			proxy.callUrl(url, function(result){
+				// hm , if this fails, then we need to deal with it in a smart way, so dependancies don't get confused as well.
+				// basically, if this fails, then dependant widgets need to handle it gracefully.
+				// should they not run, or just anticipate the possibility of null results?
 				if(result.trim() != "Not Found"){
 					realthis.data.json = JSON.parse(result);
 				}
