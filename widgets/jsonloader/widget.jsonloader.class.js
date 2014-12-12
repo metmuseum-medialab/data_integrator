@@ -87,7 +87,9 @@ function JsonLoaderWidget(){
 			var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
 			
 			proxy.callUrl(url, function(result){
-				realthis.data.json = JSON.parse(result);
+				if(result.trim() != "Not Found"){
+					realthis.data.json = JSON.parse(result);
+				}
 				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
 				realthis.fireEvent("run", {widgetInstance : realthis});
 			});		
