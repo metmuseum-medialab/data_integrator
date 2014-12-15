@@ -20,7 +20,7 @@ console.log("ID End: " +endid);
 // requireses
 var urlparser = require("url");
 var pathparser = require("path");
-
+var async = require("async");
 
 
 
@@ -46,39 +46,50 @@ jsdom.env({
   done : function (err, window) {
     $ = window.jQuery;
     GLOBAL.$ = $;
-    var currentid = startid;
-    crawl_entities(entityIdTemplate, currentid, endid);
+    crawl_entities(startid, endid);
   } 
 });
 
 
+var EntityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity.js").EntityManager();
 
 
+function crawl_entities(startid, endid){
+  console.log("in crawl_entities " + startid + " to " + endid);
+  var currentid = startid;
 
-function crawl_entities(entityIdTemplate, currentid, endid){
-  var EntityManager = require(GLOBAL.params.root_dir+"/classes/entity/entity.js").EntityManager();
+  async.whilst(
+    function(){return currentid <= endid},
+    function(callback){
+      var entityId = entityIdTemplate.replace(/\{\{id\}\}/, currentid);
 
-  if(currentid > endid){
-    return;
-  }
+      console.log("calling " + entityId);
 
-  var entityId = entityIdTemplate.replace(/\{\{id\}\}/, currentid);
-
-  function callback(entity){
-    entity.addListener("allWidgetsRan", function(params){
-      console.log("this thing is all done!");
-      console.log(params.thing);
-      console.log(params.thing.widgetInstances);
-      console.log("done now?");
-      currentid++;
+      function callback2(entity){
+        entity.addListener("allWidgetsRan", function(params){
+          console.log("got entity");
+          console.log(params.thing);
+          console.log(params.thing.widgetInstances);
+          console.log("done now?");
+        });
+      }
       console.log("calling with " + currentid);
-      crawl_entities(entityIdTemplate, currentid, endid);
-    });
-    return;
-  }
-
-  EntityManager.generateEntity(entityId, callback);
-  return;
+      try{
+        EntityManager.generateEntity(entityId, callback2);
+      }catch(exception){
+        console.log("got error ");
+        console.log(exception);
+      }
+      currentid++;
+      callback();
+    },
+    function(err){
+      if(err){
+        console.log("error");
+        console.log(err);
+      }
+    }
+  );
 
 }
 
@@ -86,4 +97,4 @@ function crawl_entities(entityIdTemplate, currentid, endid){
 
 
 
-console.log("done");
+console.log("done with crawler");

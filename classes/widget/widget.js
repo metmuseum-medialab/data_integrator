@@ -324,11 +324,18 @@ function WidgetManager(){
 				var tpldata = {thing: this.thing, config: this.widget.config, data : this.data, deps: deps};
 				console.log(tpldata);
 				var tplfn = dot.template(templateString);
-				var string = tplfn(tpldata);
+				var string = "";
+				try{
+					string = tplfn(tpldata);
+				}catch(exception){
+					console.error("error processing templatefunction");
+					console.error(exception);
+				}
 				if(callback){
 					callback(string);
 				}
 				return string;
+
 			}
 
 		};
