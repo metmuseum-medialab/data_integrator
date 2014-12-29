@@ -8,6 +8,8 @@ require("minimist");
 require("path");
 require("urlparser");
 
+//require("./classes/widget/widget.js");
+
 /*
 require("./classes/renderer/renderer.js");
 require("./classes/thing/thing.js");
@@ -24,7 +26,7 @@ require("./classes/proxy/proxy.js");
 
 /*
 browserify -t brfs \
--r ./classes/entity/entity.js:./classes/entity/entity.js \
+-r ./classes/entity/entity.js:"./classes/entity/entity.js" \
 -r ./classes/renderer/renderer.js:./classes/renderer/renderer.js \
 -r ./classes/thing/thing.js:./classes/thing/thing.js \
 -r ./classes/widget/widget.js:./classes/widget/widget.js \
@@ -41742,7 +41744,7 @@ function DbManager(){
 			doc.allowedWidgetTypes = thingType.allowedWidgetTypes;
 
 			doc.defaultWidgets = [];
-			$.each(thingType.defaultWidgets, function (index, defaultWidget){
+			GLOBAL.$.each(thingType.defaultWidgets, function (index, defaultWidget){
 				var widgetDoc = {uniqueName : defaultWidget.uniqueName,
 								config : defaultWidget.config,
 								widgetTypeName : defaultWidget.widgetType.typeName};
@@ -41763,7 +41765,7 @@ function DbManager(){
 				doc._rev = thing._rev;
 			}
 			doc.widgetInstances = [];
-			$.each(thing.widgetInstances, function (index, widgetInstance){
+			GLOBAL.$.each(thing.widgetInstances, function (index, widgetInstance){
 				var widgetInstanceDoc = {
 					data: widgetInstance.data,
 					widgetTypeName : widgetInstance.widget.widgetType.typeName,
@@ -41795,7 +41797,7 @@ function DbManager(){
 			this.connect();
 			if(this.thiscodeonclient){
 				var url = "./couchdb/"+id;
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : url,
 					type : "GET",
 					contentType : 'application/json',
@@ -41837,7 +41839,7 @@ function DbManager(){
 			this.connect();
 
 			if(this.thiscodeonclient){
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : "./"+ doc._id ,
 					type : "PUT",
 					data : JSON.stringify(doc),
@@ -42133,7 +42135,6 @@ function ProxyManager(){
 				  	resp.on("end", function(){
 				  		console.log("in callback for response ");
 				  		console.log(proxyurl);
-				  		console.log(resultBody);
 				  		callback(resultBody);
 				  	});
 				}).on("error", function(e){
@@ -42197,26 +42198,26 @@ function RenderManager(){
 				- default widgets that's the Widget with the config data
 				// the widget edit renderer should reveal the config data and make it editable
 			*/
-			var div = $("<div class='container thingTypeEditable' ></div>");
-			$(container).append(div);
+			var div = GLOBAL.$("<div class='container thingTypeEditable' ></div>");
+			GLOBAL.$(container).append(div);
 
-			var defaultRow = $("<div class='row defaultWidgetList' />");
-			$(div).append(defaultRow);
+			var defaultRow = GLOBAL.$("<div class='row defaultWidgetList' />");
+			GLOBAL.$(div).append(defaultRow);
 
 
 			function addDefaultWidgetPageItem(container, widget){
 				var layoutWidth = (widget.config.layoutWidth ? widget.config.layoutWidth : 4);
-            	var col = $('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widget '+widget.uniqueName+'"></div>');
-            	$(container).append(col);
+            	var col = GLOBAL.$('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widget '+widget.uniqueName+'"></div>');
+            	GLOBAL.$(container).append(col);
 
-            	var widgetDiv = $('<div class="panel panel-info"></div>');
-            	var widgetHeader = $('<div class="panel-heading"></div>');
-            	var widgetBody = $('<div class="panel-body"></div>');
-            	var widgetFooter = $('<div class="panel-footer"></div>');
-            	$(col).append(widgetDiv);
-            	$(widgetDiv).append(widgetHeader);
-            	$(widgetDiv).append(widgetBody);
-            	$(widgetDiv).append(widgetFooter);
+            	var widgetDiv = GLOBAL.$('<div class="panel panel-info"></div>');
+            	var widgetHeader = GLOBAL.$('<div class="panel-heading"></div>');
+            	var widgetBody = GLOBAL.$('<div class="panel-body"></div>');
+            	var widgetFooter = GLOBAL.$('<div class="panel-footer"></div>');
+            	GLOBAL.$(col).append(widgetDiv);
+            	GLOBAL.$(widgetDiv).append(widgetHeader);
+            	GLOBAL.$(widgetDiv).append(widgetBody);
+            	GLOBAL.$(widgetDiv).append(widgetFooter);
 
             	console.log(widget);
 
@@ -42224,42 +42225,42 @@ function RenderManager(){
 
 			}
 
-			$.each(thingType.defaultWidgets, function(index, widget){
-            	addDefaultWidgetPageItem($(defaultRow), widget);
+			GLOBAL.$.each(thingType.defaultWidgets, function(index, widget){
+            	addDefaultWidgetPageItem(GLOBAL.$(defaultRow), widget);
 			});
 
 			// add an all-pupose modal that can be filled with various content, and fired via javascript
-			var modal = $('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
+			var modal = GLOBAL.$('<div id="allPurposeModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
 			$(div).append(modal);
-			var modalBig = $('<div id="allPurposeModalLarge" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
+			var modalBig = GLOBAL.$('<div id="allPurposeModalLarge" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header" /><div class="modal-body" /><div class="modal-footer" /></div></div></div>');
 			$(div).append(modalBig);
 
             thingType.addListener("addDefaultWidget", function(params){
             	var widget = params.widget;
-            	addDefaultWidgetPageItem($(defaultRow), widget);
+            	addDefaultWidgetPageItem(GLOBAL.$(defaultRow), widget);
 
             });
 
             thingType.addListener("removeDefaultWidget", function(params){
             	var widgetUniqueName = params.widgetUniqueName;
             	var selector = ".defaultWidgetList ."+widgetUniqueName;
-            	$(".defaultWidgetList ."+widgetUniqueName).remove();
+            	GLOBAL.$(".defaultWidgetList ."+widgetUniqueName).remove();
             });
 
 
 		},
 
 		renderThingTypeNav : function (thingType, container){
-			$(".entityDescriptor", container).text(thingType.category + " : " + thingType.typeName);
+			GLOBAL.$(".entityDescriptor", container).text(thingType.category + " : " + thingType.typeName);
 
 
-			var action1 = $(".actionDropdown", container);
-			var action2 = $(action1).clone();
+			var action1 = GLOBAL.$(".actionDropdown", container);
+			var action2 = GLOBAL.$(action1).clone();
 
 			function createAddAllowedWidgetButton(thingType, container, name){
-				var widgetAddDiv = $('<li class="addAllowedWidget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
-				$(".dropdown-menu", action1).append(widgetAddDiv);
-				$(widgetAddDiv).click(function(evt){
+				var widgetAddDiv = GLOBAL.$('<li class="addAllowedWidget ' + name + '"><span class="glyphicon glyphicon-plus"></span>Add '+name+'</li>');
+				GLOBAL.$(".dropdown-menu", action1).append(widgetAddDiv);
+				GLOBAL.$(widgetAddDiv).click(function(evt){
 					thingType.addAllowedWidgetType(name);
 					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
@@ -42271,9 +42272,9 @@ function RenderManager(){
 			}
 
 			function createRemoveAllowedWidgetButton(thingType, container, name){
-				var widgetAddDiv = $('<li class="removeAllowedWidget ' + name + '"><span class="glyphicon glyphicon-remove"></span>Remove '+name+'</li>');
-				$(container).append(widgetAddDiv);
-				$(widgetAddDiv).click(function(evt){
+				var widgetAddDiv = GLOBAL.$('<li class="removeAllowedWidget ' + name + '"><span class="glyphicon glyphicon-remove"></span>Remove '+name+'</li>');
+				GLOBAL.$(container).append(widgetAddDiv);
+				GLOBAL.$(widgetAddDiv).click(function(evt){
 					thingType.removeAllowedWidgetType(name);
 					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 					ThingManager.saveThingType(thingType, function(result){
@@ -42282,21 +42283,21 @@ function RenderManager(){
 				});
 			}
 
-			$(".actionLabel", action1).text('Add Allowed Widget');
-	        var widgetManager = require("./classes/widget/widget.js").WidgetManager();
+			GLOBAL.$(".actionLabel", action1).text('Add Allowed Widget');
+	        var widgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
             widgetManager.getWidgetList(function(list){
 
-				$.each(list, function(name, info){
-					if($.inArray(name, thingType.allowedWidgetTypes) > -1){
+				GLOBAL.$.each(list, function(name, info){
+					if(GLOBAL.$.inArray(name, thingType.allowedWidgetTypes) > -1){
 						return true;
 					}
-					createAddAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name)
+					createAddAllowedWidgetButton(thingType, GLOBAL.$(".dropdown-menu", action1), name)
 				});        	
-				$.each(list, function(name, info){
+				GLOBAL.$.each(list, function(name, info){
 					if($.inArray(name, thingType.allowedWidgetTypes) == -1){
 						return true;
 					}
-					createRemoveAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name)
+					createRemoveAllowedWidgetButton(thingType, GLOBAL.$(".dropdown-menu", action1), name)
 				});        	
             });
 
@@ -42305,7 +42306,7 @@ function RenderManager(){
             thingType.addListener('addAllowedWidgetType', function(params){
             	var name = params.widgetTypeName;
             	var targetThingType = params.entity;
-            	$("."+name, action1).remove();
+            	GLOBAL.$("."+name, action1).remove();
             	createRemoveAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name);
             });
 
@@ -42313,38 +42314,38 @@ function RenderManager(){
             thingType.addListener('removeAllowedWidgetType', function(params){
             	var name = params.widgetTypeName;
             	var targetThingType = params.entity;
-            	$("."+name, action1).remove();
-            	createAddAllowedWidgetButton(thingType, $(".dropdown-menu", action1), name);
+            	GLOBAL.$("."+name, action1).remove();
+            	createAddAllowedWidgetButton(thingType, GLOBAL.$(".dropdown-menu", action1), name);
             });
 
 
             // dropdown for adding default widgets
-			$(".actionLabel", action2).html('Add Default Widget');
-			$(action1).after(action2); 
+			GLOBAL.$(".actionLabel", action2).html('Add Default Widget');
+			GLOBAL.$(action1).after(action2); 
 			function addDefaultWidgetOption(widgetTypeName, dropdownContainer){
 				var widgetAddDiv = $('<li class="addDefault	Widget ' + widgetTypeName + '"><span class="glyphicon glyphicon-plus"></span>Add '+widgetTypeName+'</li>');
-				$(".dropdown-menu", dropdownContainer).append(widgetAddDiv);
-				$(widgetAddDiv).click(function(evt){
+				GLOBAL.$(".dropdown-menu", dropdownContainer).append(widgetAddDiv);
+				GLOBAL.$(widgetAddDiv).click(function(evt){
 					// need to get the uniuename
-					$('#allPurposeModal .modal-header').html('<h4>Enter Unique Name for this instance of this widget</h4>');
+					GLOBAL.$('#allPurposeModal .modal-header').html('<h4>Enter Unique Name for this instance of this widget</h4>');
 					var formElem = $('<input type="text" class="form-control" placeholder="Unique Name" />');
-					$('#allPurposeModal .modal-body').html(formElem);
-					$('#allPurposeModal').modal('show');
-					$('#allPurposeModal').off('hide.bs.modal');
+					GLOBAL.$('#allPurposeModal .modal-body').html(formElem);
+					GLOBAL.$('#allPurposeModal').modal('show');
+					GLOBAL.$('#allPurposeModal').off('hide.bs.modal');
 
 					function processSubmission(evt){
 						// this code may also need to tell if the uniqueName is taken or not.
-						var widgetUniqueName = $(formElem).val().trim();
+						var widgetUniqueName = GLOBAL.$(formElem).val().trim();
 
 						// make sure it's not blank, and that it's unique for this thingType
 
 						if(widgetUniqueName == ""){
-							$('#allPurposeModal .modal-footer').html("<span>the name can't be blank</span>");
+							GLOBAL.$('#allPurposeModal .modal-footer').html("<span>the name can't be blank</span>");
 							return false;
 						}
 
 						if(thingType.hasWidgetNamed(widgetUniqueName)){
-							$('#allPurposeModal .modal-footer').html("<span>that name is taken</span>");
+							GLOBAL.$('#allPurposeModal .modal-footer').html("<span>that name is taken</span>");
 							return false;							
 						}
 
@@ -42358,13 +42359,13 @@ function RenderManager(){
 
 					}
 
-					$('#allPurposeModal').on('hide.bs.modal', function(evt){
+					GLOBAL.$('#allPurposeModal').on('hide.bs.modal', function(evt){
 						return processSubmission(evt);
 					});
 
-					$(formElem).on('keydown', function(evt){
+					GLOBAL.$(formElem).on('keydown', function(evt){
 						if(evt.keyCode == 13){
-							$('#allPurposeModal').modal("hide");
+							GLOBAL.$('#allPurposeModal').modal("hide");
 						}
 					});
 
@@ -42372,13 +42373,13 @@ function RenderManager(){
 			}
 
 			function removeDefaultWidgetOption(widgetTypeName, dropdownContainer){
-				$("."+widgetTypeName, dropdownContainer).remove();
+				GLOBAL.$("."+widgetTypeName, dropdownContainer).remove();
 			
 			}
 
 			// when the page loads, adding the existing allowable widgets as options
 			if(thingType.allowedWidgetTypes){
-				$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
+				GLOBAL.$.each(thingType.allowedWidgetTypes, function(index, widgetTypeName){
 					addDefaultWidgetOption(widgetTypeName, action2);
 				});
 			}
@@ -42413,27 +42414,27 @@ function RenderManager(){
 			function addWidgetInstancePageItem(container, widgetInstance){
 				console.log(widgetInstance.widget);
 				var layoutWidth = (widgetInstance.widget.config.layoutWidth ? widgetInstance.widget.config.layoutWidth : 4)
-            	var col = $('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
-            	$(container).append(col);
+            	var col = GLOBAL.$('<div class="item w'+layoutWidth+' col-md-'+layoutWidth+' widgetInstance '+widgetInstance.widget.uniqueName+'"></div>');
+            	GLOBAL.$(container).append(col);
 
-            	var widgetDiv = $('<div class="panel panel-info"></div>');
-            	var widgetHeader = $('<div class="panel-heading"></div>');
-            	var widgetBody = $('<div class="panel-body"></div>');
-            	var widgetFooter = $('<div class="panel-footer"></div>');
-            	$(col).append(widgetDiv);
-            	$(widgetDiv).append(widgetHeader);
-            	$(widgetDiv).append(widgetBody);
-            	$(widgetDiv).append(widgetFooter);
+            	var widgetDiv = GLOBAL.$('<div class="panel panel-info"></div>');
+            	var widgetHeader = GLOBAL.$('<div class="panel-heading"></div>');
+            	var widgetBody = GLOBAL.$('<div class="panel-body"></div>');
+            	var widgetFooter = GLOBAL.$('<div class="panel-footer"></div>');
+            	GLOBAL.$(col).append(widgetDiv);
+            	GLOBAL.$(widgetDiv).append(widgetHeader);
+            	GLOBAL.$(widgetDiv).append(widgetBody);
+            	GLOBAL.$(widgetDiv).append(widgetFooter);
             	widgetInstance.renderWidgetInstancePageItem(widgetHeader, widgetBody, widgetFooter);
 
 			}
-			$.each(thing.widgetInstances, function(index, widgetInstance){
-				addWidgetInstancePageItem($(defaultRow), widgetInstance);
+			GLOBAL.$.each(thing.widgetInstances, function(index, widgetInstance){
+				addWidgetInstancePageItem(GLOBAL.$(defaultRow), widgetInstance);
 			});
 
 
 			thing.addListener("addWidgetInstance", function(params){
-				addWidgetInstancePageItem($(defaultRow), widgetInstance);
+				addWidgetInstancePageItem(GLOBAL.$(defaultRow), widgetInstance);
 			});
 
 
@@ -42454,7 +42455,7 @@ function RenderManager(){
 module.exports.RenderManager = RenderManager;
 
 
-},{"./classes/widget/widget.js":undefined}],"/classes/thing/thing.js":[function(require,module,exports){
+},{}],"/classes/thing/thing.js":[function(require,module,exports){
 function ThingManager(){
 
 	function ThingType(){};
@@ -42484,7 +42485,7 @@ function ThingManager(){
 
 		fireEvent : function(listenerName, params){
 			if(this.listeners[listenerName]){
-				$.each(this.listeners[listenerName], function(index, callback){
+				GLOBAL.$.each(this.listeners[listenerName], function(index, callback){
 					callback(params);
 				});
 			}
@@ -42563,7 +42564,7 @@ function ThingManager(){
 			console.log("calling listener " + listenerName);
 
 			if(this.listeners[listenerName]){
-				$.each(this.listeners[listenerName], function(index, callback){
+				GLOBAL.$.each(this.listeners[listenerName], function(index, callback){
 					callback(params);
 				});
 			}
@@ -42593,15 +42594,20 @@ function ThingManager(){
 
 				// attach a listener for when ALL the widgets have run.
 				widgetInstance.addListener("run", function(params){
+					console.log(params.widgetInstance.widget.uniqueName + " ran ");
 					realthis.widgetsRun[params.widgetInstance.widget.uniqueName] = params.widgetInstance.widget.uniqueName;
 					if(Object.keys(realthis.widgetsRun).length == Object.keys(realthis.widgetInstances).length){
 						console.log("all widgets ran");
-						console.log(realthis);
+						console.log(realthis.widgetInstances);
 						realthis.db.saveThing(realthis, function(rdata){
 							console.log("saved thing");
-							console.log(rdata);
- 						});						
+ 						});	
+ 						console.log("~~~~");					
+						console.log(realthis);
+ 						console.log("~~~~");					
 						realthis.fireEvent("allWidgetsRan", {thing: realthis});
+					}else{
+						console.log("not all widgets ran yet " + Object.keys(realthis.widgetsRun).length + " , " + Object.keys(realthis.widgetInstances).length);
 					}
 				});
 
@@ -42752,7 +42758,7 @@ function ThingManager(){
 						thing._rev = doc._rev;
 						// iterate through the defaultwidgetname, deserialize
 						if(doc.widgetInstances instanceof Array){
-							$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
+							GLOBAL.$.each(doc.widgetInstances, function(index, widgetInstanceDoc){
 								var widgetTypeName = widgetInstanceDoc.widgetTypeName;
 								var uniqueName = widgetInstanceDoc.uniqueName;
 
@@ -42791,7 +42797,7 @@ function ThingManager(){
 
 			var i =0;
 			
-			$.each(thing.type.defaultWidgets, function(index, defaultWidget){
+			GLOBAL.$.each(thing.type.defaultWidgets, function(index, defaultWidget){
 				console.log("in each");
 				
 				var widgetInstance = false;
@@ -42955,8 +42961,8 @@ function WidgetManager(){
 
 
 		widget.renderWidgetConfigEditFooter = function(container){
-			var deletebutton = $('<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span> Remove</button>');
-			$(container).append(deletebutton);
+			var deletebutton = GLOBAL.$('<button type="button" class="btn btn-default btn-md"><span class="glyphicon glyphicon-trash"></span> Remove</button>');
+			GLOBAL.$(container).append(deletebutton);
 
 			thewidget = this;
 			deletebutton.click(function(){
@@ -42971,14 +42977,14 @@ function WidgetManager(){
 		};
 
 		widget.renderWidgetConfigEditHeader = function(container){
-			$(container).append("<h4>"+ this.widgetType.typeName  + " : " +  this.uniqueName);
+			GLOBAL.$(container).append("<h4>"+ this.widgetType.typeName  + " : " +  this.uniqueName);
 		};
 
 		widget.renderWidgetConfigEditBody = function(container){
 			this.fireEvent("renderWidgetConfigEditBody_before", {container : container});
 
 
-			var accordion = $('<div class="panel-group" id="accordion'+this.uniqueName+'">' +
+			var accordion = GLOBAL.$('<div class="panel-group" id="accordion'+this.uniqueName+'">' +
 '  <div class="panel panel-default">' +
 '    <div class="panel-heading">' +
 '      <h4 class="panel-title">' +
@@ -43021,14 +43027,14 @@ function WidgetManager(){
 '</div>');
 
 
-			var form = $("<div></div>")
-			$(container).append(accordion);			
+			var form = GLOBAL.$("<div></div>")
+			GLOBAL.$(container).append(accordion);			
 
 
 			// other widget dependency dropdown
 			var widgetDependencies = (this.config.widgetDependencies ? this.config.widgetDependencies : {});
 			this.config.widgetDependencies = widgetDependencies;
-			var wdInput = $('');
+			var wdInput = GLOBAL.$('');
 			var defaultWidgets = this.thingType.defaultWidgets;
 
 			var realthis = this;
@@ -43046,14 +43052,14 @@ function WidgetManager(){
 					set = true;
 				}
 
-				var label = $("<span class='label "+classname+"' data-set='"+set+"' data-name='"+name+"'>"+ name+"</span>");
-				$(".widgetDependencies", accordion).append(label);
+				var label = GLOBAL.$("<span class='label "+classname+"' data-set='"+set+"' data-name='"+name+"'>"+ name+"</span>");
+				GLOBAL.$(".widgetDependencies", accordion).append(label);
 
 				label.click(function(target){
-					var setval = $(target.currentTarget).attr('data-set');
-					$(target.currentTarget).attr('data-set', (setval == "false" ? "true" : "false"));
-					$(target.currentTarget).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
-					var depname = $(target.currentTarget).attr('data-name');
+					var setval = GLOBAL.$(target.currentTarget).attr('data-set');
+					GLOBAL.$(target.currentTarget).attr('data-set', (setval == "false" ? "true" : "false"));
+					GLOBAL.$(target.currentTarget).attr('class', 'label '+ (setval == "true" ? "label-default" : "label-success"));
+					var depname = GLOBAL.$(target.currentTarget).attr('data-name');
 					if(setval == "false"){
 						// setting to true, so set it
 						realthis.config.widgetDependencies[depname] = depname;
@@ -43073,21 +43079,21 @@ function WidgetManager(){
 
 			// layout width config
 			var layoutWidth = (this.config.layoutWidth ? this.config.layoutWidth : "4");
-			var input2 = $('<div class="dropdown"><a data-toggle="dropdown" href="#">Layout: <span class="layoutWidthValue">'+layoutWidth+'</a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"></ul></div>');
+			var input2 = GLOBAL.$('<div class="dropdown"><a data-toggle="dropdown" href="#">Layout: <span class="layoutWidthValue">'+layoutWidth+'</a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"></ul></div>');
 			for(i = 1; i<=12 ;i++){
-				$(".dropdown-menu", input2).append("<li data-value='"+i+"'>"+i+"</li>");
+				GLOBAL.$(".dropdown-menu", input2).append("<li data-value='"+i+"'>"+i+"</li>");
 			}
 			var thiswidget = this;
-			$("li", input2).click(function(evt){
-				var newWidth = $(evt.target).attr('data-value');
+			GLOBAL.$("li", input2).click(function(evt){
+				var newWidth = GLOBAL.$(evt.target).attr('data-value');
 //				console.lgo()
 				thiswidget.config.layoutWidth = newWidth;
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
-					$('.layoutWidthValue', input2).text(newWidth);
+					GLOBAL.$('.layoutWidthValue', input2).text(newWidth);
 					// do thing with result here
 				});
 			});	
-			$(".widgetLayout", accordion).append(input2);
+			GLOBAL.$(".widgetLayout", accordion).append(input2);
 
 
 			this.fireEvent("renderWidgetConfigEditBody_after", {widget: this, container : container, accordion : accordion});
@@ -43123,7 +43129,7 @@ function WidgetManager(){
 
 			fireEvent : function(listenerName, params){
 				if(this.listeners[listenerName]){
-					$.each(this.listeners[listenerName], function(index, callback){
+					GLOBAL.$.each(this.listeners[listenerName], function(index, callback){
 						callback(params);
 					});
 				}
@@ -43170,11 +43176,18 @@ function WidgetManager(){
 				var tpldata = {thing: this.thing, config: this.widget.config, data : this.data, deps: deps};
 				console.log(tpldata);
 				var tplfn = dot.template(templateString);
-				var string = tplfn(tpldata);
+				var string = "";
+				try{
+					string = tplfn(tpldata);
+				}catch(exception){
+					console.error("error processing templatefunction");
+					console.error(exception);
+				}
 				if(callback){
 					callback(string);
 				}
 				return string;
+
 			}
 
 		};
@@ -43197,12 +43210,12 @@ function WidgetManager(){
 		};
 
 		widgetInstance.renderWidgetInstancePageItemHeader = function(container){
-			$(container).append("<h4>"+ widgetInstance.widget.widgetType.typeName  + " : " +  widgetInstance.widget.uniqueName);
+			GLOBAL.$(container).append("<h4>"+ widgetInstance.widget.widgetType.typeName  + " : " +  widgetInstance.widget.uniqueName);
 		};
 
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
-			var configEdit = $("<div>renderWidgetInstance not set up for this widget</div>");
-			$(container).append(configEdit);
+			var configEdit = GLOBAL.$("<div>renderWidgetInstance not set up for this widget</div>");
+			GLOBAL.$(container).append(configEdit);
 		};
 
 	}
@@ -43315,9 +43328,9 @@ function WidgetManager(){
 					var manager = require(path).Manager();
 					if(manager.registerServerSideFunctions){
 						var theFunctions = manager.registerServerSideFunctions();
-						$.extend(serverSideFunctions.GET, theFunctions.GET);
-						$.extend(serverSideFunctions.PUT, theFunctions.PUT);
-						$.extend(serverSideFunctions.POST, theFunctions.POST);
+						GLOBAL.$.extend(serverSideFunctions.GET, theFunctions.GET);
+						GLOBAL.$.extend(serverSideFunctions.PUT, theFunctions.PUT);
+						GLOBAL.$.extend(serverSideFunctions.POST, theFunctions.POST);
 					}
 				});
 
@@ -43336,13 +43349,10 @@ function WidgetManager(){
 			// this code will only run server-side
 			// how to determine? if we can determine here, we can call the server and run this code, so other code can just call this class directly, regardless of where it's running.
 
-
-			try{
-				
-			}catch(error){
+ 			if(GLOBAL.context == "client"){
 				console.log("calling with ajax");
 				// we're on the client: call the server instead.
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : "./widgetlist" ,
 					type : "GET",
 				//	processData : false,
@@ -43361,6 +43371,8 @@ function WidgetManager(){
 				return;
 
 			}
+
+			
 
 			var async = require("async");
 			var filelist = fs.readdirSync(this.widgetDir);
@@ -61717,22 +61729,23 @@ function ElasticSearchWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var indicator = $("<span class='elasticloadingindicator'>waiting on data...</span>");
+			var indicator = GLOBAL.$("<span class='elasticloadingindicator'>waiting on data...</span>");
 			container.append(indicator);
 
 			this.addListener("preRun", function(params){
-				$(indicator).text("sending to elasticsearch...");
+				GLOBAL.$(indicator).text("sending to elasticsearch...");
 
 			});
 
 			this.addListener("dataUpdated", function(params){
-				$(indicator).text("indexed in elasticsearch: " + params.status + (params.message ? " : " + params.message : ""));
+				GLOBAL.$(indicator).text("indexed in elasticsearch: " + params.status + (params.message ? " : " + params.message : ""));
 			});
 		}
 
 
 		// this won't run until dependencies have run.
 		widgetInstance.run = function(){
+			console.log("running elasticsearch.run");
 			var realthis = this;
 
 			this.fireEvent("preRun");
@@ -61742,12 +61755,13 @@ function ElasticSearchWidget(){
 				// call the server-side version of this code, to index to elasticsearch.
 				var path = "elasticSearchIndex/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
 
-				$.ajax({
+				GLOBAL.$.ajax({
 					url : path,
 					type : "GET",
 					contentType : 'application/json',
 			  		success : function(rdata, status){
 			  			realthis.fireEvent("dataUpdated", {status : status});
+						realthis.fireEvent("run", {widgetInstance : realthis});
 			  		},
 			  		error : function(jqXHR, status, message){
 			  			console.log("error !!!!  ");
@@ -61757,7 +61771,12 @@ function ElasticSearchWidget(){
 			  		}
 				});
 			}else{
-		//		this.sendToElasticSearch();
+				this.sendToElasticSearch(function(){
+					console.log("sent to elasticsearch");
+		  			realthis.fireEvent("dataUpdated", {status : true});
+					realthis.fireEvent("run", {widgetInstance : realthis});
+
+				});
 			}
 			
 		}
@@ -61944,29 +61963,29 @@ function JsBinWidget(){
 			// jsbin design widget
 			var templatestring = (thiswidget.config.template ? thiswidget.config.template : "");
 			thiswidget.config.template = templatestring;
-			var input1 = $('<h5>Open Editor</h5>');
-			$(".widgetConfig", accordion).append(input1);
-			$(input1).click(function(evt){
-				$('#allPurposeModalLarge .modal-header').html('<h4>Edit Content</h4>');
-				var editorElem = $('<textarea></textarea>');
-				$('#allPurposeModalLarge .modal-body').html(editorElem);
-				$('#allPurposeModalLarge').modal('show');
-				$('#allPurposeModalLarge').off('hide.bs.modal');
-				$(editorElem).ckeditor(function(elem){},
+			var input1 = GLOBAL.$('<h5>Open Editor</h5>');
+			GLOBAL.$(".widgetConfig", accordion).append(input1);
+			GLOBAL.$(input1).click(function(evt){
+				GLOBAL.$('#allPurposeModalLarge .modal-header').html('<h4>Edit Content</h4>');
+				var editorElem = GLOBAL.$('<textarea></textarea>');
+				GLOBAL.$('#allPurposeModalLarge .modal-body').html(editorElem);
+				GLOBAL.$('#allPurposeModalLarge').modal('show');
+				GLOBAL.$('#allPurposeModalLarge').off('hide.bs.modal');
+				GLOBAL.$(editorElem).ckeditor(function(elem){},
 										{
 											baseFloatZIndex : 9000,
 										});
-				$(editorElem).val(templatestring);
+				GLOBAL.$(editorElem).val(templatestring);
 
-				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
+				GLOBAL.$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
 					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
-					thiswidget.config.template = $(editorElem).val();
+					thiswidget.config.template = GLOBAL.$(editorElem).val();
 					templatestring = thiswidget.config.template;
 					ThingManager.saveThingType(thiswidget.thingType, function(result){
 						// do thing with result here
 					});
-					$('#allPurposeModalLarge').off('hide.bs.modal');
+					GLOBAL.$('#allPurposeModalLarge').off('hide.bs.modal');
 
 
 				});
@@ -61999,10 +62018,10 @@ function JsBinWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var parsedContentElem = $("<div>"+this.data.parsedTemplate+"</div>");
+			var parsedContentElem = GLOBAL.$("<div>"+this.data.parsedTemplate+"</div>");
 
 			this.addListener("templateParsed", function(params){
-				$(parsedContentElem).html(realthis.data.parsedTemplate);
+				GLOBAL.$(parsedContentElem).html(realthis.data.parsedTemplate);
 			});
 
 			container.append(parsedContentElem);
@@ -62085,8 +62104,8 @@ function JsonLoaderWidget(){
 
 			// url entry widget
 			var url = (thiswidget.config.url ? thiswidget.config.url : "");
-			var input1 = $('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+url+'"></div>');
-			$(input1).change(function(evt){
+			var input1 = GLOBAL.$('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+url+'"></div>');
+			GLOBAL.$(input1).change(function(evt){
 				var newurl = evt.target.value;
 				thiswidget.config.url = newurl;
 				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
@@ -62094,7 +62113,7 @@ function JsonLoaderWidget(){
 					// do thing with result here
 				});
 			});
-			$(".widgetConfig", accordion).append(input1);
+			GLOBAL.$(".widgetConfig", accordion).append(input1);
 
 		});
 
@@ -62115,20 +62134,20 @@ function JsonLoaderWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var urlcontent = $("<h5>"+this.widget.config.url+"</h5>");
+			var urlcontent = GLOBAL.$("<h5>"+this.widget.config.url+"</h5>");
 			if(this.data.parsedUrl){
-				$(urlcontent).text(this.data.parsedUrl);
+				GLOBAL.$(urlcontent).text(this.data.parsedUrl);
 			}
-			var jsoncontent = $('<div class="panel-group" id="accordionJSON'+this.widget.uniqueName+'"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordionJSON'+this.widget.uniqueName+'" href="#collapseOneJSON'+this.widget.uniqueName+'">JSON 	</a><span class="loadingindicator"/></h4></div><div id="collapseOneJSON'+this.widget.uniqueName+'" class="panel-collapse collapse"><div class="panel-body"><pre/></div></div></div>');
+			var jsoncontent = GLOBAL.$('<div class="panel-group" id="accordionJSON'+this.widget.uniqueName+'"><div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordionJSON'+this.widget.uniqueName+'" href="#collapseOneJSON'+this.widget.uniqueName+'">JSON 	</a><span class="loadingindicator"/></h4></div><div id="collapseOneJSON'+this.widget.uniqueName+'" class="panel-collapse collapse"><div class="panel-body"><pre/></div></div></div>');
 			container.append(urlcontent);
 			container.append(jsoncontent);
-			$(".loadingindicator", jsoncontent).text("loading...");
+			GLOBAL.$(".loadingindicator", jsoncontent).text("loading...");
 			this.addListener("dataUpdated", function(params){
 				var url = realthis.data.parsedUrl;
-				$(urlcontent).text(url);
+				GLOBAL.$(urlcontent).text(url);
 				if(realthis.data.json){
-					$(".loadingindicator", jsoncontent).text("loaded");
-					$("pre",jsoncontent).text(JSON.stringify(realthis.data.json, null, 4));
+					GLOBAL.$(".loadingindicator", jsoncontent).text("loaded");
+					GLOBAL.$("pre",jsoncontent).text(JSON.stringify(realthis.data.json, null, 4));
 				}
 			});
 		}
@@ -62142,7 +62161,12 @@ function JsonLoaderWidget(){
 			var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
 			
 			proxy.callUrl(url, function(result){
-				realthis.data.json = JSON.parse(result);
+				// hm , if this fails, then we need to deal with it in a smart way, so dependancies don't get confused as well.
+				// basically, if this fails, then dependant widgets need to handle it gracefully.
+				// should they not run, or just anticipate the possibility of null results?
+				if(result.trim() != "Not Found"){
+					realthis.data.json = JSON.parse(result);
+				}
 				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
 				realthis.fireEvent("run", {widgetInstance : realthis});
 			});		
@@ -62215,29 +62239,29 @@ function TemplateRendererWidget(){
 			// template design widget
 			var templatestring = (thiswidget.config.template ? thiswidget.config.template : "");
 			thiswidget.config.template = templatestring;
-			var input1 = $('<h5>Open Editor</h5>');
-			$(".widgetConfig", accordion).append(input1);
-			$(input1).click(function(evt){
-				$('#allPurposeModalLarge .modal-header').html('<h4>Edit Content</h4>');
-				var editorElem = $('<textarea></textarea>');
-				$('#allPurposeModalLarge .modal-body').html(editorElem);
-				$('#allPurposeModalLarge').modal('show');
-				$('#allPurposeModalLarge').off('hide.bs.modal');
-				$(editorElem).ckeditor(function(elem){},
+			var input1 = GLOBAL.$('<h5>Open Editor</h5>');
+			GLOBAL.$(".widgetConfig", accordion).append(input1);
+			GLOBAL.$(input1).click(function(evt){
+				GLOBAL.$('#allPurposeModalLarge .modal-header').html('<h4>Edit Content</h4>');
+				var editorElem = GLOBAL.$('<textarea></textarea>');
+				GLOBAL.$('#allPurposeModalLarge .modal-body').html(editorElem);
+				GLOBAL.$('#allPurposeModalLarge').modal('show');
+				GLOBAL.$('#allPurposeModalLarge').off('hide.bs.modal');
+				GLOBAL.$(editorElem).ckeditor(function(elem){},
 										{
 											baseFloatZIndex : 9000,
 										});
-				$(editorElem).val(templatestring);
+				GLOBAL.$(editorElem).val(templatestring);
 
-				$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
+				GLOBAL.$('#allPurposeModalLarge').on('hide.bs.modal', function(evt){
 					var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
-					thiswidget.config.template = $(editorElem).val();
+					thiswidget.config.template = GLOBAL.$(editorElem).val();
 					templatestring = thiswidget.config.template;
 					ThingManager.saveThingType(thiswidget.thingType, function(result){
 						// do thing with result here
 					});
-					$('#allPurposeModalLarge').off('hide.bs.modal');
+					GLOBAL.$('#allPurposeModalLarge').off('hide.bs.modal');
 				});
 			});
 		});
@@ -62267,10 +62291,10 @@ function TemplateRendererWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var parsedContentElem = $("<div>"+this.data.parsedTemplate+"</div>");
+			var parsedContentElem = GLOBAL.$("<div>"+this.data.parsedTemplate+"</div>");
 
 			this.addListener("templateParsed", function(params){
-				$(parsedContentElem).html(realthis.data.parsedTemplate);
+				GLOBAL.$(parsedContentElem).html(realthis.data.parsedTemplate);
 			});
 
 			container.append(parsedContentElem);

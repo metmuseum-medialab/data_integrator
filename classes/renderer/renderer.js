@@ -128,7 +128,7 @@ function RenderManager(){
 			}
 
 			GLOBAL.$(".actionLabel", action1).text('Add Allowed Widget');
-	        var widgetManager = require("./classes/widget/widget.js").WidgetManager();
+	        var widgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
             widgetManager.getWidgetList(function(list){
 
 				GLOBAL.$.each(list, function(name, info){

@@ -7,6 +7,8 @@ require("minimist");
 require("path");
 require("urlparser");
 
+//require("./classes/widget/widget.js");
+
 /*
 require("./classes/renderer/renderer.js");
 require("./classes/thing/thing.js");

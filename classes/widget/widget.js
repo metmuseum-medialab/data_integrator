@@ -497,10 +497,7 @@ function WidgetManager(){
 			// this code will only run server-side
 			// how to determine? if we can determine here, we can call the server and run this code, so other code can just call this class directly, regardless of where it's running.
 
-
-			try{
-				var fs= require("fs");
-			}catch(error){
+ 			if(GLOBAL.context == "client"){
 				console.log("calling with ajax");
 				// we're on the client: call the server instead.
 				GLOBAL.$.ajax({
@@ -522,6 +519,8 @@ function WidgetManager(){
 				return;
 
 			}
+
+			var fs= require("fs");
 
 			var async = require("async");
 			var filelist = fs.readdirSync(this.widgetDir);
