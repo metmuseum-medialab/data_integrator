@@ -7,6 +7,7 @@ function OpenCVWidget(){
 
 	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
+	var casdaderUrl  = "/cascader/";
 
 	function decorateWidgetType(widgetType, callback){
 		widgetType.typeName = "OpenCV";
@@ -29,11 +30,11 @@ function OpenCVWidget(){
 			var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 
 			// url entry widget
-			var url = (thiswidget.config.url ? thiswidget.config.url : "");
-			var input1 = GLOBAL.$('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+url+'"></div>');
+			var imageUrl = (thiswidget.config.imageUrl ? thiswidget.config.imageUrl : "");
+			var input1 = GLOBAL.$('<div class="input-group"><span class="input-group-addon">url</span><input type="text" class="form-control" value="'+imageUrl+'"></div>');
 			GLOBAL.$(input1).change(function(evt){
 				var newurl = evt.target.value;
-				thiswidget.config.url = newurl;
+				thiswidget.config.imageUrl = newurl;
 				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
 					// do thing with result here
@@ -60,7 +61,7 @@ function OpenCVWidget(){
 		widgetInstance.renderWidgetInstancePageItemBody = function(container){
 			var realthis = this;
 
-			var urlcontent = GLOBAL.$("<h5>"+this.widget.config.url+"</h5>");
+			var urlcontent = GLOBAL.$("<h5>"+this.widget.config.imageUrl+"</h5>");
 			if(this.data.parsedUrl){
 				GLOBAL.$(urlcontent).text(this.data.parsedUrl);
 			}
@@ -81,11 +82,13 @@ function OpenCVWidget(){
 
 		widgetInstance.run = function(){
 			var realthis = this;
-			var url = this.processTemplate(this.widget.config.url);
-			this.data.parsedUrl = url;
+			var imageUrl = this.processTemplate(this.widget.config.imageUrl);
+			this.data.parsedUrl = imageUrl;
 			this.fireEvent("dataUpdated", {widgetInstance : this});
 			var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
 			
+			var url = this.casdaderUrl + "?imageurl="+encodeURIComponent(imageUrl);
+
 			proxy.callUrl(url, function(result){
 				// hm , if this fails, then we need to deal with it in a smart way, so dependancies don't get confused as well.
 				// basically, if this fails, then dependant widgets need to handle it gracefully.
