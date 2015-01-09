@@ -225,7 +225,9 @@ function ThingManager(){
 			thingType.db= db;
 
 			db.loadThingType(typeName, function(doc){
-				if(doc){
+				if(doc && doc.error != "not_found"){
+					console.log("got doc");
+					console.log(doc);
 					thingType._rev = doc._rev;
 					if(doc.allowedWidgetTypes){
 						thingType.allowedWidgetTypes = doc.allowedWidgetTypes;
@@ -251,11 +253,13 @@ function ThingManager(){
 						);
 					}
 				}else{
+					console.log("new thing type");
 					thingType.new = true;
-					callback(thinkType);
+					callback(thingType);
 				}
 			},
 			function(notFoundDoc){
+				console.log("not found callback");
 				thingType.new = true;
 				callback(thingType);
 			});
