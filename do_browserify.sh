@@ -9,6 +9,7 @@ browserify -t brfs \
 -r ./widgets/templaterenderer/widget.templaterenderer.class.js:./widgets/templaterenderer/widget.templaterenderer.class.js \
 -r ./widgets/elasticsearch/widget.elasticsearch.class.js:./widgets/elasticsearch/widget.elasticsearch.class.js \
 -r ./widgets/jsbin/widget.jsbin.class.js:./widgets/jsbin/widget.jsbin.class.js \
+-r ./widgets/opencv/widget.opencv.class.js:./widgets/opencv/widget.opencv.class.js \
 -r async \
 -r fs \
 -r dot \

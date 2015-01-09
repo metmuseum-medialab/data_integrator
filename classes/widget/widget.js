@@ -236,6 +236,8 @@ function WidgetManager(){
 				var newWidth = GLOBAL.$(evt.target).attr('data-value');
 //				console.lgo()
 				thiswidget.config.layoutWidth = newWidth;
+				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
+				
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
 					GLOBAL.$('.layoutWidthValue', input2).text(newWidth);
 					// do thing with result here

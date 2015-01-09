@@ -43088,6 +43088,8 @@ function WidgetManager(){
 				var newWidth = GLOBAL.$(evt.target).attr('data-value');
 //				console.lgo()
 				thiswidget.config.layoutWidth = newWidth;
+				var ThingManager = require(GLOBAL.params.require_prefix+"/classes/thing/thing.js").ThingManager();
+				
 				ThingManager.saveThingType(thiswidget.thingType, function(result){
 					GLOBAL.$('.layoutWidthValue', input2).text(newWidth);
 					// do thing with result here
@@ -62215,13 +62217,13 @@ function OpenCVWidget(){
 
 	var BaseWidgetManager = require(GLOBAL.params.require_prefix+"/classes/widget/widget.js").WidgetManager();
 
-	var casdaderUrl  = "/cascader/";
 
 	function decorateWidgetType(widgetType, callback){
 		widgetType.typeName = "OpenCV";
 		/*
 		CODE TO ADD FUNCTIONALITY GOES HERE, I THINK 
 		*/
+		widgetType.cascaderUrl  = "http://66.175.215.36//cascader/";
 
 		if(callback){
 			callback(widgetType);
@@ -62290,23 +62292,31 @@ function OpenCVWidget(){
 
 		widgetInstance.run = function(){
 			var realthis = this;
-			var imageUrl = this.processTemplate(this.widget.config.imageUrl);
-			this.data.parsedUrl = imageUrl;
-			this.fireEvent("dataUpdated", {widgetInstance : this});
-			var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
-			
-			var url = this.casdaderUrl + "?imageurl="+encodeURIComponent(imageUrl);
+			var imageUrl = "";
 
-			proxy.callUrl(url, function(result){
-				// hm , if this fails, then we need to deal with it in a smart way, so dependancies don't get confused as well.
-				// basically, if this fails, then dependant widgets need to handle it gracefully.
-				// should they not run, or just anticipate the possibility of null results?
-				if(result.trim() != "Not Found"){
-					realthis.data.json = JSON.parse(result);
-				}
+			if(this.widget.config.imageUrl){
+				imageUrl = this.processTemplate(this.widget.config.imageUrl);
+				this.data.parsedUrl = imageUrl;
+				this.fireEvent("dataUpdated", {widgetInstance : this});
+				var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
+				
+				var url = this.widget.widgetType.cascaderUrl + "?imageurl="+encodeURIComponent(imageUrl);
+				console.log("calling url " + url);
+				proxy.callUrl(url, function(result){
+					// hm , if this fails, then we need to deal with it in a smart way, so dependancies don't get confused as well.
+					// basically, if this fails, then dependant widgets need to handle it gracefully.
+					// should they not run, or just anticipate the possibility of null results?
+					if(result.trim() != "Not Found"){
+						realthis.data.json = JSON.parse(result);
+					}
+					realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
+					realthis.fireEvent("run", {widgetInstance : realthis});
+				});
+			}else{
 				realthis.fireEvent("dataUpdated", {widgetInstance : realthis});
 				realthis.fireEvent("run", {widgetInstance : realthis});
-			});		
+
+			}
 		}
 
 
@@ -62341,7 +62351,7 @@ function OpenCVWidget(){
 
 }
 
-module.exports.Manager = JsonLoaderWidget;
+module.exports.Manager = OpenCVWidget;
 },{}],"/widgets/templaterenderer/widget.templaterenderer.class.js":[function(require,module,exports){
 // this is a specific widget that does stuff, that the Thing can call
 

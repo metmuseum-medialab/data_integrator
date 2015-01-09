@@ -113,13 +113,7 @@ function get_server_started(){
         console.log("@@@@@@@@@@@@@@@@@@@@@@@@ REQUEST");
         console.log(req.url) ;
    
-        if(req.url.match(/\.(json|html|js|jpg|jpeg|gif|png|css|ico|ttf|svg|woff)(\?.*)?$/i)){
-          if(!query.action){
-            // this is doing it client-side
-            sendFile(parsed.pathname, query, res);
-            return;
-          }
-        }
+
         if(req.url.match(/^\/widgetlist$/)){
           var widgetManager = require("./classes/widget/widget.js").WidgetManager();
           var filelist = widgetManager.getWidgetList(function(list){
@@ -134,6 +128,7 @@ function get_server_started(){
           var split = req.url.split("/");
           split.shift(); split.shift();
           var url = split.join("/");
+          console.log("url is " + url);
           
           var proxy = require("./classes/proxy/proxy.js").ProxyManager();
           var result = proxy.callUrl(url, function(data){
@@ -157,7 +152,13 @@ function get_server_started(){
           });
           return;
         }
-
+        if(req.url.match(/\.(json|html|js|jpg|jpeg|gif|png|css|ico|ttf|svg|woff)(\?.*)?$/i)){
+          if(!query.action){
+            // this is doing it client-side
+            sendFile(parsed.pathname, query, res);
+            return;
+          }
+        }
 
         $.each(widgetServerSideFunctions.GET, function(index, theFunction){
           console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
