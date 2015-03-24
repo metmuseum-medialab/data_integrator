@@ -158,7 +158,9 @@ function ThingManager(){
 				widgetInstance.numDeps = Object.keys(deps).length;
 				widgetInstance.hasRun = false;
 				for(var  dep in deps){
+					console.log("setting up widget dep " + dep);
 					var depWidget = this.widgetInstances[dep];
+					console.log(depWidget);
 					// setup the widget to listen for its dependency to run.
 					(function(_widgetInstance, _name){
 						depWidget.addListener("run", function(params){
