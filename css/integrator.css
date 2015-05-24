@@ -2,7 +2,26 @@
 {
   overflow: visible;
 }
+.panel-heading {
+	padding: 2px;
+	font-size: .8em;
+}
 
+.panel-footer {
+	padding: 2px;
+	font-size: .8em;
+}
+
+
+.panel-body {
+	padding: 2px;
+}
+
+.panel-heading h4 {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	font-size: 1.1em;
+}
 .item { width: 25%; }
 .item.w2 { width: 50%; }
 .item.w3 { width: 75%; }
