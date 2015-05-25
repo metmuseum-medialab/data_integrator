@@ -84,12 +84,34 @@ function HackpadWidget(){
 
 			})
 */
+
+				// call the server-side version of this code, to index to elasticsearch.
+				var path = "hackpadPageCreate/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
+console.log("calling hackpad ajax at  "  + path);
+				GLOBAL.$.ajax({
+					url : path,
+					type : "GET",
+					contentType : 'application/json',
+					data : { title : uniqueID},
+			  		success : function(rdata, status){
+			  			console.log("page created")
+			  			console.log(rdata);
+			  		},
+			  		error : function(jqXHR, status, message){
+			  			console.log("error !!!!  ");
+			  			console.log(status);
+			  			console.log(message);
+			  		}
+				});
+
 			console.log(uniqueID);
 			container.append("<div id='"+uniqueID+"'></div><BR><a href='"+link+"' target='_blank'>View on Hackpad</a>");
 			console.log("rendering hackpad");
 			console.log(hackpad);
 			hackpad.render("#"+uniqueID, uniqueID, "integrator"); // note, this "integrator" subdomain needs to be configurable.
 		}
+
+
 
 
 		// server-side function to create pad if it doesn't exist, find it if it does, and return the padID.
@@ -125,10 +147,47 @@ function HackpadWidget(){
 
 	}
 
+	var javascriptFiles = [
+	];
+
+	var cssFiles = [
+	];
+
 	var  Manager = {
 		decorateWidgetType : decorateWidgetType,
 		decorateWidget : decorateWidget,
 		decorateWidgetInstance : decorateWidgetInstance,
+		javascriptFiles : javascriptFiles,
+		cssFiles : cssFiles,
+
+
+		registerServerSideFunctions : function(){
+			return  {
+				GET : {
+					hackpadPageCreate : {
+						match : /^\/hackpadPageCreate\//,
+						theFunction : function(req, res){
+							console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+							console.log("creating Hackpad Page");
+
+							console.log(req);
+
+
+
+							var urlparser = require("urlparser");
+							var parsed = urlparser.parse(req.url);
+
+
+							esResult= {"message":"created"};
+   				            var contentType = "application/json";
+
+							res.writeHead(200, {'Content-Type': contentType});
+						    res.end(JSON.stringify(esResult));
+						}
+					}
+				}
+			}
+		}
 
 	}
 

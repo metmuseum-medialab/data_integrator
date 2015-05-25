@@ -84,6 +84,8 @@ function DbManager(){
 				doc.widgetInstances.push(widgetInstanceDoc);
 			});
 			this.insertDoc(doc, function(rdata){
+				console.log("updating rev from " + thing._rev + " to " + rdata.rev);
+				console.log(rdata);
 				thing._rev = rdata.rev;
 				callback(rdata);
 			});
@@ -145,8 +147,10 @@ function DbManager(){
 
 		},
 
-		insertDoc : function(doc, callback2){
+		insertDoc : function(doc, callback2, errorCallback){
 			this.connect();
+
+console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
 
 			if(this.thiscodeonclient){
 				GLOBAL.$.ajax({
@@ -163,7 +167,11 @@ function DbManager(){
 			  			console.log("error ");
 			  			console.log(status);
 			  			console.log(message);
-			  			callback2(message);
+			  			if(errorCallback){
+			  				errorCallback(message);
+			  			}else{
+				  			callback2(message);
+			  			}
 			  		}
 				});		
 
@@ -176,10 +184,19 @@ function DbManager(){
 			this.db.insert(doc,
 				function (error,http_body,http_headers) {
 					if(error) {
+						console.log("error message in insert");
+						console.log(doc._id);
+						console.log(doc._rev);
 					  console.log(error);
-					  callback2(error);
+					  if(errorCallback){
+					  	errorCallback(error);
+					  }else{
+						  callback2(error);
+					  }
 					  return error;
 					}
+					console.log("iiiinserted");
+					console.log(http_body);
 					callback2(http_body);
 	    		}
     		);

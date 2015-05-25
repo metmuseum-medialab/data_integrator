@@ -52,7 +52,8 @@ GLOBAL.context = "server";
 GLOBAL.params = {
   foo : "var",
   root_dir : __dirname,
-  require_prefix : __dirname
+  require_prefix : __dirname,
+  secrets : secrets
 };
 
 
@@ -198,9 +199,15 @@ function get_server_started(){
           // do something with json data
           var db = require("./classes/db/db.js").DbManager();
           db.insertDoc(obj, function(result){
-            res.writeHead(200, {'Content-Type': contentType});
+            res.writeHead(200, {'Content-Type': contentType});                  
             res.end(JSON.stringify(result));
            
+          },
+          function(error){
+            console.log("error in db.insertDoc, returning error message");
+            res.writeHead(409, {'Content-Type': contentType});                  
+            res.end(JSON.stringify(error));
+
           });
 
         });

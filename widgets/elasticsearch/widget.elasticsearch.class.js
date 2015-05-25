@@ -82,7 +82,7 @@ function ElasticSearchWidget(){
 			  		error : function(jqXHR, status, message){
 			  			console.log("error !!!!  ");
 			  			console.log(status);
-			  			console.log(message);
+			  		//	console.log(message);
 			  			realthis.fireEvent("dataUpdated", {status : status, message : message});
 			  		}
 				});
@@ -135,7 +135,7 @@ function ElasticSearchWidget(){
 			eclient.index(docs,function(err,obj){
 			   if(err){
 			   		console.log("submit elastic error");
-			      console.log(err);
+			   //   console.log(err);
 			      	escallback({error: true , success: false, message : err});
 			   }else{
 			      	escallback({error: false, success: true, message: obj});

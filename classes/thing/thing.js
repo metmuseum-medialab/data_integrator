@@ -139,8 +139,10 @@ function ThingManager(){
 					console.log(params.widgetInstance.widget.uniqueName + " ran ");
 					realthis.widgetsRun[params.widgetInstance.widget.uniqueName] = params.widgetInstance.widget.uniqueName;
 					if(Object.keys(realthis.widgetsRun).length == Object.keys(realthis.widgetInstances).length){
-						console.log("all widgets ran");
+						console.log("all widgets ran, going to save thing now.");
 						console.log(realthis.widgetInstances);
+						// problem here, in that server-side and client-side code both want to save after loading, or when other changes happen
+						// this creates a conflict when the server-side is taking care of stuff for the client side, so they are both trying to save with the same rev_id
 						realthis.db.saveThing(realthis, function(rdata){
 							console.log("saved thing");
  						});	

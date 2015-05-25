@@ -76,15 +76,18 @@ function OpenCVWidget(){
 			GLOBAL.$(".loadingindicator", imagecontent).text("loading...");
 			this.setupCanvas(realthis.widget.uniqueName+'_imageholder', function(paper){
 				realthis.setImageInPaper(realthis.data.parsedUrl, paper, function(queueobject, _paper, result){
+
+					realthis.addListener("dataUpdated", function(params){
+						var url = realthis.data.parsedUrl;
+						GLOBAL.$(urlcontent).text(url);
+						if(realthis.data.json){
+							GLOBAL.$(".loadingindicator", imagecontent).text("loaded");
+							realthis.populateImageHolder(realthis.data.json, imagecontent);
+						}
+					});
+
+
 				});
-			});
-			this.addListener("dataUpdated", function(params){
-				var url = realthis.data.parsedUrl;
-				GLOBAL.$(urlcontent).text(url);
-				if(realthis.data.json){
-					GLOBAL.$(".loadingindicator", imagecontent).text("loaded");
-					realthis.populateImageHolder(realthis.data.json, imagecontent);
-				}
 			});
 		}
 

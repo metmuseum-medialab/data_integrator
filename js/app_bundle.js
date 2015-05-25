@@ -85,6 +85,8 @@ function DbManager(){
 				doc.widgetInstances.push(widgetInstanceDoc);
 			});
 			this.insertDoc(doc, function(rdata){
+				console.log("updating rev from " + thing._rev + " to " + rdata.rev);
+				console.log(rdata);
 				thing._rev = rdata.rev;
 				callback(rdata);
 			});
@@ -146,8 +148,10 @@ function DbManager(){
 
 		},
 
-		insertDoc : function(doc, callback2){
+		insertDoc : function(doc, callback2, errorCallback){
 			this.connect();
+
+console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
 
 			if(this.thiscodeonclient){
 				GLOBAL.$.ajax({
@@ -164,7 +168,11 @@ function DbManager(){
 			  			console.log("error ");
 			  			console.log(status);
 			  			console.log(message);
-			  			callback2(message);
+			  			if(errorCallback){
+			  				errorCallback(message);
+			  			}else{
+				  			callback2(message);
+			  			}
 			  		}
 				});		
 
@@ -177,10 +185,19 @@ function DbManager(){
 			this.db.insert(doc,
 				function (error,http_body,http_headers) {
 					if(error) {
+						console.log("error message in insert");
+						console.log(doc._id);
+						console.log(doc._rev);
 					  console.log(error);
-					  callback2(error);
+					  if(errorCallback){
+					  	errorCallback(error);
+					  }else{
+						  callback2(error);
+					  }
 					  return error;
 					}
+					console.log("iiiinserted");
+					console.log(http_body);
 					callback2(http_body);
 	    		}
     		);
@@ -908,7 +925,7 @@ function ThingManager(){
 					console.log(params.widgetInstance.widget.uniqueName + " ran ");
 					realthis.widgetsRun[params.widgetInstance.widget.uniqueName] = params.widgetInstance.widget.uniqueName;
 					if(Object.keys(realthis.widgetsRun).length == Object.keys(realthis.widgetInstances).length){
-						console.log("all widgets ran");
+						console.log("all widgets ran, going to save thing now.");
 						console.log(realthis.widgetInstances);
 						realthis.db.saveThing(realthis, function(rdata){
 							console.log("saved thing");
@@ -64684,7 +64701,7 @@ function ElasticSearchWidget(){
 			  		error : function(jqXHR, status, message){
 			  			console.log("error !!!!  ");
 			  			console.log(status);
-			  			console.log(message);
+			  		//	console.log(message);
 			  			realthis.fireEvent("dataUpdated", {status : status, message : message});
 			  		}
 				});
@@ -64737,7 +64754,7 @@ function ElasticSearchWidget(){
 			eclient.index(docs,function(err,obj){
 			   if(err){
 			   		console.log("submit elastic error");
-			      console.log(err);
+			   //   console.log(err);
 			      	escallback({error: true , success: false, message : err});
 			   }else{
 			      	escallback({error: false, success: true, message: obj});
@@ -64906,6 +64923,8 @@ function HackpadWidget(){
 
 			var uniqueID = this.thing.type.typeName + "_" + this.thing.id + "_" +this.widget.uniqueName;
 			var link= "https://integrator.hackpad.com/"+uniqueID
+
+			// it may be that I need to do a POST call to create the hackpad before I embed it...
 /*
 			$.ajax({
 				url : "",
@@ -64913,13 +64932,37 @@ function HackpadWidget(){
 
 			})
 */
+
+				// call the server-side version of this code, to index to elasticsearch.
+				var path = "hackpadPageCreate/thing/"+this.thing.type.typeName+"/"+this.thing.id+"/"+ this.widget.uniqueName;
+console.log("calling hackpad ajax at  "  + path);
+				GLOBAL.$.ajax({
+					url : path,
+					type : "GET",
+					contentType : 'application/json',
+					data : { title : uniqueID},
+			  		success : function(rdata, status){
+			  			console.log("page created")
+			  			console.log(rdata);
+			  		},
+			  		error : function(jqXHR, status, message){
+			  			console.log("error !!!!  ");
+			  			console.log(status);
+			  			console.log(message);
+			  		}
+				});
+
 			console.log(uniqueID);
-			container.append("<div id='"+uniqueID+"'></div><BR><a href='"+link+"' >View on Hackpad</a>");
+			container.append("<div id='"+uniqueID+"'></div><BR><a href='"+link+"' target='_blank'>View on Hackpad</a>");
 			console.log("rendering hackpad");
 			console.log(hackpad);
-			hackpad.render("#"+uniqueID, uniqueID+"#"+uniqueID, "integrator"); // note, this "integrator" subdomain needs to be configurable.
+			hackpad.render("#"+uniqueID, uniqueID, "integrator"); // note, this "integrator" subdomain needs to be configurable.
 		}
 
+
+
+
+		// server-side function to create pad if it doesn't exist, find it if it does, and return the padID.
 
 		widgetInstance.run = function(){
 			var realthis = this;
@@ -64952,10 +64995,47 @@ function HackpadWidget(){
 
 	}
 
+	var javascriptFiles = [
+	];
+
+	var cssFiles = [
+	];
+
 	var  Manager = {
 		decorateWidgetType : decorateWidgetType,
 		decorateWidget : decorateWidget,
 		decorateWidgetInstance : decorateWidgetInstance,
+		javascriptFiles : javascriptFiles,
+		cssFiles : cssFiles,
+
+
+		registerServerSideFunctions : function(){
+			return  {
+				GET : {
+					hackpadPageCreate : {
+						match : /^\/hackpadPageCreate\//,
+						theFunction : function(req, res){
+							console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+							console.log("creating Hackpad Page");
+
+							console.log(req);
+
+
+
+							var urlparser = require("urlparser");
+							var parsed = urlparser.parse(req.url);
+
+
+							esResult= {"message":"created"};
+   				            var contentType = "application/json";
+
+							res.writeHead(200, {'Content-Type': contentType});
+						    res.end(JSON.stringify(esResult));
+						}
+					}
+				}
+			}
+		}
 
 	}
 
@@ -64965,7 +65045,7 @@ function HackpadWidget(){
 }
 
 module.exports.Manager = HackpadWidget;
-},{}],"/widgets/jsbin/widget.jsbin.class.js":[function(require,module,exports){
+},{"urlparser":"urlparser"}],"/widgets/jsbin/widget.jsbin.class.js":[function(require,module,exports){
 // this is a specific widget that does stuff, that the Thing can call
 
 //var util = require("util");
@@ -65339,15 +65419,18 @@ function OpenCVWidget(){
 			GLOBAL.$(".loadingindicator", imagecontent).text("loading...");
 			this.setupCanvas(realthis.widget.uniqueName+'_imageholder', function(paper){
 				realthis.setImageInPaper(realthis.data.parsedUrl, paper, function(queueobject, _paper, result){
+
+					realthis.addListener("dataUpdated", function(params){
+						var url = realthis.data.parsedUrl;
+						GLOBAL.$(urlcontent).text(url);
+						if(realthis.data.json){
+							GLOBAL.$(".loadingindicator", imagecontent).text("loaded");
+							realthis.populateImageHolder(realthis.data.json, imagecontent);
+						}
+					});
+
+
 				});
-			});
-			this.addListener("dataUpdated", function(params){
-				var url = realthis.data.parsedUrl;
-				GLOBAL.$(urlcontent).text(url);
-				if(realthis.data.json){
-					GLOBAL.$(".loadingindicator", imagecontent).text("loaded");
-					realthis.populateImageHolder(realthis.data.json, imagecontent);
-				}
 			});
 		}
 
