@@ -75,9 +75,7 @@ function OpenCVWidget(){
 			container.append(imagecontent);
 			GLOBAL.$(".loadingindicator", imagecontent).text("loading...");
 			this.setupCanvas(realthis.widget.uniqueName+'_imageholder', function(paper){
-				console.log("got paper");
 				realthis.setImageInPaper(realthis.data.parsedUrl, paper, function(queueobject, _paper, result){
-					console.log("image set in paper");
 				});
 			});
 			this.addListener("dataUpdated", function(params){
@@ -104,7 +102,6 @@ function OpenCVWidget(){
 				var proxy = require(GLOBAL.params.require_prefix+"/classes/proxy/proxy.js").ProxyManager();
 				
 				var url = this.widget.widgetType.cascaderUrl + "?imageurl="+encodeURIComponent(imageUrl);
-				console.log("calling url " + url);
 				proxy.callUrl(url, function(result){
 					// hm , if this fails, then we need to deal with it in a smart way, so dependancies don't get confused as well.
 					// basically, if this fails, then dependant widgets need to handle it gracefully.
@@ -136,7 +133,6 @@ function OpenCVWidget(){
 
 
 		widgetInstance.populateImageHolder = function(data, container){
-			console.log("populating");
 
 			this.placeIdentifiers(data, container, this.paper, this.paper.scaleFactor);
 
@@ -232,10 +228,8 @@ function OpenCVWidget(){
 
 		widgetInstance.placeIdentifiers = function(data, container, _paper, scaleFactor){
 			GLOBAL.$(".controls", container ).empty();
-			console.log("placing identifiers");
 			var _scaleFactor = scaleFactor;
 			for(key in data){
-				console.log(key);
 				values = data[key];
 				num_matches = values.length;
 				var idname = this.widget.uniqueName+"_controlspan" + key;
@@ -243,14 +237,13 @@ function OpenCVWidget(){
 				if(num_matches > 0){
 					var control = GLOBAL.$("<span id='"+idname+"' class='control'>"+key+" ("+num_matches+")</span>");
 					var controlCheck = GLOBAL.$("<input id='"+checkid+"' type='checkbox' />");
-					console.log("appending");
 					GLOBAL.$(".controls", container).append(controlCheck).append(control).append("<BR>");
 				}else{
-					console.log("not appending");
 				}
 				if(key != "_links"){
 					for(key2 in values){
 						value = values[key2];
+//						console.log(_scaleFactor);
 						var x = value.x * _scaleFactor.scaleX;
 						var y = value.y * _scaleFactor.scaleY;
 						var w = value.w * _scaleFactor.scaleX;
@@ -265,17 +258,12 @@ function OpenCVWidget(){
 						rect.toFront();
 						rect.show();
 						(function(_rectid, thepaper, _checkid){
-							console.log("in anon");
 							GLOBAL.$(document).on("change", "#"+_checkid, function(){
-								console.log("clicked" + _rectid);
 								var _rect= thepaper.getById(_rectid);
-								console.log(_rect);
 								if(GLOBAL.$("#"+_checkid).is(':checked') ){
-									console.log("showing");
 									_rect.show();
 									_rect.toFront();
 								}else{
-									console.log("hiding");
 									_rect.hide();
 								}
 							});
