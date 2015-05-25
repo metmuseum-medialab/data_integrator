@@ -22,6 +22,7 @@ var smoothie = {
 <!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
 <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="./ckeditor/adapters/jquery.js"></script>
+<script src="https://hackpad.com/static/hackpad.js"/>
 <script src="js/bootstrap.min.js"></script>
 <script src="./js/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="js/raphael-min.js"></script>
@@ -37,6 +38,7 @@ var smoothie = {
 <script type="text/javascript" language="javascript">
   var IAMONTHECLIENT = true;
 
+console.log("getting started");
   var GLOBAL = {};
   GLOBAL.context = "client";
   GLOBAL.params = {};
@@ -46,7 +48,7 @@ var smoothie = {
 
 	GLOBAL.$(document).ready(function(){
 
-
+console.log("loaded and ready");
     var container = document.querySelector('#maincontainer');
     var msnry = new Masonry( container, {
       // options
@@ -61,21 +63,21 @@ var smoothie = {
     // From: http://stackoverflow.com/questions/14420300/bootstrap-with-ckeditor-equals-problems
     // Author: http://stackoverflow.com/users/185839/aaron
      
-    GLOBAL.$.fn.modal.Constructor.prototype.enforceFocus = function() {
-      modal_this = this
-      GLOBAL.$(document).on('focusin.modal', function (e) {
-        if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length 
-        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select') 
-        && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
-          modal_this.$element.focus()
-        }
-      })
-    };
 
 
 
     GLOBAL.$(".editor").ckeditor(function(elem){
       console.log("editor loaded");
+      GLOBAL.$.fn.modal.Constructor.prototype.enforceFocus = function() {
+        modal_this = this
+        GLOBAL.$(document).on('focusin.modal', function (e) {
+          if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length 
+          && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select') 
+          && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
+            modal_this.$element.focus()
+          }
+        })
+      };
     });
 
 

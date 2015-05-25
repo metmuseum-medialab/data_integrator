@@ -10,6 +10,7 @@ browserify -t brfs \
 -r ./widgets/elasticsearch/widget.elasticsearch.class.js:./widgets/elasticsearch/widget.elasticsearch.class.js \
 -r ./widgets/jsbin/widget.jsbin.class.js:./widgets/jsbin/widget.jsbin.class.js \
 -r ./widgets/opencv/widget.opencv.class.js:./widgets/opencv/widget.opencv.class.js \
+-r ./widgets/hackpad/widget.hackpad.class.js:./widgets/hackpad/widget.hackpad.class.js \
 -r async \
 -r fs \
 -r dot \

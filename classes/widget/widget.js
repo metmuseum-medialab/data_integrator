@@ -305,6 +305,9 @@ function WidgetManager(){
 					deps[depname] = this.thing.widgetInstances[depname].data;
 				}
 				console.log(templateString);
+				if(!templateString){
+					templateString = "";
+				}
 
 				var Entities = require("html-entities").AllHtmlEntities;
 				var entities = new Entities();
